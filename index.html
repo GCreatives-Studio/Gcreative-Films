@@ -20,8 +20,6 @@
                     colors: {
                         brandDark: '#0d0d0d',
                         brandCard: '#181818',
-                        brandLightBg: '#f8fafc',
-                        brandLightCard: '#ffffff',
                         brandRed: '#e50914',
                         brandAccent: '#ff2e3b'
                     }
@@ -30,13 +28,13 @@
         }
     </script>
 </head>
-<body class="bg-brandDark dark:bg-brandDark text-gray-800 dark:text-gray-200 font-sans min-h-screen flex flex-col justify-between transition-colors duration-300" id="bodyRoot">
+<body class="bg-gray-50 dark:bg-brandDark text-gray-900 dark:text-gray-200 font-sans min-h-screen flex flex-col justify-between transition-colors duration-300" id="bodyRoot">
 
     <!-- HEADER / NAVBAR -->
     <header class="bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <span class="text-2xl font-black tracking-wider text-brandRed">G CREATIVE</span>
+                <span class="text-2xl font-black tracking-wider text-blue-600 dark:text-brandRed">G CREATIVE</span>
             </div>
             
             <div class="flex items-center space-x-2.5">
@@ -50,10 +48,10 @@
 
                 <!-- Language Switcher (ID / ENG) -->
                 <button onclick="toggleLanguage()" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold px-2.5 py-1.5 rounded-lg text-xs border border-gray-200 dark:border-gray-700 flex items-center gap-1 transition">
-                    <span id="langLabelActive" class="text-brandRed">ID</span> | <span id="langLabelInactive" class="text-gray-400">ENG</span>
+                    <span id="langLabelActive" class="text-blue-600 dark:text-brandRed">ID</span> | <span id="langLabelInactive" class="text-gray-400">ENG</span>
                 </button>
                 
-                <button id="installBtn" class="hidden bg-brandRed hover:bg-brandAccent text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1.5 shadow-lg">
+                <button id="installBtn" class="hidden bg-blue-600 dark:bg-brandRed hover:bg-blue-700 dark:hover:bg-brandAccent text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1.5 shadow-lg">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Install Apps
                 </button>
@@ -63,9 +61,9 @@
 
     <!-- HERO SECTION -->
     <section class="max-w-6xl mx-auto px-6 py-12 md:py-16 text-center">
-        <span id="txt-hero-badge" class="bg-brandRed/10 dark:bg-brandRed/20 text-brandRed font-semibold text-xs tracking-widest uppercase px-3 py-1 rounded-full border border-brandRed/30">Official Portfolio & Service</span>
+        <span id="txt-hero-badge" class="bg-blue-100 dark:bg-brandRed/20 text-blue-600 dark:text-brandRed font-semibold text-xs tracking-widest uppercase px-3 py-1 rounded-full border border-blue-200 dark:border-brandRed/30">Official Portfolio & Service</span>
         <h1 id="txt-hero-title" class="text-3xl md:text-6xl font-extrabold text-gray-900 dark:text-white mt-4 mb-4 leading-tight">
-            Mengubah Cerita Anda Menjadi <span class="text-brandRed">Visual Cinematic</span>
+            Mengubah Cerita Anda Menjadi <span class="text-blue-600 dark:text-brandRed">Visual Cinematic</span>
         </h1>
         <p id="txt-hero-desc" class="text-gray-600 dark:text-gray-400 text-sm md:text-lg max-w-2xl mx-auto mb-8">
             Pengarahan visual (directing) profesional & editing presisi oleh Director G untuk berbagai kebutuhan: Iklan, Wedding, Travel, Music Video, hingga Profil Perusahaan.
@@ -73,7 +71,7 @@
         <div class="flex flex-wrap justify-center gap-4">
             <!-- Admin Controls Container -->
             <div id="adminActionContainer" class="hidden flex flex-wrap justify-center gap-3">
-                <button onclick="openModal()" class="bg-brandRed hover:bg-brandAccent text-white font-bold px-5 py-3 rounded-lg transition shadow-lg flex items-center gap-2 text-sm">
+                <button onclick="openModal()" class="bg-blue-600 dark:bg-brandRed hover:bg-blue-700 dark:hover:bg-brandAccent text-white font-bold px-5 py-3 rounded-lg transition shadow-lg flex items-center gap-2 text-sm">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                     <span id="txt-btn-upload">Tambah Portofolio</span>
                 </button>
@@ -92,7 +90,7 @@
     <!-- BLOG MARKETING SECTION -->
     <section id="blog" class="max-w-4xl mx-auto px-6 py-8">
         <div class="bg-white dark:bg-brandCard p-6 md:p-10 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl">
-            <span id="txt-blog-tag" class="text-brandRed text-xs font-bold uppercase tracking-wider">Blog & Strategy</span>
+            <span id="txt-blog-tag" class="text-blue-600 dark:text-brandRed text-xs font-bold uppercase tracking-wider">Blog & Strategy</span>
             <h2 id="txt-blog-title" class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white mt-2 mb-4">
                 Mengapa Visual Cinema Berkelas Kunci Utama Personal & Brand Awareness?
             </h2>
@@ -115,7 +113,7 @@
             
             <!-- Category Filter Buttons -->
             <div class="flex flex-wrap justify-center gap-2 md:gap-3 mt-6">
-                <button onclick="filterCategory('all', this)" id="cat-all" class="filter-btn bg-brandRed text-white px-4 py-2 rounded-lg text-xs md:text-sm font-semibold">Semua</button>
+                <button onclick="filterCategory('all', this)" id="cat-all" class="filter-btn bg-blue-600 dark:bg-brandRed text-white px-4 py-2 rounded-lg text-xs md:text-sm font-semibold">Semua</button>
                 <button onclick="filterCategory('commercial', this)" id="cat-commercial" class="filter-btn bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-gray-300 dark:hover:bg-gray-700">Commercial / Ads</button>
                 <button onclick="filterCategory('wedding', this)" id="cat-wedding" class="filter-btn bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-gray-300 dark:hover:bg-gray-700">Wedding Film</button>
                 <button onclick="filterCategory('travel', this)" id="cat-travel" class="filter-btn bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-gray-300 dark:hover:bg-gray-700">Travel & Vlog</button>
@@ -133,7 +131,7 @@
 
     <!-- CONTACT DIRECT SECTION -->
     <section class="max-w-4xl mx-auto px-6 py-12 mb-8">
-        <div class="bg-gradient-to-r from-red-100 dark:from-red-950/40 via-white dark:via-black to-red-100 dark:to-red-950/40 p-8 rounded-2xl border border-brandRed/30 text-center shadow-lg">
+        <div class="bg-gradient-to-r from-blue-50 dark:from-red-950/40 via-white dark:via-black to-blue-50 dark:to-red-950/40 p-8 rounded-2xl border border-blue-200 dark:border-brandRed/30 text-center shadow-lg">
             <h2 id="txt-contact-title" class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">Konsultasi / Booking Jadwal Director G</h2>
             <p id="txt-contact-desc" class="text-gray-600 dark:text-gray-300 text-sm mb-6 max-w-lg mx-auto">Klik tombol di bawah ini untuk langsung terhubung melalui WhatsApp atau Email resmi G CREATIVE.</p>
             
@@ -142,7 +140,7 @@
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
                     Direct WhatsApp: 082187287349
                 </button>
-                <button onclick="directEmail()" class="w-full sm:w-auto bg-brandRed hover:bg-brandAccent text-white font-bold px-6 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
+                <button onclick="directEmail()" class="w-full sm:w-auto bg-blue-600 dark:bg-brandRed hover:bg-blue-700 dark:hover:bg-brandAccent text-white font-bold px-6 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     Direct Email: GCreative@gmail.com
                 </button>
@@ -155,7 +153,7 @@
         <p>&copy; 2026 G CREATIVE (Director G). All Rights Reserved.</p>
     </footer>
 
-    <!-- ADMIN TOGGLE FLOATING BUTTON (Pojok Kanan Bawah) — Hidden if accessed via Client Link -->
+    <!-- ADMIN TOGGLE FLOATING BUTTON (Pojok Kanan Bawah) -->
     <button onclick="toggleAdminMode()" id="adminToggleBtn" class="fixed bottom-4 right-4 bg-gray-900/90 dark:bg-gray-900/80 hover:bg-gray-800 text-white p-3 rounded-full border border-gray-700 shadow-2xl transition z-40 flex items-center gap-2 text-xs">
         <span id="lockIcon">🔒</span> <span id="adminBtnText">Admin Mode</span>
     </button>
@@ -172,12 +170,12 @@
             <form id="portfolioForm" onsubmit="savePortfolio(event)" class="space-y-4">
                 <div>
                     <label id="txt-modal-lbl-title" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Judul Video / Projek</label>
-                    <input type="text" id="videoTitle" required placeholder="Contoh: Cinematic Wedding Video of Alex & Sarah" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-brandRed">
+                    <input type="text" id="videoTitle" required placeholder="Contoh: Cinematic Wedding Video of Alex & Sarah" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-brandRed">
                 </div>
 
                 <div>
                     <label id="txt-modal-lbl-cat" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Kategori Video</label>
-                    <select id="videoCategory" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-brandRed">
+                    <select id="videoCategory" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-brandRed">
                         <option value="commercial">Commercial / Ads</option>
                         <option value="wedding">Wedding Film</option>
                         <option value="travel">Travel & Vlog</option>
@@ -200,24 +198,24 @@
 
                     <!-- URL Input -->
                     <div id="urlInputContainer">
-                        <input type="text" id="videoUrl" placeholder="Tempelkan link YouTube biasa / Share / Shorts di sini" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-brandRed">
+                        <input type="text" id="videoUrl" placeholder="Tempelkan link YouTube biasa / Share / Shorts di sini" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-brandRed">
                         <p id="txt-modal-yt-note" class="text-[10px] text-gray-500 dark:text-gray-400 mt-1">*Sistem otomatis mengubah link YouTube biasa menjadi format embed.</p>
                     </div>
 
                     <!-- File Input -->
                     <div id="fileInputContainer" class="hidden">
-                        <input type="file" id="videoFile" accept="video/*" class="w-full text-xs text-gray-500 dark:text-gray-400 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-brandRed file:text-white hover:file:bg-brandAccent">
+                        <input type="file" id="videoFile" accept="video/*" class="w-full text-xs text-gray-500 dark:text-gray-400 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-600 dark:file:bg-brandRed file:text-white hover:file:bg-blue-700 dark:hover:file:bg-brandAccent">
                     </div>
                 </div>
 
                 <div>
                     <label id="txt-modal-lbl-desc" class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Deskripsi Singkat (Opsional)</label>
-                    <textarea id="videoDesc" rows="2" placeholder="Detail projek, role, atau alat yang digunakan..." class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-brandRed"></textarea>
+                    <textarea id="videoDesc" rows="2" placeholder="Detail projek, role, atau alat yang digunakan..." class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-blue-600 dark:focus:border-brandRed"></textarea>
                 </div>
 
                 <div class="flex justify-end gap-2 pt-2">
                     <button type="button" onclick="closeModal()" id="txt-modal-cancel" class="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm">Batal</button>
-                    <button type="submit" id="txt-modal-submit" class="px-5 py-2 bg-brandRed hover:bg-brandAccent text-white font-semibold rounded-lg text-sm">Simpan Portofolio</button>
+                    <button type="submit" id="txt-modal-submit" class="px-5 py-2 bg-blue-600 dark:bg-brandRed hover:bg-blue-700 dark:hover:bg-brandAccent text-white font-semibold rounded-lg text-sm">Simpan Portofolio</button>
                 </div>
             </form>
         </div>
@@ -230,7 +228,6 @@
         const isClientView = urlParams.get('mode') === 'client';
 
         if (isClientView) {
-            // Sembunyikan tombol admin secara permanen jika diakses via link klien
             document.getElementById('adminToggleBtn').style.display = 'none';
         }
 
@@ -255,7 +252,7 @@
         const dictionary = {
             ID: {
                 heroBadge: "Official Portfolio & Service",
-                heroTitle: 'Mengubah Cerita Anda Menjadi <span class="text-brandRed">Visual Cinematic</span>',
+                heroTitle: 'Mengubah Cerita Anda Menjadi <span class="text-blue-600 dark:text-brandRed">Visual Cinematic</span>',
                 heroDesc: "Pengarahan visual (directing) profesional & editing presisi oleh Director G untuk berbagai kebutuhan: Iklan, Wedding, Travel, Music Video, hingga Profil Perusahaan.",
                 btnUpload: "Tambah Portofolio",
                 btnShareLink: "Buat Link Klien",
@@ -286,7 +283,7 @@
             },
             ENG: {
                 heroBadge: "Official Portfolio & Service",
-                heroTitle: 'Transforming Your Story Into <span class="text-brandRed">Cinematic Visuals</span>',
+                heroTitle: 'Transforming Your Story Into <span class="text-blue-600 dark:text-brandRed">Cinematic Visuals</span>',
                 heroDesc: "Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.",
                 btnUpload: "Add Portfolio",
                 btnShareLink: "Create Client Link",
@@ -320,7 +317,6 @@
         function toggleLanguage() {
             currentLang = currentLang === 'ID' ? 'ENG' : 'ID';
             
-            // Perbaikan tampilan tombol (Active vs Inactive Label)
             document.getElementById('langLabelActive').textContent = currentLang === 'ID' ? 'ID' : 'ENG';
             document.getElementById('langLabelInactive').textContent = currentLang === 'ID' ? 'ENG' : 'ID';
             
@@ -396,7 +392,7 @@
 
         // Toggle Admin Mode Logic
         function toggleAdminMode() {
-            if (isClientView) return; // Prevent if client view
+            if (isClientView) return;
             if (isAdmin) {
                 isAdmin = false;
                 updateAdminUI();
@@ -513,7 +509,7 @@
                 card.innerHTML = '<div>' +
                     '<div class="aspect-video w-full rounded-lg overflow-hidden bg-black mb-3">' + mediaHTML + '</div>' +
                     '<div class="flex items-center justify-between gap-2">' +
-                    '<span class="bg-brandRed/10 dark:bg-brandRed/20 text-brandRed font-semibold text-[10px] uppercase px-2 py-0.5 rounded border border-brandRed/35">' + item.category + '</span>' +
+                    '<span class="bg-blue-100 dark:bg-brandRed/20 text-blue-600 dark:text-brandRed font-semibold text-[10px] uppercase px-2 py-0.5 rounded border border-blue-200 dark:border-brandRed/35">' + item.category + '</span>' +
                     deleteBtnHTML +
                     '</div>' +
                     '<h3 class="text-base font-bold text-gray-900 dark:text-white mt-2">' + item.title + '</h3>' +
@@ -527,11 +523,11 @@
         function filterCategory(category, btn) {
             currentFilter = category;
             document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('bg-brandRed', 'text-white');
+                b.classList.remove('bg-blue-600', 'dark:bg-brandRed', 'text-white');
                 b.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
             });
             btn.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
-            btn.classList.add('bg-brandRed', 'text-white');
+            btn.classList.add('bg-blue-600', 'dark:bg-brandRed', 'text-white');
             renderPortfolio();
         }
 
