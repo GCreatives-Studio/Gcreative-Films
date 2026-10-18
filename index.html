@@ -60,45 +60,37 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH FIXED ESTETIC BACKGROUND -->
-    <section id="heroSection" class="relative max-w-6xl mx-auto px-6 py-20 md:py-32 text-center my-4 rounded-3xl transition-all duration-500 bg-cover bg-center overflow-hidden border border-slate-200 dark:border-slate-800/60 shadow-2xl">
-        <!-- Overlay Super Estetik (Gambar Terlihat Jelas & Teks Tetap Terbaca) -->
-        <div id="heroOverlay" class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 backdrop-blur-[1px] transition-all duration-300"></div>
-        
-        <div class="relative z-10 max-w-3xl mx-auto text-white">
-            <span id="txt-hero-badge" class="bg-brandRed/30 text-white font-semibold text-xs tracking-widest uppercase px-3.5 py-1 rounded-full border border-brandRed/50 shadow-lg">Official Portfolio & Service</span>
-            <h1 id="txt-hero-title" class="text-3xl md:text-6xl font-extrabold mt-4 mb-4 leading-tight drop-shadow-md">
-                Transforming Your Vision Into <span class="text-brandRed">Cinematic Visuals</span>
-            </h1>
-            <p id="txt-hero-desc" class="text-slate-200 text-sm md:text-lg mx-auto mb-8 leading-relaxed drop-shadow">
-                Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.
-            </p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <!-- Admin Controls Container -->
-                <div id="adminActionContainer" class="hidden flex flex-wrap justify-center gap-2">
-                    <button onclick="openModal()" class="bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        <span id="txt-btn-upload">Add Portfolio</span>
-                    </button>
-                    <button onclick="openPriceModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                        🏷️ <span id="txt-btn-addpkg">Add Package</span>
-                    </button>
-                    <button onclick="openBgModal()" class="bg-purple-600 hover:bg-purple-500 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                        🎨 <span id="txt-btn-bg">Hero Background</span>
-                    </button>
-                    <button onclick="generateClientLink()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                        <span id="txt-btn-sharelink">Create Client Link</span>
-                    </button>
-                </div>
-                
-                <button onclick="directWA()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-lg transition flex items-center gap-2 shadow-lg text-sm">
-                    <span id="txt-btn-discuss">Discuss Project (WhatsApp)</span>
+    <!-- HERO SECTION -->
+    <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+        <span id="txt-hero-badge" class="bg-indigo-100 dark:bg-brandRed/15 text-indigo-600 dark:text-brandRed font-semibold text-xs tracking-widest uppercase px-3.5 py-1 rounded-full border border-indigo-200 dark:border-brandRed/30">Official Portfolio & Service</span>
+        <h1 id="txt-hero-title" class="text-3xl md:text-6xl font-extrabold text-slate-900 dark:text-white mt-4 mb-4 leading-tight">
+            Transforming Your Vision Into <span class="text-indigo-600 dark:text-brandRed">Cinematic Visuals</span>
+        </h1>
+        <p id="txt-hero-desc" class="text-slate-600 dark:text-slate-300 text-sm md:text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+            Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+            <!-- Admin Controls Container -->
+            <div id="adminActionContainer" class="hidden flex flex-wrap justify-center gap-2">
+                <button onclick="openModal()" class="bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    <span id="txt-btn-upload">Add Portfolio</span>
                 </button>
-                <button onclick="directIG()" class="bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:opacity-90 text-white font-bold px-5 py-2.5 rounded-lg transition flex items-center gap-2 shadow-lg text-sm">
-                    <span>Instagram @vgioo_</span>
+                <button onclick="openPriceModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
+                    🏷️ <span id="txt-btn-addpkg">Add Package</span>
+                </button>
+                <button onclick="generateClientLink()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                    <span id="txt-btn-sharelink">Create Client Link</span>
                 </button>
             </div>
+            
+            <button onclick="directWA()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-lg transition flex items-center gap-2 shadow-lg text-sm">
+                <span id="txt-btn-discuss">Discuss Project (WhatsApp)</span>
+            </button>
+            <button onclick="directIG()" class="bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:opacity-90 text-white font-bold px-5 py-2.5 rounded-lg transition flex items-center gap-2 shadow-lg text-sm">
+                <span>Instagram @vgioo_</span>
+            </button>
         </div>
     </section>
 
@@ -223,33 +215,6 @@
         </div>
     </div>
 
-    <!-- MODAL FORM BACKGROUND IMAGE (ADMIN ONLY) -->
-    <div id="bgModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
-            <button onclick="closeBgModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Hero Background Settings</h3>
-            
-            <div class="space-y-4 text-xs">
-                <div>
-                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Option 1: Upload Image File</label>
-                    <input type="file" id="bgFileInput" accept="image/*" class="w-full text-slate-500 dark:text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 dark:file:bg-brandRed file:text-white hover:file:opacity-80">
-                </div>
-                <div class="text-center text-slate-400 font-bold">- OR -</div>
-                <div>
-                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Option 2: Image URL</label>
-                    <input type="text" id="bgUrlInput" placeholder="https://domain.com/image.jpg" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
-                </div>
-                <div class="flex justify-between items-center pt-4">
-                    <button onclick="resetBackground()" class="px-3 py-2 bg-slate-200 dark:bg-slate-800 text-rose-500 rounded-lg font-semibold">Reset</button>
-                    <div class="flex gap-2">
-                        <button onclick="closeBgModal()" class="px-3 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
-                        <button onclick="saveBackground()" class="px-4 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg">Save Background</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- MODAL FORM TAMBAH PORTOFOLIO -->
     <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-lg rounded-2xl p-6 relative shadow-2xl">
@@ -319,11 +284,10 @@
         const dictionary = {
             ENG: {
                 heroBadge: "Official Portfolio & Service",
-                heroTitle: 'Transforming Your Vision Into <span class="text-brandRed">Cinematic Visuals</span>',
+                heroTitle: 'Transforming Your Vision Into <span class="text-indigo-600 dark:text-brandRed">Cinematic Visuals</span>',
                 heroDesc: "Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.",
                 btnUpload: "Add Portfolio",
                 btnAddPkg: "Add Package",
-                btnBg: "Hero Background",
                 btnShareLink: "Create Client Link",
                 btnDiscuss: "Discuss Project (WhatsApp)",
                 blogTag: "Blog & Strategy",
@@ -354,11 +318,10 @@
             },
             ID: {
                 heroBadge: "Official Portfolio & Service",
-                heroTitle: 'Mengubah Cerita Anda Menjadi <span class="text-brandRed">Visual Cinematic</span>',
+                heroTitle: 'Mengubah Cerita Anda Menjadi <span class="text-indigo-600 dark:text-brandRed">Visual Cinematic</span>',
                 heroDesc: "Pengarahan visual (directing) profesional & editing presisi oleh Director G untuk berbagai kebutuhan: Iklan, Wedding, Travel, Music Video, hingga Profil Perusahaan.",
                 btnUpload: "Tambah Portofolio",
                 btnAddPkg: "Tambah Paket",
-                btnBg: "Hero Background",
                 btnShareLink: "Buat Link Klien",
                 btnDiscuss: "Diskusi Projek (WhatsApp)",
                 blogTag: "Blog & Strategy",
@@ -400,7 +363,6 @@
             document.getElementById('txt-hero-desc').textContent = t.heroDesc;
             document.getElementById('txt-btn-upload').textContent = t.btnUpload;
             document.getElementById('txt-btn-addpkg').textContent = t.btnAddPkg;
-            document.getElementById('txt-btn-bg').textContent = t.btnBg;
             document.getElementById('txt-btn-sharelink').textContent = t.btnShareLink;
             document.getElementById('txt-btn-discuss').textContent = t.btnDiscuss;
             document.getElementById('txt-blog-tag').textContent = t.blogTag;
@@ -424,44 +386,6 @@
 
             renderPortfolio();
         }
-
-        // Hero Background Customizer
-        function applySavedBackground() {
-            const bgData = localStorage.getItem('directorG_hero_bg');
-            const hero = document.getElementById('heroSection');
-            if (bgData) hero.style.backgroundImage = `url('${bgData}')`;
-            else hero.style.backgroundImage = 'none';
-        }
-
-        function openBgModal() { document.getElementById('bgModal').classList.remove('hidden'); }
-        function closeBgModal() { document.getElementById('bgModal').classList.add('hidden'); }
-
-        function saveBackground() {
-            const urlInput = document.getElementById('bgUrlInput').value;
-            const fileInput = document.getElementById('bgFileInput');
-
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    localStorage.setItem('directorG_hero_bg', e.target.result);
-                    applySavedBackground();
-                    closeBgModal();
-                };
-                reader.readAsDataURL(fileInput.files[0]);
-            } else if (urlInput.trim() !== '') {
-                localStorage.setItem('directorG_hero_bg', urlInput.trim());
-                applySavedBackground();
-                closeBgModal();
-            } else alert('Please select a file or enter a valid URL!');
-        }
-
-        function resetBackground() {
-            localStorage.removeItem('directorG_hero_bg');
-            applySavedBackground();
-            closeBgModal();
-        }
-
-        applySavedBackground();
 
         // Admin PIN Logic (1997)
         const ADMIN_PIN = "1997";
