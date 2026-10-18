@@ -42,42 +42,47 @@
         .animate-fade-in-up {
             animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .transition-all-custom {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-brandDark text-slate-800 dark:text-slate-200 font-sans min-h-screen flex flex-col justify-between transition-colors duration-300" id="bodyRoot">
 
     <!-- HEADER / NAVBAR -->
-    <header class="bg-white/90 dark:bg-brandDark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 sticky top-0 z-40 transition-all-custom">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2 cursor-pointer group" onclick="switchPage('home')">
-                <span class="text-2xl font-black tracking-widest text-indigo-600 dark:text-brandRed group-hover:scale-105 transition-transform">G CREATIVE</span>
+    <header class="bg-white/90 dark:bg-brandDark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            
+            <!-- LOGO MONOGRAM KREATIF (TIDAK LAGI PECAH DUA BARIS) -->
+            <div class="flex items-center space-x-2.5 cursor-pointer group" onclick="switchPage('home')">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-rose-500 to-brandRed flex items-center justify-center font-black text-white text-lg shadow-lg shadow-rose-500/30 group-hover:scale-105 transition-transform border border-white/20">
+                    G
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-base sm:text-lg font-black tracking-widest text-slate-900 dark:text-white leading-none">G CREATIVE</span>
+                    <span class="text-[9px] font-semibold tracking-widest text-indigo-600 dark:text-brandRed uppercase">Visual Studio</span>
+                </div>
             </div>
             
-            <div class="flex items-center space-x-3">
-                <span id="adminBadge" class="hidden bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2 py-1 rounded animate-pulse">ADMIN ACTIVE</span>
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <span id="adminBadge" class="hidden bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[9px] font-bold px-2 py-0.5 rounded animate-pulse">ADMIN</span>
 
                 <!-- Theme Toggle -->
-                <button onclick="toggleTheme()" class="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-sm border border-slate-200 dark:border-slate-700 hover:scale-110 transition-transform">
+                <button onclick="toggleTheme()" class="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-xs border border-slate-200 dark:border-slate-700 hover:scale-105 transition-transform">
                     <span id="themeIcon">☀️</span>
                 </button>
 
                 <!-- Language Toggle -->
-                <button onclick="toggleLanguage()" class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white font-bold px-2.5 py-1.5 rounded-lg text-xs border border-slate-200 dark:border-slate-700 hover:scale-105 transition-transform">
+                <button onclick="toggleLanguage()" class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white font-bold px-2 py-1.5 rounded-lg text-xs border border-slate-200 dark:border-slate-700 hover:scale-105 transition-transform">
                     <span id="langLabelActive" class="text-indigo-600 dark:text-brandRed">ENG</span> | <span id="langLabelInactive" class="text-slate-400">ID</span>
                 </button>
 
                 <!-- Burger Menu Toggle Button -->
-                <button onclick="toggleBurgerMenu()" class="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-900 dark:text-white transition-transform hover:scale-105">
+                <button onclick="toggleBurgerMenu()" class="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-900 dark:text-white transition-transform hover:scale-105">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- FULLSCREEN BURGER MENU (MOOILUX STYLE WITH ANIMATION) -->
+    <!-- FULLSCREEN BURGER MENU -->
     <div id="burgerOverlay" class="fixed inset-0 bg-brandDark/98 backdrop-blur-2xl z-50 hidden flex flex-col justify-center items-center transition-all duration-500">
         <button onclick="toggleBurgerMenu()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2 hover:rotate-90 transition-transform duration-300">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -99,26 +104,26 @@
     </div>
 
     <!-- MAIN CONTENT AREA -->
-    <main class="max-w-6xl mx-auto px-6 py-8 flex-grow w-full">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex-grow w-full">
 
-        <!-- SECTION: HOME / HERO WITH ANIMATION -->
+        <!-- SECTION: HOME / HERO -->
         <div id="page-home" class="page-section animate-fade-in-up">
-            <section id="heroSection" class="relative py-20 md:py-32 text-center rounded-3xl bg-cover bg-center overflow-hidden transition-all duration-500 shadow-2xl my-4 px-6 border border-slate-200 dark:border-slate-800">
+            <section id="heroSection" class="relative py-16 sm:py-24 md:py-32 text-center rounded-3xl bg-cover bg-center overflow-hidden transition-all duration-500 shadow-2xl my-2 px-4 sm:px-6 border border-slate-200 dark:border-slate-800">
                 <div id="heroOverlay" class="absolute inset-0 bg-black transition-all duration-300" style="opacity: 0.6;"></div>
 
                 <div class="relative z-10 max-w-3xl mx-auto text-white">
-                    <span class="bg-brandRed/30 text-white font-semibold text-xs tracking-widest uppercase px-3.5 py-1 rounded-full border border-brandRed/50 shadow animate-pulse">Official Portfolio & Service</span>
-                    <h1 class="text-3xl md:text-6xl font-extrabold mt-4 mb-4 leading-tight drop-shadow-md">
+                    <span class="bg-brandRed/30 text-white font-semibold text-[10px] sm:text-xs tracking-widest uppercase px-3 py-1 rounded-full border border-brandRed/50 shadow animate-pulse">Official Portfolio & Service</span>
+                    <h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold mt-4 mb-4 leading-tight drop-shadow-md">
                         Transforming Your Vision Into <span class="text-brandRed">Cinematic Visuals</span>
                     </h1>
-                    <p class="text-slate-200 text-sm md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
+                    <p class="text-slate-200 text-xs sm:text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
                         Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.
                     </p>
                     <div class="flex flex-wrap justify-center gap-3">
-                        <button onclick="switchPage('portfolio')" class="bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg text-sm">
+                        <button onclick="switchPage('portfolio')" class="bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg text-xs sm:text-sm">
                             Explore Portfolio
                         </button>
-                        <button onclick="switchPage('pricing')" class="bg-slate-800/80 backdrop-blur hover:bg-slate-700 text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg text-sm border border-slate-700">
+                        <button onclick="switchPage('pricing')" class="bg-slate-800/80 backdrop-blur hover:bg-slate-700 text-white font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg text-xs sm:text-sm border border-slate-700">
                             View Rates & Packages
                         </button>
                     </div>
@@ -194,7 +199,7 @@
 
     </main>
 
-    <!-- FLOATING WHATSAPP BUTTON (DENGAN EFEK PULSE & HOVER) -->
+    <!-- FLOATING WHATSAPP BUTTON -->
     <a href="#" onclick="directWA()" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-full shadow-2xl transition-all duration-300 z-40 transform hover:scale-110 flex items-center justify-center animate-bounce" title="Chat on WhatsApp">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
     </a>
@@ -304,7 +309,7 @@
         </div>
     </div>
 
-    <!-- MODAL FORM PHOTO PORTFOLIO -->
+    <!-- MODAL FORM PHOTO PORTFOLIO (UPLOAD FILE & LINK SUPPORT) -->
     <div id="photoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
             <button onclick="closePhotoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
@@ -313,11 +318,16 @@
             <form onsubmit="savePhotoPortfolio(event)" class="space-y-3 text-xs">
                 <div>
                     <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Photo Title</label>
-                    <input type="text" id="photoTitle" required placeholder="Lookbook Photography" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    <input type="text" id="photoTitle" required placeholder="e.g. Fashion Campaign Shoot" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
                 </div>
                 <div>
-                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Image Link / URL</label>
-                    <input type="text" id="photoUrl" required placeholder="https://..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Upload File Foto</label>
+                    <input type="file" id="photoFile" accept="image/*" class="w-full text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-purple-600 file:text-white">
+                </div>
+                <div class="text-center font-bold text-slate-400 text-[10px] uppercase">- ATAU -</div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Link URL Gambar</label>
+                    <input type="text" id="photoUrl" placeholder="https://..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
                 </div>
                 <div class="flex justify-end gap-2 pt-3">
                     <button type="button" onclick="closePhotoModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
@@ -528,7 +538,7 @@
             const target = document.getElementById('page-' + pageId);
             target.classList.remove('hidden');
             target.classList.remove('animate-fade-in-up');
-            void target.offsetWidth; // Trigger reflow for animation restart
+            void target.offsetWidth;
             target.classList.add('animate-fade-in-up');
             document.getElementById('burgerOverlay').classList.add('hidden');
             window.scrollTo({top: 0, behavior: 'smooth'});
@@ -744,11 +754,13 @@
             }
         }
 
-        const initialPhotos = [{ id: '1', title: 'Fashion Campaign', url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80' }];
+        // PHOTO PORTFOLIO WITH FILE UPLOAD HANDLER
+        const initialPhotos = [{ id: '1', title: 'Fashion Campaign Shoot', url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80' }];
         function getPhotoStorage() {
-            const stored = localStorage.getItem('directorG_photos_v1');
+            const stored = localStorage.getItem('directorG_photos_v2');
             return stored ? JSON.parse(stored) : initialPhotos;
         }
+
         function renderPhotoPortfolio() {
             const grid = document.getElementById('photoGrid');
             const data = getPhotoStorage();
@@ -757,23 +769,47 @@
                 const card = document.createElement('div');
                 card.className = 'bg-white dark:bg-brandCard p-3 rounded-xl border border-slate-200 dark:border-slate-800/80 shadow-lg transition-transform transform hover:-translate-y-1';
                 const deleteBtn = isAdmin ? `<button onclick="deletePhotoItem('${item.id}')" class="text-xs text-rose-500 font-semibold mt-2">Delete Photo</button>` : '';
-                card.innerHTML = `<div class="aspect-square w-full rounded-lg overflow-hidden bg-black mb-2"><img src="${item.url}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div><h3 class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</h3>${deleteBtn}`;
+                card.innerHTML = `<div class="aspect-square w-full rounded-lg overflow-hidden bg-black mb-2"><img src="${item.url}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="${item.title}"></div><h3 class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</h3>${deleteBtn}`;
                 grid.appendChild(card);
             });
         }
+
         function openPhotoModal() { document.getElementById('photoModal').classList.remove('hidden'); }
         function closePhotoModal() { document.getElementById('photoModal').classList.add('hidden'); }
+
         function savePhotoPortfolio(e) {
             e.preventDefault();
-            const newItem = { id: Date.now().toString(), title: document.getElementById('photoTitle').value, url: document.getElementById('photoUrl').value };
-            const data = getPhotoStorage(); data.unshift(newItem);
-            localStorage.setItem('directorG_photos_v1', JSON.stringify(data));
-            closePhotoModal(); renderPhotoPortfolio();
+            const title = document.getElementById('photoTitle').value;
+            const fileInput = document.getElementById('photoFile');
+            const urlInput = document.getElementById('photoUrl').value.trim();
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    const newItem = { id: Date.now().toString(), title, url: evt.target.result };
+                    const data = getPhotoStorage();
+                    data.unshift(newItem);
+                    localStorage.setItem('directorG_photos_v2', JSON.stringify(data));
+                    closePhotoModal();
+                    renderPhotoPortfolio();
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else if (urlInput !== '') {
+                const newItem = { id: Date.now().toString(), title, url: urlInput };
+                const data = getPhotoStorage();
+                data.unshift(newItem);
+                localStorage.setItem('directorG_photos_v2', JSON.stringify(data));
+                closePhotoModal();
+                renderPhotoPortfolio();
+            } else {
+                alert('Silakan upload file foto atau masukkan link URL gambar!');
+            }
         }
+
         function deletePhotoItem(id) {
-            if (confirm('Hapus foto?')) {
+            if (confirm('Hapus foto ini dari portofolio?')) {
                 let data = getPhotoStorage().filter(i => i.id !== id);
-                localStorage.setItem('directorG_photos_v1', JSON.stringify(data));
+                localStorage.setItem('directorG_photos_v2', JSON.stringify(data));
                 renderPhotoPortfolio();
             }
         }
