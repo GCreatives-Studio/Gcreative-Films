@@ -81,10 +81,10 @@
                         <span id="txt-btn-upload">Add Portfolio</span>
                     </button>
                     <button onclick="openPriceModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                        🏷️ <span>Add Package</span>
+                        🏷️ <span id="txt-btn-addpkg">Add Package</span>
                     </button>
                     <button onclick="openBgModal()" class="bg-purple-600 hover:bg-purple-500 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                        🎨 <span>Hero Background</span>
+                        🎨 <span id="txt-btn-bg">Hero Background</span>
                     </button>
                     <button onclick="generateClientLink()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
@@ -141,4 +141,673 @@
                 <button onclick="filterCategory('wedding', this)" id="cat-wedding" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Wedding Film</button>
                 <button onclick="filterCategory('travel', this)" id="cat-travel" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Travel & Vlog</button>
                 <button onclick="filterCategory('mv', this)" id="cat-mv" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Music Video</button>
-                <button onclick="filterCategory('company', this)" id="cat-company" class="filter-btn bg-slate-200 dark:bg-slate-800/80
+                <button onclick="filterCategory('company', this)" id="cat-company" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Company Profile</button>
+                <button onclick="filterCategory('reels', this)" id="cat-reels" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Shorts / Reels</button>
+            </div>
+        </div>
+
+        <!-- Portfolio Grid Container -->
+        <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Dynamic Content Will Render Here -->
+        </div>
+    </section>
+
+    <!-- CONTACT DIRECT SECTION -->
+    <section class="max-w-4xl mx-auto px-6 py-12 mb-8">
+        <div class="bg-gradient-to-r from-indigo-50 dark:from-slate-900/60 via-white dark:via-brandDark to-indigo-50 dark:to-slate-900/60 p-8 rounded-2xl border border-indigo-200 dark:border-brandRed/30 text-center shadow-xl">
+            <h2 id="txt-contact-title" class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2">Book / Consult with Director G</h2>
+            <p id="txt-contact-desc" class="text-slate-600 dark:text-slate-300 text-sm mb-6 max-w-lg mx-auto">Connect directly via official WhatsApp, Instagram, or Email.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button onclick="directWA()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                    WhatsApp
+                </button>
+                <button onclick="directIG()" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:opacity-90 text-white font-bold px-5 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
+                    Instagram: @vgioo_
+                </button>
+                <button onclick="directEmail()" class="w-full sm:w-auto bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-5 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
+                    Email
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-100 dark:bg-brandDark py-6 border-t border-slate-200 dark:border-slate-800/80 text-center text-xs text-slate-500">
+        <p>&copy; 2026 G CREATIVE (Director G). All Rights Reserved. | Instagram: <a href="https://instagram.com/vgioo_" target="_blank" class="text-indigo-600 dark:text-brandRed font-semibold hover:underline">@vgioo_</a></p>
+    </footer>
+
+    <!-- ADMIN TOGGLE FLOATING BUTTON -->
+    <button onclick="toggleAdminMode()" id="adminToggleBtn" class="fixed bottom-4 right-4 bg-slate-900/90 dark:bg-slate-900/90 hover:bg-slate-800 text-white p-3 rounded-full border border-slate-700 shadow-2xl transition z-40 flex items-center gap-2 text-xs">
+        <span id="lockIcon">🔒</span> <span id="adminBtnText">Admin Mode</span>
+    </button>
+
+    <!-- MODAL FORM PRICING PACKAGE (ADMIN ONLY) -->
+    <div id="priceModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="closePriceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 dark:hover:text-white">✕</button>
+            <h3 id="priceModalTitle" class="text-xl font-bold text-slate-900 dark:text-white mb-4">Add / Edit Package</h3>
+            
+            <form id="pricingForm" onsubmit="savePricingPackage(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="pkgId">
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Badge Name</label>
+                    <input type="text" id="pkgBadge" required placeholder="e.g. BASIC, PRO BRAND, CORPORATE" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Package Title</label>
+                    <input type="text" id="pkgTitle" required placeholder="e.g. Commercial / Travel Film" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Price Text</label>
+                    <input type="text" id="pkgPrice" required placeholder="e.g. Starting from $300 or IDR 4.5M" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Audience Description</label>
+                    <input type="text" id="pkgTarget" placeholder="e.g. Suitable for startups & local brands" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Features (One per line)</label>
+                    <textarea id="pkgFeatures" rows="4" required placeholder="Duration: Max 2 mins&#10;1-2 Production Days&#10;Color Grading" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none"></textarea>
+                </div>
+                <div class="flex items-center gap-2 py-1">
+                    <input type="checkbox" id="pkgPopular" class="rounded">
+                    <label for="pkgPopular" class="font-semibold text-slate-700 dark:text-slate-300">Highlight as "MOST POPULAR"</label>
+                </div>
+                <div class="flex justify-end gap-2 pt-3">
+                    <button type="button" onclick="closePriceModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
+                    <button type="submit" class="px-5 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg">Save Package</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL FORM BACKGROUND IMAGE (ADMIN ONLY) -->
+    <div id="bgModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="closeBgModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Hero Background Settings</h3>
+            
+            <div class="space-y-4 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Option 1: Upload Image File</label>
+                    <input type="file" id="bgFileInput" accept="image/*" class="w-full text-slate-500 dark:text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 dark:file:bg-brandRed file:text-white hover:file:opacity-80">
+                </div>
+                <div class="text-center text-slate-400 font-bold">- OR -</div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Option 2: Image URL</label>
+                    <input type="text" id="bgUrlInput" placeholder="https://domain.com/image.jpg" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div class="flex justify-between items-center pt-4">
+                    <button onclick="resetBackground()" class="px-3 py-2 bg-slate-200 dark:bg-slate-800 text-rose-500 rounded-lg font-semibold">Reset</button>
+                    <div class="flex gap-2">
+                        <button onclick="closeBgModal()" class="px-3 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
+                        <button onclick="saveBackground()" class="px-4 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg">Save Background</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FORM TAMBAH PORTOFOLIO -->
+    <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-lg rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 dark:hover:text-white">✕</button>
+            <h3 id="txt-modal-title" class="text-xl font-bold text-slate-900 dark:text-white mb-4">Add New Portfolio Work</h3>
+            
+            <form id="portfolioForm" onsubmit="savePortfolio(event)" class="space-y-4">
+                <div>
+                    <label id="txt-modal-lbl-title" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video / Project Title</label>
+                    <input type="text" id="videoTitle" required placeholder="e.g. Cinematic Wedding Video of Alex & Sarah" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label id="txt-modal-lbl-cat" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video Category</label>
+                    <select id="videoCategory" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
+                        <option value="commercial">Commercial / Ads</option>
+                        <option value="wedding">Wedding Film</option>
+                        <option value="travel">Travel & Vlog</option>
+                        <option value="mv">Music Video</option>
+                        <option value="company">Company Profile</option>
+                        <option value="reels">Shorts / Reels</option>
+                    </select>
+                </div>
+                <div>
+                    <label id="txt-modal-lbl-src" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video Source Link</label>
+                    <input type="text" id="videoUrl" placeholder="Paste YouTube link or Google Drive share link here" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
+                    <p id="txt-modal-yt-note" class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">*Supports YouTube & Google Drive links (Ensure Drive access is set to 'Anyone with the link').</p>
+                </div>
+                <div>
+                    <label id="txt-modal-lbl-desc" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Short Description (Optional)</label>
+                    <textarea id="videoDesc" rows="2" placeholder="Project details, role, equipment used..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none"></textarea>
+                </div>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button type="button" onclick="closeModal()" id="txt-modal-cancel" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm">Cancel</button>
+                    <button type="submit" id="txt-modal-submit" class="px-5 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg text-sm">Save Work</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const isClientView = urlParams.get('mode') === 'client';
+
+        if (isClientView) {
+            document.getElementById('adminToggleBtn').style.display = 'none';
+        }
+
+        // Theme Toggle Logic
+        let isDarkMode = true;
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            const htmlTag = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            
+            if (isDarkMode) {
+                htmlTag.classList.add('dark');
+                themeIcon.textContent = '☀️';
+            } else {
+                htmlTag.classList.remove('dark');
+                themeIcon.textContent = '🌙';
+            }
+        }
+
+        // Default Language FIRST Time Load = ENG
+        let currentLang = 'ENG';
+        const dictionary = {
+            ENG: {
+                heroBadge: "Official Portfolio & Service",
+                heroTitle: 'Transforming Your Vision Into <span class="text-indigo-600 dark:text-brandRed">Cinematic Visuals</span>',
+                heroDesc: "Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.",
+                btnUpload: "Add Portfolio",
+                btnAddPkg: "Add Package",
+                btnBg: "Hero Background",
+                btnShareLink: "Create Client Link",
+                btnDiscuss: "Discuss Project (WhatsApp)",
+                blogTag: "Blog & Strategy",
+                blogTitle: "Why High-End Cinema Visuals Are Key to Personal & Brand Awareness?",
+                blogContent: '<p>Every moment or product holds unique emotion and appeal. However, in the fast-paced era of short-form content, the difference between work that gets <strong>ignored</strong> and work that <strong>leaves a lasting impression</strong> comes down to <strong>precise Directing</strong> and <strong>character-driven Editing</strong>.</p><p>I am <strong>Director G</strong> from <strong>G CREATIVE</strong>, ready to guide and execute your vision—from emotional <em>Wedding Films</em>, scenic <em>Travel Vlogs</em>, high-converting <em>Commercial Ads</em>, to standout <em>Music Videos</em>.</p>',
+                portTitle: "Video Portfolio Gallery",
+                portSub: "Filter by the project category you want to view",
+                priceTitle: "Production Packages",
+                priceSub: "Select a production package tailored to your branding or project needs",
+                catAll: "All",
+                catCommercial: "Commercial / Ads",
+                catWedding: "Wedding Film",
+                catTravel: "Travel & Vlog",
+                catMv: "Music Video",
+                catCompany: "Company Profile",
+                catReels: "Shorts / Reels",
+                contactTitle: "Book / Consult with Director G",
+                contactDesc: "Connect directly via official WhatsApp, Instagram, or Email.",
+                modalTitle: "Add New Portfolio Work",
+                modalLblTitle: "Video / Project Title",
+                modalLblCat: "Video Category",
+                modalLblSrc: "Video Source Link",
+                modalYtNote: "*Supports YouTube & Google Drive links (Ensure Drive access is set to 'Anyone with the link').",
+                modalLblDesc: "Short Description (Optional)",
+                modalCancel: "Cancel",
+                modalSubmit: "Save Work",
+                emptyPort: "No portfolio items in this category yet."
+            },
+            ID: {
+                heroBadge: "Official Portfolio & Service",
+                heroTitle: 'Mengubah Cerita Anda Menjadi <span class="text-indigo-600 dark:text-brandRed">Visual Cinematic</span>',
+                heroDesc: "Pengarahan visual (directing) profesional & editing presisi oleh Director G untuk berbagai kebutuhan: Iklan, Wedding, Travel, Music Video, hingga Profil Perusahaan.",
+                btnUpload: "Tambah Portofolio",
+                btnAddPkg: "Tambah Paket",
+                btnBg: "Hero Background",
+                btnShareLink: "Buat Link Klien",
+                btnDiscuss: "Diskusi Projek (WhatsApp)",
+                blogTag: "Blog & Strategy",
+                blogTitle: "Mengapa Visual Cinema Berkelas Kunci Utama Personal & Brand Awareness?",
+                blogContent: '<p>Setiap momen atau produk memiliki emosi dan daya tarik tersendiri. Namun, di era konten visual berdurasi singkat, perbedaan antara karya yang <strong>diabaikan</strong> dan yang <strong>membekas di ingatan</strong> ditentukan oleh <strong>Directing yang tepat</strong> dan <strong>Editing yang berkarakter</strong>.</p><p>Saya <strong>Director G</strong> dari <strong>G CREATIVE</strong>, siap membantu mengarahkan dan mengeksekusi konsep video Anda—mulai dari momen emosional seperti <em>Wedding Film</em>, keindahan alur <em>Travel Vlog</em>, promosi bisnis <em>Commercial Ads</em>, hingga kepribadian <em>Music Video</em>.</p>',
+                portTitle: "Galeri Portofolio Video",
+                portSub: "Filter berdasarkan jenis projek yang ingin Anda lihat",
+                priceTitle: "Paket Layanan Production Video",
+                priceSub: "Pilih paket produksi sesuai dengan kebutuhan branding atau projek Anda",
+                catAll: "Semua",
+                catCommercial: "Commercial / Ads",
+                catWedding: "Wedding Film",
+                catTravel: "Travel & Vlog",
+                catMv: "Music Video",
+                catCompany: "Company Profile",
+                catReels: "Shorts / Reels",
+                contactTitle: "Konsultasi / Booking Jadwal Director G",
+                contactDesc: "Klik tombol di bawah ini untuk langsung terhubung melalui WhatsApp, Instagram, atau Email resmi G CREATIVE.",
+                modalTitle: "Tambah Karya Portofolio Baru",
+                modalLblTitle: "Judul Video / Projek",
+                modalLblCat: "Kategori Video",
+                modalLblSrc: "Sumber Link Video",
+                modalYtNote: "*Mendukung link YouTube & Google Drive (Pastikan akses Drive diset 'Siapa saja yang memiliki link').",
+                modalLblDesc: "Deskripsi Singkat (Opsional)",
+                modalCancel: "Batal",
+                modalSubmit: "Simpan Karya",
+                emptyPort: "Belum ada portofolio di kategori ini."
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ENG' ? 'ID' : 'ENG';
+            document.getElementById('langLabelActive').textContent = currentLang;
+            document.getElementById('langLabelInactive').textContent = currentLang === 'ENG' ? 'ID' : 'ENG';
+
+            const t = dictionary[currentLang];
+            document.getElementById('txt-hero-badge').textContent = t.heroBadge;
+            document.getElementById('txt-hero-title').innerHTML = t.heroTitle;
+            document.getElementById('txt-hero-desc').textContent = t.heroDesc;
+            document.getElementById('txt-btn-upload').textContent = t.btnUpload;
+            document.getElementById('txt-btn-addpkg').textContent = t.btnAddPkg;
+            document.getElementById('txt-btn-bg').textContent = t.btnBg;
+            document.getElementById('txt-btn-sharelink').textContent = t.btnShareLink;
+            document.getElementById('txt-btn-discuss').textContent = t.btnDiscuss;
+            document.getElementById('txt-blog-tag').textContent = t.blogTag;
+            document.getElementById('txt-blog-title').textContent = t.blogTitle;
+            document.getElementById('txt-blog-content').innerHTML = t.blogContent;
+            document.getElementById('txt-port-title').textContent = t.portTitle;
+            document.getElementById('txt-port-sub').textContent = t.portSub;
+            document.getElementById('txt-price-title').textContent = t.priceTitle;
+            document.getElementById('txt-price-sub').textContent = t.priceSub;
+
+            document.getElementById('cat-all').textContent = t.catAll;
+            document.getElementById('cat-commercial').textContent = t.catCommercial;
+            document.getElementById('cat-wedding').textContent = t.catWedding;
+            document.getElementById('cat-travel').textContent = t.catTravel;
+            document.getElementById('cat-mv').textContent = t.catMv;
+            document.getElementById('cat-company').textContent = t.catCompany;
+            document.getElementById('cat-reels').textContent = t.catReels;
+
+            document.getElementById('txt-contact-title').textContent = t.contactTitle;
+            document.getElementById('txt-contact-desc').textContent = t.contactDesc;
+
+            renderPortfolio();
+        }
+
+        // Hero Background Customizer
+        function applySavedBackground() {
+            const bgData = localStorage.getItem('directorG_hero_bg');
+            const hero = document.getElementById('heroSection');
+            if (bgData) hero.style.backgroundImage = `url('${bgData}')`;
+            else hero.style.backgroundImage = 'none';
+        }
+
+        function openBgModal() { document.getElementById('bgModal').classList.remove('hidden'); }
+        function closeBgModal() { document.getElementById('bgModal').classList.add('hidden'); }
+
+        function saveBackground() {
+            const urlInput = document.getElementById('bgUrlInput').value;
+            const fileInput = document.getElementById('bgFileInput');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    localStorage.setItem('directorG_hero_bg', e.target.result);
+                    applySavedBackground();
+                    closeBgModal();
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else if (urlInput.trim() !== '') {
+                localStorage.setItem('directorG_hero_bg', urlInput.trim());
+                applySavedBackground();
+                closeBgModal();
+            } else alert('Please select a file or enter a valid URL!');
+        }
+
+        function resetBackground() {
+            localStorage.removeItem('directorG_hero_bg');
+            applySavedBackground();
+            closeBgModal();
+        }
+
+        applySavedBackground();
+
+        // Admin PIN Logic (1997)
+        const ADMIN_PIN = "1997";
+        let isAdmin = false;
+
+        function toggleAdminMode() {
+            if (isClientView) return;
+            if (isAdmin) {
+                isAdmin = false;
+                updateAdminUI();
+                alert('Exited Admin Mode.');
+            } else {
+                const pin = prompt('Enter Admin PIN:');
+                if (pin === ADMIN_PIN) {
+                    isAdmin = true;
+                    updateAdminUI();
+                    alert('Correct PIN! Admin Mode Active.');
+                } else if (pin !== null) alert('Wrong PIN!');
+            }
+        }
+
+        function updateAdminUI() {
+            const badge = document.getElementById('adminBadge');
+            const adminActionContainer = document.getElementById('adminActionContainer');
+            const btnText = document.getElementById('adminBtnText');
+            const lockIcon = document.getElementById('lockIcon');
+
+            if (isAdmin) {
+                badge.classList.remove('hidden');
+                adminActionContainer.classList.remove('hidden');
+                btnText.textContent = 'Exit Admin';
+                lockIcon.textContent = '🔓';
+            } else {
+                badge.classList.add('hidden');
+                adminActionContainer.classList.add('hidden');
+                btnText.textContent = 'Admin Mode';
+                lockIcon.textContent = '🔒';
+            }
+            renderPricing();
+            renderPortfolio();
+        }
+
+        function generateClientLink() {
+            const clientUrl = window.location.origin + window.location.pathname + '?mode=client';
+            navigator.clipboard.writeText(clientUrl).then(() => {
+                alert('Client link copied to clipboard!\n\n' + clientUrl);
+            }).catch(() => {
+                prompt('Copy this client link:', clientUrl);
+            });
+        }
+
+        // Direct Actions
+        function directWA() {
+            const phone = "6282187287349";
+            const msg = currentLang === 'ENG' 
+                ? "Hello Director G (G CREATIVE), I am interested in your portfolio and would like to discuss a video project."
+                : "Halo Director G (G CREATIVE), saya tertarik dengan portofolio Anda dan ingin berkonsultasi mengenai projek video.";
+            window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
+        }
+
+        function directWAPackage(pkgName) {
+            const phone = "6282187287349";
+            const msg = currentLang === 'ENG'
+                ? `Hello Director G (G CREATIVE), I am interested in booking/consulting regarding the *${pkgName} Package*.`
+                : `Halo Director G (G CREATIVE), saya berminat untuk booking/konsultasi mengenai *Paket Video ${pkgName}*.`;
+            window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
+        }
+
+        function directIG() {
+            window.open('https://instagram.com/vgioo_', '_blank');
+        }
+
+        function directEmail() {
+            window.location.href = "mailto:GCreative@gmail.com?subject=Inquiry%20Project%20Director%20G%20-%20G%20CREATIVE";
+        }
+
+        // PRICING PACKAGES CRUD
+        const initialPricing = [
+            {
+                id: '1',
+                badge: 'BASIC',
+                title: 'Video Profile / Short Film',
+                price: 'Mulai 4.5 Jt / $300',
+                target: 'Suitable for: Freelancers, personal branding, or short profile videos.',
+                isPopular: false,
+                features: ['Duration: Max 1-2 Mins', '1 Production Day (1 Location)', '1 Multi-camera Setup + Lighting', 'Storyboard & Script Guidance', 'Professional Color Grading', '2x Editing Revisions']
+            },
+            {
+                id: '2',
+                badge: 'PRO BRAND',
+                title: 'Commercial / Travel Film',
+                price: 'Mulai 7 Jt / $480',
+                target: 'Suitable for: Startups, local brands, commercial ads & cinematic travel.',
+                isPopular: true,
+                features: ['Duration: Max 2-3 Mins', '1-2 Production Days (Multi-location)', '2 Camera Setup + Pro Lighting', 'Voice Over + Licensed Music', 'Output HD/4K + Reels/Teaser Cut', '3x Editing Revisions']
+            },
+            {
+                id: '3',
+                badge: 'CORPORATE',
+                title: 'Company Profile / Event',
+                price: 'Mulai 12 Jt / $800',
+                target: 'Suitable for: Companies, agencies, or high-impact brand campaigns.',
+                isPopular: false,
+                features: ['Full High-End Production Crew', 'Drone Aerial Shots (If applicable)', 'Full Creative Directing & Script', 'Pro Voice Over + Motion Graphics', 'Multi Format (Web, YouTube, Social)', '60 Days Raw Footage Backup']
+            }
+        ];
+
+        function getPricingStorage() {
+            const stored = localStorage.getItem('directorG_pricing_v2');
+            if (!stored) {
+                localStorage.setItem('directorG_pricing_v2', JSON.stringify(initialPricing));
+                return initialPricing;
+            }
+            return JSON.parse(stored);
+        }
+
+        function renderPricing() {
+            const grid = document.getElementById('pricingGrid');
+            const data = getPricingStorage();
+            grid.innerHTML = '';
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                const popularBorder = item.isPopular 
+                    ? 'border-2 border-indigo-600 dark:border-brandRed shadow-2xl relative transform md:-translate-y-2' 
+                    : 'border border-slate-200 dark:border-slate-800/80 shadow-xl';
+                
+                card.className = `bg-white dark:bg-brandCard p-6 rounded-2xl ${popularBorder} flex flex-col justify-between`;
+
+                const popularTag = item.isPopular 
+                    ? `<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 dark:bg-brandRed text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow">MOST POPULAR</span>` 
+                    : '';
+
+                const featuresListHTML = item.features.map(f => `<li class="flex items-center gap-2">✓ ${f}</li>`).join('');
+
+                const adminBtns = (isAdmin && !isClientView) 
+                    ? `<div class="flex gap-2 mt-4 pt-3 border-t border-slate-200 dark:border-slate-800">
+                        <button onclick="editPricingPackage('${item.id}')" class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold px-2.5 py-1 rounded">Edit</button>
+                        <button onclick="deletePricingPackage('${item.id}')" class="text-xs bg-rose-500/20 text-rose-500 font-semibold px-2.5 py-1 rounded">Delete</button>
+                      </div>`
+                    : '';
+
+                card.innerHTML = `
+                    ${popularTag}
+                    <div>
+                        <span class="bg-indigo-100 dark:bg-slate-800 text-indigo-600 dark:text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">${item.badge}</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-4">${item.title}</h3>
+                        <p class="text-2xl font-black text-indigo-600 dark:text-brandRed mt-2">${item.price}</p>
+                        ${item.target ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">${item.target}</p>` : ''}
+                        
+                        <ul class="mt-6 space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                            ${featuresListHTML}
+                        </ul>
+                    </div>
+                    <div>
+                        ${adminBtns}
+                        <button onclick="directWAPackage('${item.badge}')" class="mt-6 w-full ${item.isPopular ? 'bg-indigo-600 dark:bg-brandRed text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white'} hover:opacity-90 font-bold py-2.5 rounded-lg text-xs transition shadow">
+                            Select ${item.badge}
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openPriceModal(pkg = null) {
+            if (!isAdmin || isClientView) return;
+            document.getElementById('priceModal').classList.remove('hidden');
+            if (pkg) {
+                document.getElementById('priceModalTitle').textContent = "Edit Package";
+                document.getElementById('pkgId').value = pkg.id;
+                document.getElementById('pkgBadge').value = pkg.badge;
+                document.getElementById('pkgTitle').value = pkg.title;
+                document.getElementById('pkgPrice').value = pkg.price;
+                document.getElementById('pkgTarget').value = pkg.target || '';
+                document.getElementById('pkgFeatures').value = pkg.features.join('\n');
+                document.getElementById('pkgPopular').checked = pkg.isPopular;
+            } else {
+                document.getElementById('priceModalTitle').textContent = "Add New Package";
+                document.getElementById('pricingForm').reset();
+                document.getElementById('pkgId').value = '';
+            }
+        }
+
+        function closePriceModal() { document.getElementById('priceModal').classList.add('hidden'); }
+
+        function savePricingPackage(e) {
+            e.preventDefault();
+            if (!isAdmin || isClientView) return;
+            const id = document.getElementById('pkgId').value;
+            const badge = document.getElementById('pkgBadge').value;
+            const title = document.getElementById('pkgTitle').value;
+            const price = document.getElementById('pkgPrice').value;
+            const target = document.getElementById('pkgTarget').value;
+            const featuresRaw = document.getElementById('pkgFeatures').value;
+            const isPopular = document.getElementById('pkgPopular').checked;
+
+            const features = featuresRaw.split('\n').filter(f => f.trim() !== '');
+
+            let data = getPricingStorage();
+            if (id) {
+                data = data.map(item => item.id === id ? { id, badge, title, price, target, isPopular, features } : item);
+            } else {
+                data.push({ id: Date.now().toString(), badge, title, price, target, isPopular, features });
+            }
+
+            localStorage.setItem('directorG_pricing_v2', JSON.stringify(data));
+            closePriceModal();
+            renderPricing();
+        }
+
+        function editPricingPackage(id) {
+            const data = getPricingStorage();
+            const targetPkg = data.find(p => p.id === id);
+            if (targetPkg) openPriceModal(targetPkg);
+        }
+
+        function deletePricingPackage(id) {
+            if (!isAdmin || isClientView) return;
+            if (confirm('Delete this package?')) {
+                let data = getPricingStorage();
+                data = data.filter(p => p.id !== id);
+                localStorage.setItem('directorG_pricing_v2', JSON.stringify(data));
+                renderPricing();
+            }
+        }
+
+        // PORTFOLIO LOGIC
+        const initialPortfolio = [
+            { id: '1', title: 'Official Commercial Brand Campaign', category: 'commercial', src: 'https://www.youtube.com/embed/tgbNymZ7vqY', desc: 'Commercial Directing & Color Grading' },
+            { id: '2', title: 'Cinematic Wedding Film Highlight', category: 'wedding', src: 'https://www.youtube.com/embed/tgbNymZ7vqY', desc: 'Romantic & Emotional Storytelling' }
+        ];
+
+        function getStorage() {
+            const stored = localStorage.getItem('directorG_portfolio_v5');
+            if (!stored) {
+                localStorage.setItem('directorG_portfolio_v5', JSON.stringify(initialPortfolio));
+                return initialPortfolio;
+            }
+            return JSON.parse(stored);
+        }
+
+        function formatVideoUrl(url) {
+            if (!url) return '';
+            if (url.includes('drive.google.com')) {
+                let fileId = '';
+                if (url.includes('/file/d/')) fileId = url.split('/file/d/')[1].split('/')[0];
+                else if (url.includes('id=')) fileId = new URLSearchParams(url.split('?')[1]).get('id');
+                if (fileId) return `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+            let videoId = '';
+            if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
+            else if (url.includes('youtube.com/shorts/')) videoId = url.split('youtube.com/shorts/')[1].split('?')[0];
+            else if (url.includes('youtube.com/watch')) videoId = new URLSearchParams(url.split('?')[1]).get('v');
+            else if (url.includes('youtube.com/embed/')) return url;
+            return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+        }
+
+        let currentFilter = 'all';
+
+        function renderPortfolio() {
+            const grid = document.getElementById('portfolioGrid');
+            const data = getStorage();
+            grid.innerHTML = '';
+
+            const filteredData = currentFilter === 'all' 
+                ? data 
+                : data.filter(item => item.category === currentFilter);
+
+            if (filteredData.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 text-sm">${dictionary[currentLang].emptyPort}</div>`;
+                return;
+            }
+
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-brandCard p-4 rounded-xl border border-slate-200 dark:border-slate-800/80 shadow-lg flex flex-col justify-between';
+
+                const embedUrl = formatVideoUrl(item.src);
+                const mediaHTML = `<iframe class="w-full h-full rounded-lg" src="${embedUrl}" title="${item.title}" allowfullscreen></iframe>`;
+
+                const deleteBtnHTML = (isAdmin && !isClientView) 
+                    ? `<button onclick="deleteItem('${item.id}')" class="text-xs text-rose-500 font-semibold transition">Delete</button>`
+                    : '';
+
+                card.innerHTML = `
+                    <div>
+                        <div class="aspect-video w-full rounded-lg overflow-hidden bg-black mb-3">${mediaHTML}</div>
+                        <div class="flex items-center justify-between gap-2">
+                            <span class="bg-indigo-100 dark:bg-brandRed/15 text-indigo-600 dark:text-brandRed font-semibold text-[10px] uppercase px-2 py-0.5 rounded border border-indigo-200 dark:border-brandRed/30">${item.category}</span>
+                            ${deleteBtnHTML}
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mt-2">${item.title}</h3>
+                        ${item.desc ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${item.desc}</p>` : ''}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(category, btn) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-indigo-600', 'dark:bg-brandRed', 'text-white');
+                b.classList.add('bg-slate-200', 'dark:bg-slate-800/80', 'text-slate-700', 'dark:text-slate-300');
+            });
+            btn.classList.remove('bg-slate-200', 'dark:bg-slate-800/80', 'text-slate-700', 'dark:text-slate-300');
+            btn.classList.add('bg-indigo-600', 'dark:bg-brandRed', 'text-white');
+            renderPortfolio();
+        }
+
+        function openModal() { if (isAdmin && !isClientView) document.getElementById('uploadModal').classList.remove('hidden'); }
+        function closeModal() { document.getElementById('uploadModal').classList.add('hidden'); document.getElementById('portfolioForm').reset(); }
+
+        function savePortfolio(e) {
+            e.preventDefault();
+            if (!isAdmin || isClientView) return;
+            const title = document.getElementById('videoTitle').value;
+            const category = document.getElementById('videoCategory').value;
+            const desc = document.getElementById('videoDesc').value;
+            const rawUrl = document.getElementById('videoUrl').value;
+
+            if (!rawUrl) return alert('Please enter video link!');
+            const newItem = { id: Date.now().toString(), title, category, src: rawUrl, desc };
+            
+            const data = getStorage();
+            data.unshift(newItem);
+            localStorage.setItem('directorG_portfolio_v5', JSON.stringify(data));
+            closeModal();
+            renderPortfolio();
+        }
+
+        function deleteItem(id) {
+            if (!isAdmin || isClientView) return;
+            if (confirm('Delete this item?')) {
+                let data = getStorage();
+                data = data.filter(item => item.id !== id);
+                localStorage.setItem('directorG_portfolio_v5', JSON.stringify(data));
+                renderPortfolio();
+            }
+        }
+
+        // Initial Calls
+        document.getElementById('txt-blog-content').innerHTML = dictionary[currentLang].blogContent;
+        renderPricing();
+        renderPortfolio();
+    </script>
+</body>
+</html>
