@@ -22,190 +22,338 @@
                         brandCard: '#12151e',
                         brandRed: '#e05260',
                         brandAccent: '#f43f5e',
-                        brandGold: '#d97706'
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Custom Smooth Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
 </head>
 <body class="bg-slate-50 dark:bg-brandDark text-slate-800 dark:text-slate-200 font-sans min-h-screen flex flex-col justify-between transition-colors duration-300" id="bodyRoot">
 
     <!-- HEADER / NAVBAR -->
-    <header class="bg-white/90 dark:bg-brandDark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 sticky top-0 z-50">
+    <header class="bg-white/90 dark:bg-brandDark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 sticky top-0 z-40 transition-all-custom">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <span class="text-2xl font-black tracking-widest text-indigo-600 dark:text-brandRed">G CREATIVE</span>
+            <div class="flex items-center space-x-2 cursor-pointer group" onclick="switchPage('home')">
+                <span class="text-2xl font-black tracking-widest text-indigo-600 dark:text-brandRed group-hover:scale-105 transition-transform">G CREATIVE</span>
             </div>
             
-            <div class="flex items-center space-x-2.5">
-                <!-- Status Mode Indicator -->
-                <span id="adminBadge" class="hidden bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2 py-1 rounded">MODE ADMIN</span>
+            <div class="flex items-center space-x-3">
+                <span id="adminBadge" class="hidden bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2 py-1 rounded animate-pulse">ADMIN ACTIVE</span>
 
-                <!-- Theme Toggle (Light / Dark) -->
-                <button onclick="toggleTheme()" class="bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 p-2 rounded-lg text-sm border border-slate-200 dark:border-slate-700 transition" title="Toggle Theme">
+                <!-- Theme Toggle -->
+                <button onclick="toggleTheme()" class="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg text-sm border border-slate-200 dark:border-slate-700 hover:scale-110 transition-transform">
                     <span id="themeIcon">☀️</span>
                 </button>
 
-                <!-- Language Switcher (Default ENG) -->
-                <button onclick="toggleLanguage()" class="bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold px-2.5 py-1.5 rounded-lg text-xs border border-slate-200 dark:border-slate-700 flex items-center gap-1 transition">
+                <!-- Language Toggle -->
+                <button onclick="toggleLanguage()" class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white font-bold px-2.5 py-1.5 rounded-lg text-xs border border-slate-200 dark:border-slate-700 hover:scale-105 transition-transform">
                     <span id="langLabelActive" class="text-indigo-600 dark:text-brandRed">ENG</span> | <span id="langLabelInactive" class="text-slate-400">ID</span>
                 </button>
-                
-                <button id="installBtn" class="hidden bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1.5 shadow-lg">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Install Apps
+
+                <!-- Burger Menu Toggle Button -->
+                <button onclick="toggleBurgerMenu()" class="p-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-900 dark:text-white transition-transform hover:scale-105">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
-        <span id="txt-hero-badge" class="bg-indigo-100 dark:bg-brandRed/15 text-indigo-600 dark:text-brandRed font-semibold text-xs tracking-widest uppercase px-3.5 py-1 rounded-full border border-indigo-200 dark:border-brandRed/30">Official Portfolio & Service</span>
-        <h1 id="txt-hero-title" class="text-3xl md:text-6xl font-extrabold text-slate-900 dark:text-white mt-4 mb-4 leading-tight">
-            Transforming Your Vision Into <span class="text-indigo-600 dark:text-brandRed">Cinematic Visuals</span>
-        </h1>
-        <p id="txt-hero-desc" class="text-slate-600 dark:text-slate-300 text-sm md:text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
-            Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.
-        </p>
-        <div class="flex flex-wrap justify-center gap-3">
-            <!-- Admin Controls Container -->
-            <div id="adminActionContainer" class="hidden flex flex-wrap justify-center gap-2">
-                <button onclick="openModal()" class="bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                    <span id="txt-btn-upload">Add Portfolio</span>
-                </button>
-                <button onclick="openPriceModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                    🏷️ <span id="txt-btn-addpkg">Add Package</span>
-                </button>
-                <button onclick="generateClientLink()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-4 py-2.5 rounded-lg transition shadow-lg flex items-center gap-1.5 text-xs">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                    <span id="txt-btn-sharelink">Create Client Link</span>
-                </button>
-            </div>
-            
-            <button onclick="directWA()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-lg transition flex items-center gap-2 shadow-lg text-sm">
-                <span id="txt-btn-discuss">Discuss Project (WhatsApp)</span>
-            </button>
-            <button onclick="directIG()" class="bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:opacity-90 text-white font-bold px-5 py-2.5 rounded-lg transition flex items-center gap-2 shadow-lg text-sm">
-                <span>Instagram @vgioo_</span>
+    <!-- FULLSCREEN BURGER MENU (MOOILUX STYLE WITH ANIMATION) -->
+    <div id="burgerOverlay" class="fixed inset-0 bg-brandDark/98 backdrop-blur-2xl z-50 hidden flex flex-col justify-center items-center transition-all duration-500">
+        <button onclick="toggleBurgerMenu()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2 hover:rotate-90 transition-transform duration-300">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <nav class="text-center space-y-6 md:space-y-8 text-2xl md:text-4xl font-extrabold tracking-wide">
+            <div class="transform hover:translate-x-2 transition-transform"><a href="#" onclick="switchPage('home')" class="hover:text-brandRed transition">Home</a></div>
+            <div class="transform hover:translate-x-2 transition-transform"><a href="#" onclick="switchPage('pricing')" class="hover:text-brandRed transition">Services & Rates</a></div>
+            <div class="transform hover:translate-x-2 transition-transform"><a href="#" onclick="switchPage('portfolio')" class="hover:text-brandRed transition">Portfolio</a></div>
+            <div class="transform hover:translate-x-2 transition-transform"><a href="#" onclick="switchPage('blog')" class="hover:text-brandRed transition">Journal</a></div>
+            <div class="transform hover:translate-x-2 transition-transform"><a href="#" onclick="switchPage('contact')" class="hover:text-brandRed transition">Contact</a></div>
+        </nav>
+
+        <div class="mt-12 flex gap-4">
+            <button onclick="toggleLanguage()" class="px-4 py-2 border border-slate-700 rounded-full text-sm text-slate-300 font-semibold hover:border-brandRed transition">
+                Switch Language (<span id="menuLangBtn">ENG</span>)
             </button>
         </div>
-    </section>
+    </div>
 
-    <!-- PRICING PACKAGES SECTION -->
-    <section id="pricing" class="max-w-6xl mx-auto px-6 py-12">
-        <div class="text-center mb-12">
-            <span class="text-indigo-600 dark:text-brandRed text-xs font-bold uppercase tracking-wider">Services & Rates</span>
-            <h2 id="txt-price-title" class="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white mt-1">Production Packages</h2>
-            <p id="txt-price-sub" class="text-slate-500 dark:text-slate-400 text-sm mt-1">Select a production package tailored to your branding or project needs</p>
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-6xl mx-auto px-6 py-8 flex-grow w-full">
+
+        <!-- SECTION: HOME / HERO WITH ANIMATION -->
+        <div id="page-home" class="page-section animate-fade-in-up">
+            <section id="heroSection" class="relative py-20 md:py-32 text-center rounded-3xl bg-cover bg-center overflow-hidden transition-all duration-500 shadow-2xl my-4 px-6 border border-slate-200 dark:border-slate-800">
+                <div id="heroOverlay" class="absolute inset-0 bg-black transition-all duration-300" style="opacity: 0.6;"></div>
+
+                <div class="relative z-10 max-w-3xl mx-auto text-white">
+                    <span class="bg-brandRed/30 text-white font-semibold text-xs tracking-widest uppercase px-3.5 py-1 rounded-full border border-brandRed/50 shadow animate-pulse">Official Portfolio & Service</span>
+                    <h1 class="text-3xl md:text-6xl font-extrabold mt-4 mb-4 leading-tight drop-shadow-md">
+                        Transforming Your Vision Into <span class="text-brandRed">Cinematic Visuals</span>
+                    </h1>
+                    <p class="text-slate-200 text-sm md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow">
+                        Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <button onclick="switchPage('portfolio')" class="bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg text-sm">
+                            Explore Portfolio
+                        </button>
+                        <button onclick="switchPage('pricing')" class="bg-slate-800/80 backdrop-blur hover:bg-slate-700 text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg text-sm border border-slate-700">
+                            View Rates & Packages
+                        </button>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div id="pricingGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Dynamic Pricing Cards Rendered Here -->
+        <!-- SECTION: PRICING PACKAGES -->
+        <div id="page-pricing" class="page-section hidden animate-fade-in-up">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <span class="text-indigo-600 dark:text-brandRed text-xs font-bold uppercase tracking-wider">Services & Rates</span>
+                    <h2 class="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white mt-1">Production Packages</h2>
+                </div>
+                <button onclick="openPriceModal()" id="adminAddPriceBtn" class="hidden bg-emerald-600 text-white px-3 py-2 rounded-lg text-xs font-bold hover:bg-emerald-500 transition">+ Add Package</button>
+            </div>
+            <div id="pricingGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
         </div>
-    </section>
 
-    <!-- BLOG MARKETING SECTION -->
-    <section id="blog" class="max-w-4xl mx-auto px-6 py-8">
-        <div class="bg-white dark:bg-brandCard p-6 md:p-10 rounded-2xl border border-slate-200 dark:border-slate-800/80 shadow-xl">
-            <span id="txt-blog-tag" class="text-indigo-600 dark:text-brandRed text-xs font-bold uppercase tracking-wider">Blog & Strategy</span>
-            <h2 id="txt-blog-title" class="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mt-2 mb-4">
-                Why High-End Cinema Visuals Are Key to Personal & Brand Awareness?
-            </h2>
-            <div id="txt-blog-content" class="space-y-4 text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
-                <!-- Content set by JavaScript dictionary -->
+        <!-- SECTION: PORTFOLIO -->
+        <div id="page-portfolio" class="page-section hidden animate-fade-in-up">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white">Portfolio Showcase</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Switch between Video & Photography works</p>
+                </div>
+
+                <div class="flex bg-slate-200 dark:bg-slate-800 p-1 rounded-xl shadow-inner">
+                    <button onclick="switchPortTab('video')" id="tabBtnVideo" class="px-5 py-2 rounded-lg text-xs font-bold transition-all bg-indigo-600 dark:bg-brandRed text-white shadow">Video Works</button>
+                    <button onclick="switchPortTab('photo')" id="tabBtnPhoto" class="px-5 py-2 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-300">Photography</button>
+                </div>
+            </div>
+
+            <div id="adminPortControls" class="hidden mb-6 flex gap-3">
+                <button onclick="openModal()" class="bg-indigo-600 dark:bg-brandRed text-white px-4 py-2 rounded-lg text-xs font-bold hover:opacity-90 transition">+ Add Video Work</button>
+                <button onclick="openPhotoModal()" class="bg-purple-600 text-white px-4 py-2 rounded-lg text-xs font-bold hover:opacity-90 transition">+ Add Photo Work</button>
+            </div>
+
+            <div id="videoCategoryFilters" class="flex flex-wrap gap-2 mb-6">
+                <button onclick="filterCategory('all', this)" class="filter-btn bg-indigo-600 dark:bg-brandRed text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105">All</button>
+                <button onclick="filterCategory('commercial', this)" class="filter-btn bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105">Commercial</button>
+                <button onclick="filterCategory('wedding', this)" class="filter-btn bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105">Wedding Film</button>
+                <button onclick="filterCategory('travel', this)" class="filter-btn bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105">Travel / Vlog</button>
+                <button onclick="filterCategory('mv', this)" class="filter-btn bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105">Music Video</button>
+                <button onclick="filterCategory('company', this)" class="filter-btn bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105">Company Profile</button>
+            </div>
+
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            <div id="photoGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 hidden"></div>
+        </div>
+
+        <!-- SECTION: JOURNAL -->
+        <div id="page-blog" class="page-section hidden animate-fade-in-up">
+            <div id="journalContainer" class="max-w-4xl mx-auto space-y-8"></div>
+        </div>
+
+        <!-- SECTION: CONTACT -->
+        <div id="page-contact" class="page-section hidden animate-fade-in-up">
+            <div class="max-w-2xl mx-auto bg-gradient-to-r from-indigo-50 dark:from-slate-900/60 via-white dark:via-brandDark to-indigo-50 dark:to-slate-900/60 p-8 rounded-2xl border border-indigo-200 dark:border-brandRed/30 text-center shadow-2xl">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2">Book / Consult with Director G</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-sm mb-6">Connect directly via official WhatsApp, Instagram, or Email.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="directWA()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-3 rounded-lg transition-all transform hover:-translate-y-0.5 shadow flex items-center justify-center gap-2">
+                        WhatsApp: <span id="displayWa">6282187287349</span>
+                    </button>
+                    <button onclick="directIG()" class="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 text-white font-bold px-5 py-3 rounded-lg transition-all transform hover:-translate-y-0.5 shadow flex items-center justify-center gap-2">
+                        Instagram: <span id="displayIg">@vgioo_</span>
+                    </button>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- PORTOFOLIO SECTION -->
-    <section id="portfolio" class="max-w-6xl mx-auto px-6 py-12">
-        <div class="text-center mb-8">
-            <h2 id="txt-port-title" class="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white">Video Portfolio Gallery</h2>
-            <p id="txt-port-sub" class="text-slate-500 dark:text-slate-400 text-sm mt-1">Filter by the project category you want to view</p>
-            
-            <!-- Category Filter Buttons -->
-            <div class="flex flex-wrap justify-center gap-2 md:gap-3 mt-6">
-                <button onclick="filterCategory('all', this)" id="cat-all" class="filter-btn bg-indigo-600 dark:bg-brandRed text-white px-4 py-2 rounded-lg text-xs md:text-sm font-semibold">All</button>
-                <button onclick="filterCategory('commercial', this)" id="cat-commercial" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Commercial / Ads</button>
-                <button onclick="filterCategory('wedding', this)" id="cat-wedding" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Wedding Film</button>
-                <button onclick="filterCategory('travel', this)" id="cat-travel" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Travel & Vlog</button>
-                <button onclick="filterCategory('mv', this)" id="cat-mv" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Music Video</button>
-                <button onclick="filterCategory('company', this)" id="cat-company" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Company Profile</button>
-                <button onclick="filterCategory('reels', this)" id="cat-reels" class="filter-btn bg-slate-200 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-xs md:text-sm font-semibold hover:bg-slate-300 dark:hover:bg-slate-700">Shorts / Reels</button>
-            </div>
-        </div>
+    </main>
 
-        <!-- Portfolio Grid Container -->
-        <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Dynamic Content Will Render Here -->
-        </div>
-    </section>
+    <!-- FLOATING WHATSAPP BUTTON (DENGAN EFEK PULSE & HOVER) -->
+    <a href="#" onclick="directWA()" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-400 text-white p-4 rounded-full shadow-2xl transition-all duration-300 z-40 transform hover:scale-110 flex items-center justify-center animate-bounce" title="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    </a>
 
-    <!-- CONTACT DIRECT SECTION -->
-    <section class="max-w-4xl mx-auto px-6 py-12 mb-8">
-        <div class="bg-gradient-to-r from-indigo-50 dark:from-slate-900/60 via-white dark:via-brandDark to-indigo-50 dark:to-slate-900/60 p-8 rounded-2xl border border-indigo-200 dark:border-brandRed/30 text-center shadow-xl">
-            <h2 id="txt-contact-title" class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2">Book / Consult with Director G</h2>
-            <p id="txt-contact-desc" class="text-slate-600 dark:text-slate-300 text-sm mb-6 max-w-lg mx-auto">Connect directly via official WhatsApp, Instagram, or Email.</p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <button onclick="directWA()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                    WhatsApp
-                </button>
-                <button onclick="directIG()" class="w-full sm:w-auto bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:opacity-90 text-white font-bold px-5 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
-                    Instagram: @vgioo_
-                </button>
-                <button onclick="directEmail()" class="w-full sm:w-auto bg-indigo-600 dark:bg-brandRed hover:opacity-90 text-white font-bold px-5 py-3 rounded-lg transition flex items-center justify-center gap-2 shadow">
-                    Email
-                </button>
-            </div>
-        </div>
-    </section>
+    <!-- ADMIN FLOATING BUTTON -->
+    <div class="fixed bottom-6 left-6 z-40 flex items-center gap-2">
+        <button onclick="toggleAdminMode()" id="adminToggleBtn" class="bg-slate-900/90 hover:bg-slate-800 text-white p-3 rounded-full border border-slate-700 shadow-xl transition-all hover:scale-105 text-xs flex items-center gap-1.5">
+            <span id="lockIcon">🔒</span> <span id="adminBtnText">Admin</span>
+        </button>
+        <button onclick="openSettingsModal()" id="adminSettingsBtn" class="hidden bg-indigo-600 hover:bg-indigo-500 text-white p-3 rounded-full shadow-xl transition-all hover:scale-105 text-xs font-bold" title="Setting Admin">
+            ⚙️ Setting Admin
+        </button>
+    </div>
 
     <!-- FOOTER -->
     <footer class="bg-slate-100 dark:bg-brandDark py-6 border-t border-slate-200 dark:border-slate-800/80 text-center text-xs text-slate-500">
-        <p>&copy; 2026 G CREATIVE (Director G). All Rights Reserved. | Instagram: <a href="https://instagram.com/vgioo_" target="_blank" class="text-indigo-600 dark:text-brandRed font-semibold hover:underline">@vgioo_</a></p>
+        <p>&copy; 2026 G CREATIVE (Director G). All Rights Reserved. | Instagram: <a href="https://instagram.com/vgioo_" id="footerIgLink" target="_blank" class="text-indigo-600 dark:text-brandRed font-semibold hover:underline">@vgioo_</a></p>
     </footer>
 
-    <!-- ADMIN TOGGLE FLOATING BUTTON -->
-    <button onclick="toggleAdminMode()" id="adminToggleBtn" class="fixed bottom-4 right-4 bg-slate-900/90 dark:bg-slate-900/90 hover:bg-slate-800 text-white p-3 rounded-full border border-slate-700 shadow-2xl transition z-40 flex items-center gap-2 text-xs">
-        <span id="lockIcon">🔒</span> <span id="adminBtnText">Admin Mode</span>
-    </button>
+    <!-- COMPREHENSIVE ADMIN SETTINGS MODAL -->
+    <div id="settingsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-lg rounded-2xl p-6 relative shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeSettingsModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Comprehensive Admin Settings</h3>
+            
+            <form onsubmit="saveAdminSettings(event)" class="space-y-5 text-xs">
+                <!-- Kontak Section -->
+                <div class="border-b border-slate-200 dark:border-slate-800 pb-4 space-y-3">
+                    <h4 class="font-bold text-indigo-600 dark:text-brandRed uppercase">1. Pengaturan Kontak</h4>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Nomor WhatsApp</label>
+                        <input type="text" id="settingWa" required class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Username Instagram</label>
+                        <input type="text" id="settingIg" required class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Email Resmi</label>
+                        <input type="email" id="settingEmail" required class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    </div>
+                </div>
 
-    <!-- MODAL FORM PRICING PACKAGE (ADMIN ONLY) -->
+                <!-- Hero Background Section -->
+                <div class="border-b border-slate-200 dark:border-slate-800 pb-4 space-y-3">
+                    <h4 class="font-bold text-indigo-600 dark:text-brandRed uppercase">2. Hero Background & Brightness</h4>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Upload File Gambar</label>
+                        <input type="file" id="settingBgFile" accept="image/*" class="w-full text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 dark:file:bg-brandRed file:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Atau Link URL Gambar</label>
+                        <input type="text" id="settingBgUrl" placeholder="https://..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Overlay Brightness (0.1 - 0.9)</label>
+                        <div class="flex items-center gap-3">
+                            <input type="range" id="settingOpacity" min="0.1" max="0.9" step="0.05" value="0.6" class="w-full accent-brandRed" oninput="document.getElementById('opacityVal').textContent = this.value">
+                            <span id="opacityVal" class="font-bold text-sm">0.6</span>
+                        </div>
+                    </div>
+                    <button type="button" onclick="resetHeroBackground()" class="text-xs text-rose-500 font-semibold hover:underline">Reset Background Hero</button>
+                </div>
+
+                <!-- Journal Management Section -->
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-indigo-600 dark:text-brandRed uppercase">3. Kelola Artikel Jurnal / Blog</h4>
+                        <button type="button" onclick="openJournalModal()" class="bg-emerald-600 text-white px-2.5 py-1 rounded text-[11px] font-bold">+ Tambah Artikel</button>
+                    </div>
+                    <div id="adminJournalList" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
+                </div>
+
+                <div class="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <button type="button" onclick="closeSettingsModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
+                    <button type="submit" class="px-5 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg hover:opacity-90 transition">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL ADD/EDIT JOURNAL ARTICLE -->
+    <div id="journalModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="closeJournalModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <h3 id="journalModalTitle" class="text-xl font-bold text-slate-900 dark:text-white mb-4">Tambah Artikel Jurnal</h3>
+            
+            <form onsubmit="saveJournalArticle(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="journalId">
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Kategori / Tag</label>
+                    <input type="text" id="journalTag" required placeholder="Journal & Strategy" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Judul Artikel</label>
+                    <input type="text" id="journalTitle" required placeholder="Judul artikel jurnal..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Isi Artikel</label>
+                    <textarea id="journalContent" rows="5" required placeholder="Tulis isi paragraf artikel di sini..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none"></textarea>
+                </div>
+                <div class="flex justify-end gap-2 pt-3">
+                    <button type="button" onclick="closeJournalModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
+                    <button type="submit" class="px-5 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg">Simpan Artikel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL FORM PHOTO PORTFOLIO -->
+    <div id="photoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
+            <button onclick="closePhotoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Add Photo Work</h3>
+            
+            <form onsubmit="savePhotoPortfolio(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Photo Title</label>
+                    <input type="text" id="photoTitle" required placeholder="Lookbook Photography" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Image Link / URL</label>
+                    <input type="text" id="photoUrl" required placeholder="https://..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                </div>
+                <div class="flex justify-end gap-2 pt-3">
+                    <button type="button" onclick="closePhotoModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
+                    <button type="submit" class="px-5 py-2 bg-purple-600 text-white font-semibold rounded-lg">Save Photo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL FORM PRICING PACKAGE -->
     <div id="priceModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-md rounded-2xl p-6 relative shadow-2xl">
-            <button onclick="closePriceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 dark:hover:text-white">✕</button>
-            <h3 id="priceModalTitle" class="text-xl font-bold text-slate-900 dark:text-white mb-4">Add / Edit Package</h3>
+            <button onclick="closePriceModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Add / Edit Package</h3>
             
             <form id="pricingForm" onsubmit="savePricingPackage(event)" class="space-y-3 text-xs">
                 <input type="hidden" id="pkgId">
                 <div>
                     <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Badge Name</label>
-                    <input type="text" id="pkgBadge" required placeholder="e.g. BASIC, PRO BRAND, CORPORATE" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    <input type="text" id="pkgBadge" required placeholder="BASIC" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
                 </div>
                 <div>
                     <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Package Title</label>
-                    <input type="text" id="pkgTitle" required placeholder="e.g. Commercial / Travel Film" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    <input type="text" id="pkgTitle" required placeholder="Commercial Film" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
                 </div>
                 <div>
                     <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Price Text</label>
-                    <input type="text" id="pkgPrice" required placeholder="e.g. Starting from $300 or IDR 4.5M" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
-                </div>
-                <div>
-                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Audience Description</label>
-                    <input type="text" id="pkgTarget" placeholder="e.g. Suitable for startups & local brands" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
+                    <input type="text" id="pkgPrice" required placeholder="4.5M" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none">
                 </div>
                 <div>
                     <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Features (One per line)</label>
-                    <textarea id="pkgFeatures" rows="4" required placeholder="Duration: Max 2 mins&#10;1-2 Production Days&#10;Color Grading" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none"></textarea>
+                    <textarea id="pkgFeatures" rows="4" required class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-slate-900 dark:text-white focus:outline-none"></textarea>
                 </div>
                 <div class="flex items-center gap-2 py-1">
                     <input type="checkbox" id="pkgPopular" class="rounded">
-                    <label for="pkgPopular" class="font-semibold text-slate-700 dark:text-slate-300">Highlight as "MOST POPULAR"</label>
+                    <label for="pkgPopular" class="font-semibold text-slate-700 dark:text-slate-300">Highlight "MOST POPULAR"</label>
                 </div>
                 <div class="flex justify-end gap-2 pt-3">
                     <button type="button" onclick="closePriceModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg">Cancel</button>
@@ -215,40 +363,34 @@
         </div>
     </div>
 
-    <!-- MODAL FORM TAMBAH PORTOFOLIO -->
+    <!-- MODAL FORM TAMBAH VIDEO PORTOFOLIO -->
     <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white dark:bg-brandCard border border-slate-200 dark:border-slate-800 w-full max-w-lg rounded-2xl p-6 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 dark:hover:text-white">✕</button>
-            <h3 id="txt-modal-title" class="text-xl font-bold text-slate-900 dark:text-white mb-4">Add New Portfolio Work</h3>
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Add New Video Work</h3>
             
-            <form id="portfolioForm" onsubmit="savePortfolio(event)" class="space-y-4">
+            <form onsubmit="savePortfolio(event)" class="space-y-4">
                 <div>
-                    <label id="txt-modal-lbl-title" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video / Project Title</label>
-                    <input type="text" id="videoTitle" required placeholder="e.g. Cinematic Wedding Video of Alex & Sarah" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video Title</label>
+                    <input type="text" id="videoTitle" required class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
                 </div>
                 <div>
-                    <label id="txt-modal-lbl-cat" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video Category</label>
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video Category</label>
                     <select id="videoCategory" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
                         <option value="commercial">Commercial / Ads</option>
                         <option value="wedding">Wedding Film</option>
                         <option value="travel">Travel & Vlog</option>
                         <option value="mv">Music Video</option>
                         <option value="company">Company Profile</option>
-                        <option value="reels">Shorts / Reels</option>
                     </select>
                 </div>
                 <div>
-                    <label id="txt-modal-lbl-src" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video Source Link</label>
-                    <input type="text" id="videoUrl" placeholder="Paste YouTube link or Google Drive share link here" class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
-                    <p id="txt-modal-yt-note" class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">*Supports YouTube & Google Drive links (Ensure Drive access is set to 'Anyone with the link').</p>
-                </div>
-                <div>
-                    <label id="txt-modal-lbl-desc" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Short Description (Optional)</label>
-                    <textarea id="videoDesc" rows="2" placeholder="Project details, role, equipment used..." class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none"></textarea>
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Video Link (YouTube / Google Drive)</label>
+                    <input type="text" id="videoUrl" required class="w-full bg-slate-50 dark:bg-brandDark border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white focus:outline-none">
                 </div>
                 <div class="flex justify-end gap-2 pt-2">
-                    <button type="button" onclick="closeModal()" id="txt-modal-cancel" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm">Cancel</button>
-                    <button type="submit" id="txt-modal-submit" class="px-5 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg text-sm">Save Work</button>
+                    <button type="button" onclick="closeModal()" class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm">Cancel</button>
+                    <button type="submit" class="px-5 py-2 bg-indigo-600 dark:bg-brandRed text-white font-semibold rounded-lg text-sm">Save Work</button>
                 </div>
             </form>
         </div>
@@ -256,149 +398,185 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const isClientView = urlParams.get('mode') === 'client';
-
-        if (isClientView) {
-            document.getElementById('adminToggleBtn').style.display = 'none';
+        const defaultSettings = { wa: "6282187287349", ig: "vgioo_", email: "GCreative@gmail.com", bg: "", opacity: "0.6" };
+        function getSettings() {
+            const stored = localStorage.getItem('directorG_settings_v2');
+            return stored ? JSON.parse(stored) : defaultSettings;
         }
 
-        // Theme Toggle Logic
+        function applySettingsUI() {
+            const s = getSettings();
+            document.getElementById('displayWa').textContent = s.wa;
+            document.getElementById('displayIg').textContent = "@" + s.ig;
+            const footerIg = document.getElementById('footerIgLink');
+            footerIg.href = `https://instagram.com/${s.ig}`;
+            footerIg.textContent = `@${s.ig}`;
+
+            const hero = document.getElementById('heroSection');
+            const overlay = document.getElementById('heroOverlay');
+            if (s.bg) {
+                hero.style.backgroundImage = `url('${s.bg}')`;
+            } else {
+                hero.style.backgroundImage = 'none';
+            }
+            overlay.style.opacity = s.opacity;
+        }
+        applySettingsUI();
+
+        const initialJournals = [
+            {
+                id: '1',
+                tag: 'Journal & Strategy',
+                title: 'Why High-End Cinema Visuals Are Key to Personal & Brand Awareness?',
+                content: 'Every moment or product holds unique emotion and appeal. Precise directing and character-driven editing make the difference between work that gets ignored and work that leaves a lasting impression.'
+            }
+        ];
+
+        function getJournalStorage() {
+            const stored = localStorage.getItem('directorG_journals_v1');
+            return stored ? JSON.parse(stored) : initialJournals;
+        }
+
+        function renderJournals() {
+            const container = document.getElementById('journalContainer');
+            const data = getJournalStorage();
+            container.innerHTML = '';
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-brandCard p-6 md:p-10 rounded-2xl border border-slate-200 dark:border-slate-800/80 shadow-xl relative transition-transform transform hover:-translate-y-1';
+                
+                const adminEdit = isAdmin ? `<div class="absolute top-6 right-6 flex gap-2"><button onclick="editJournal('${item.id}')" class="text-xs bg-slate-200 dark:bg-slate-800 px-2.5 py-1 rounded">Edit</button><button onclick="deleteJournal('${item.id}')" class="text-xs bg-rose-500/20 text-rose-500 px-2.5 py-1 rounded">Delete</button></div>` : '';
+
+                card.innerHTML = `
+                    ${adminEdit}
+                    <span class="text-indigo-600 dark:text-brandRed text-xs font-bold uppercase tracking-wider">${item.tag}</span>
+                    <h2 class="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mt-2 mb-4">${item.title}</h2>
+                    <div class="space-y-4 text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
+                        <p>${item.content}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderAdminJournalList() {
+            const list = document.getElementById('adminJournalList');
+            const data = getJournalStorage();
+            list.innerHTML = '';
+            data.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'flex justify-between items-center bg-slate-100 dark:bg-brandDark p-2 rounded border border-slate-200 dark:border-slate-800 text-[11px]';
+                row.innerHTML = `<span class="truncate max-w-[200px] font-semibold">${item.title}</span><div class="flex gap-1"><button type="button" onclick="editJournal('${item.id}')" class="bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded">Edit</button><button type="button" onclick="deleteJournal('${item.id}')" class="bg-rose-500/20 text-rose-500 px-2 py-0.5 rounded">Hapus</button></div>`;
+                list.appendChild(row);
+            });
+        }
+
+        function openJournalModal(item = null) {
+            document.getElementById('journalModal').classList.remove('hidden');
+            if (item) {
+                document.getElementById('journalModalTitle').textContent = "Edit Artikel Jurnal";
+                document.getElementById('journalId').value = item.id;
+                document.getElementById('journalTag').value = item.tag;
+                document.getElementById('journalTitle').value = item.title;
+                document.getElementById('journalContent').value = item.content;
+            } else {
+                document.getElementById('journalModalTitle').textContent = "Tambah Artikel Jurnal";
+                document.getElementById('journalId').value = '';
+                document.getElementById('journalTag').value = 'Journal & Strategy';
+                document.getElementById('journalTitle').value = '';
+                document.getElementById('journalContent').value = '';
+            }
+        }
+        function closeJournalModal() { document.getElementById('journalModal').classList.add('hidden'); }
+
+        function saveJournalArticle(e) {
+            e.preventDefault();
+            const id = document.getElementById('journalId').value;
+            const newItem = {
+                id: id || Date.now().toString(),
+                tag: document.getElementById('journalTag').value,
+                title: document.getElementById('journalTitle').value,
+                content: document.getElementById('journalContent').value
+            };
+            let data = getJournalStorage();
+            if (id) data = data.map(i => i.id === id ? newItem : i);
+            else data.unshift(newItem);
+            localStorage.setItem('directorG_journals_v1', JSON.stringify(data));
+            closeJournalModal();
+            renderJournals();
+            renderAdminJournalList();
+        }
+
+        function editJournal(id) {
+            const item = getJournalStorage().find(i => i.id === id);
+            if (item) openJournalModal(item);
+        }
+
+        function deleteJournal(id) {
+            if (confirm('Hapus artikel jurnal ini?')) {
+                let data = getJournalStorage().filter(i => i.id !== id);
+                localStorage.setItem('directorG_journals_v1', JSON.stringify(data));
+                renderJournals();
+                renderAdminJournalList();
+            }
+        }
+
+        function toggleBurgerMenu() { document.getElementById('burgerOverlay').classList.toggle('hidden'); }
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
+            const target = document.getElementById('page-' + pageId);
+            target.classList.remove('hidden');
+            target.classList.remove('animate-fade-in-up');
+            void target.offsetWidth; // Trigger reflow for animation restart
+            target.classList.add('animate-fade-in-up');
+            document.getElementById('burgerOverlay').classList.add('hidden');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
         let isDarkMode = true;
         function toggleTheme() {
             isDarkMode = !isDarkMode;
-            const htmlTag = document.documentElement;
-            const themeIcon = document.getElementById('themeIcon');
-            
-            if (isDarkMode) {
-                htmlTag.classList.add('dark');
-                themeIcon.textContent = '☀️';
-            } else {
-                htmlTag.classList.remove('dark');
-                themeIcon.textContent = '🌙';
-            }
+            document.documentElement.classList.toggle('dark');
+            document.getElementById('themeIcon').textContent = isDarkMode ? '☀️' : '🌙';
         }
 
-        // Default Language FIRST Time Load = ENG
         let currentLang = 'ENG';
-        const dictionary = {
-            ENG: {
-                heroBadge: "Official Portfolio & Service",
-                heroTitle: 'Transforming Your Vision Into <span class="text-indigo-600 dark:text-brandRed">Cinematic Visuals</span>',
-                heroDesc: "Professional visual directing & precision editing by Director G for Commercials, Weddings, Travel Vlogs, Music Videos, and Company Profiles.",
-                btnUpload: "Add Portfolio",
-                btnAddPkg: "Add Package",
-                btnShareLink: "Create Client Link",
-                btnDiscuss: "Discuss Project (WhatsApp)",
-                blogTag: "Blog & Strategy",
-                blogTitle: "Why High-End Cinema Visuals Are Key to Personal & Brand Awareness?",
-                blogContent: '<p>Every moment or product holds unique emotion and appeal. However, in the fast-paced era of short-form content, the difference between work that gets <strong>ignored</strong> and work that <strong>leaves a lasting impression</strong> comes down to <strong>precise Directing</strong> and <strong>character-driven Editing</strong>.</p><p>I am <strong>Director G</strong> from <strong>G CREATIVE</strong>, ready to guide and execute your vision—from emotional <em>Wedding Films</em>, scenic <em>Travel Vlogs</em>, high-converting <em>Commercial Ads</em>, to standout <em>Music Videos</em>.</p>',
-                portTitle: "Video Portfolio Gallery",
-                portSub: "Filter by the project category you want to view",
-                priceTitle: "Production Packages",
-                priceSub: "Select a production package tailored to your branding or project needs",
-                catAll: "All",
-                catCommercial: "Commercial / Ads",
-                catWedding: "Wedding Film",
-                catTravel: "Travel & Vlog",
-                catMv: "Music Video",
-                catCompany: "Company Profile",
-                catReels: "Shorts / Reels",
-                contactTitle: "Book / Consult with Director G",
-                contactDesc: "Connect directly via official WhatsApp, Instagram, or Email.",
-                modalTitle: "Add New Portfolio Work",
-                modalLblTitle: "Video / Project Title",
-                modalLblCat: "Video Category",
-                modalLblSrc: "Video Source Link",
-                modalYtNote: "*Supports YouTube & Google Drive links (Ensure Drive access is set to 'Anyone with the link').",
-                modalLblDesc: "Short Description (Optional)",
-                modalCancel: "Cancel",
-                modalSubmit: "Save Work",
-                emptyPort: "No portfolio items in this category yet."
-            },
-            ID: {
-                heroBadge: "Official Portfolio & Service",
-                heroTitle: 'Mengubah Cerita Anda Menjadi <span class="text-indigo-600 dark:text-brandRed">Visual Cinematic</span>',
-                heroDesc: "Pengarahan visual (directing) profesional & editing presisi oleh Director G untuk berbagai kebutuhan: Iklan, Wedding, Travel, Music Video, hingga Profil Perusahaan.",
-                btnUpload: "Tambah Portofolio",
-                btnAddPkg: "Tambah Paket",
-                btnShareLink: "Buat Link Klien",
-                btnDiscuss: "Diskusi Projek (WhatsApp)",
-                blogTag: "Blog & Strategy",
-                blogTitle: "Mengapa Visual Cinema Berkelas Kunci Utama Personal & Brand Awareness?",
-                blogContent: '<p>Setiap momen atau produk memiliki emosi dan daya tarik tersendiri. Namun, di era konten visual berdurasi singkat, perbedaan antara karya yang <strong>diabaikan</strong> dan yang <strong>membekas di ingatan</strong> ditentukan oleh <strong>Directing yang tepat</strong> dan <strong>Editing yang berkarakter</strong>.</p><p>Saya <strong>Director G</strong> dari <strong>G CREATIVE</strong>, siap membantu mengarahkan dan mengeksekusi konsep video Anda—mulai dari momen emosional seperti <em>Wedding Film</em>, keindahan alur <em>Travel Vlog</em>, promosi bisnis <em>Commercial Ads</em>, hingga kepribadian <em>Music Video</em>.</p>',
-                portTitle: "Galeri Portofolio Video",
-                portSub: "Filter berdasarkan jenis projek yang ingin Anda lihat",
-                priceTitle: "Paket Layanan Production Video",
-                priceSub: "Pilih paket produksi sesuai dengan kebutuhan branding atau projek Anda",
-                catAll: "Semua",
-                catCommercial: "Commercial / Ads",
-                catWedding: "Wedding Film",
-                catTravel: "Travel & Vlog",
-                catMv: "Music Video",
-                catCompany: "Company Profile",
-                catReels: "Shorts / Reels",
-                contactTitle: "Konsultasi / Booking Jadwal Director G",
-                contactDesc: "Klik tombol di bawah ini untuk langsung terhubung melalui WhatsApp, Instagram, atau Email resmi G CREATIVE.",
-                modalTitle: "Tambah Karya Portofolio Baru",
-                modalLblTitle: "Judul Video / Projek",
-                modalLblCat: "Kategori Video",
-                modalLblSrc: "Sumber Link Video",
-                modalYtNote: "*Mendukung link YouTube & Google Drive (Pastikan akses Drive diset 'Siapa saja yang memiliki link').",
-                modalLblDesc: "Deskripsi Singkat (Opsional)",
-                modalCancel: "Batal",
-                modalSubmit: "Simpan Karya",
-                emptyPort: "Belum ada portofolio di kategori ini."
-            }
-        };
-
         function toggleLanguage() {
             currentLang = currentLang === 'ENG' ? 'ID' : 'ENG';
             document.getElementById('langLabelActive').textContent = currentLang;
             document.getElementById('langLabelInactive').textContent = currentLang === 'ENG' ? 'ID' : 'ENG';
-
-            const t = dictionary[currentLang];
-            document.getElementById('txt-hero-badge').textContent = t.heroBadge;
-            document.getElementById('txt-hero-title').innerHTML = t.heroTitle;
-            document.getElementById('txt-hero-desc').textContent = t.heroDesc;
-            document.getElementById('txt-btn-upload').textContent = t.btnUpload;
-            document.getElementById('txt-btn-addpkg').textContent = t.btnAddPkg;
-            document.getElementById('txt-btn-sharelink').textContent = t.btnShareLink;
-            document.getElementById('txt-btn-discuss').textContent = t.btnDiscuss;
-            document.getElementById('txt-blog-tag').textContent = t.blogTag;
-            document.getElementById('txt-blog-title').textContent = t.blogTitle;
-            document.getElementById('txt-blog-content').innerHTML = t.blogContent;
-            document.getElementById('txt-port-title').textContent = t.portTitle;
-            document.getElementById('txt-port-sub').textContent = t.portSub;
-            document.getElementById('txt-price-title').textContent = t.priceTitle;
-            document.getElementById('txt-price-sub').textContent = t.priceSub;
-
-            document.getElementById('cat-all').textContent = t.catAll;
-            document.getElementById('cat-commercial').textContent = t.catCommercial;
-            document.getElementById('cat-wedding').textContent = t.catWedding;
-            document.getElementById('cat-travel').textContent = t.catTravel;
-            document.getElementById('cat-mv').textContent = t.catMv;
-            document.getElementById('cat-company').textContent = t.catCompany;
-            document.getElementById('cat-reels').textContent = t.catReels;
-
-            document.getElementById('txt-contact-title').textContent = t.contactTitle;
-            document.getElementById('txt-contact-desc').textContent = t.contactDesc;
-
-            renderPortfolio();
+            document.getElementById('menuLangBtn').textContent = currentLang;
         }
 
-        // Admin PIN Logic (1997)
+        function switchPortTab(tab) {
+            const btnV = document.getElementById('tabBtnVideo');
+            const btnP = document.getElementById('tabBtnPhoto');
+            const gridV = document.getElementById('portfolioGrid');
+            const gridP = document.getElementById('photoGrid');
+            const filtersV = document.getElementById('videoCategoryFilters');
+
+            if (tab === 'video') {
+                btnV.className = 'px-5 py-2 rounded-lg text-xs font-bold transition-all bg-indigo-600 dark:bg-brandRed text-white shadow';
+                btnP.className = 'px-5 py-2 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-300';
+                gridV.classList.remove('hidden'); gridP.classList.add('hidden'); filtersV.classList.remove('hidden');
+            } else {
+                btnP.className = 'px-5 py-2 rounded-lg text-xs font-bold transition-all bg-indigo-600 dark:bg-brandRed text-white shadow';
+                btnV.className = 'px-5 py-2 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-300';
+                gridP.classList.remove('hidden'); gridV.classList.add('hidden'); filtersV.classList.add('hidden');
+            }
+        }
+
         const ADMIN_PIN = "1997";
         let isAdmin = false;
 
         function toggleAdminMode() {
-            if (isClientView) return;
             if (isAdmin) {
                 isAdmin = false;
                 updateAdminUI();
                 alert('Exited Admin Mode.');
             } else {
-                const pin = prompt('Enter Admin PIN:');
+                const pin = prompt('Enter Admin PIN (1997):');
                 if (pin === ADMIN_PIN) {
                     isAdmin = true;
                     updateAdminUI();
@@ -409,329 +587,249 @@
 
         function updateAdminUI() {
             const badge = document.getElementById('adminBadge');
-            const adminActionContainer = document.getElementById('adminActionContainer');
             const btnText = document.getElementById('adminBtnText');
             const lockIcon = document.getElementById('lockIcon');
+            const adminAddPriceBtn = document.getElementById('adminAddPriceBtn');
+            const adminPortControls = document.getElementById('adminPortControls');
+            const adminSettingsBtn = document.getElementById('adminSettingsBtn');
 
             if (isAdmin) {
                 badge.classList.remove('hidden');
-                adminActionContainer.classList.remove('hidden');
+                adminAddPriceBtn.classList.remove('hidden');
+                adminPortControls.classList.remove('hidden');
+                adminSettingsBtn.classList.remove('hidden');
                 btnText.textContent = 'Exit Admin';
                 lockIcon.textContent = '🔓';
             } else {
                 badge.classList.add('hidden');
-                adminActionContainer.classList.add('hidden');
-                btnText.textContent = 'Admin Mode';
+                adminAddPriceBtn.classList.add('hidden');
+                adminPortControls.classList.add('hidden');
+                adminSettingsBtn.classList.add('hidden');
+                btnText.textContent = 'Admin';
                 lockIcon.textContent = '🔒';
             }
-            renderPricing();
-            renderPortfolio();
+            renderPricing(); renderPortfolio(); renderPhotoPortfolio(); renderJournals(); renderAdminJournalList();
         }
 
-        function generateClientLink() {
-            const clientUrl = window.location.origin + window.location.pathname + '?mode=client';
-            navigator.clipboard.writeText(clientUrl).then(() => {
-                alert('Client link copied to clipboard!\n\n' + clientUrl);
-            }).catch(() => {
-                prompt('Copy this client link:', clientUrl);
-            });
+        function openSettingsModal() {
+            const s = getSettings();
+            document.getElementById('settingWa').value = s.wa;
+            document.getElementById('settingIg').value = s.ig;
+            document.getElementById('settingEmail').value = s.email;
+            document.getElementById('settingBgUrl').value = s.bg.startsWith('data:') ? '' : s.bg;
+            document.getElementById('settingOpacity').value = s.opacity;
+            document.getElementById('opacityVal').textContent = s.opacity;
+            renderAdminJournalList();
+            document.getElementById('settingsModal').classList.remove('hidden');
+        }
+        function closeSettingsModal() { document.getElementById('settingsModal').classList.add('hidden'); }
+
+        function saveAdminSettings(e) {
+            e.preventDefault();
+            const s = getSettings();
+            const fileInput = document.getElementById('settingBgFile');
+            const urlInput = document.getElementById('settingBgUrl').value.trim();
+            const opacityVal = document.getElementById('settingOpacity').value;
+
+            s.wa = document.getElementById('settingWa').value.trim();
+            s.ig = document.getElementById('settingIg').value.trim();
+            s.email = document.getElementById('settingEmail').value.trim();
+            s.opacity = opacityVal;
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    s.bg = evt.target.result;
+                    localStorage.setItem('directorG_settings_v2', JSON.stringify(s));
+                    applySettingsUI();
+                    closeSettingsModal();
+                    alert('Pengaturan dan background berhasil disimpan!');
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                if (urlInput !== '') {
+                    s.bg = urlInput;
+                }
+                localStorage.setItem('directorG_settings_v2', JSON.stringify(s));
+                applySettingsUI();
+                closeSettingsModal();
+                alert('Pengaturan berhasil disimpan!');
+            }
         }
 
-        // Direct Actions
+        function resetHeroBackground() {
+            const s = getSettings();
+            s.bg = "";
+            s.opacity = "0.6";
+            localStorage.setItem('directorG_settings_v2', JSON.stringify(s));
+            applySettingsUI();
+            closeSettingsModal();
+            alert('Background hero berhasil di-reset!');
+        }
+
         function directWA() {
-            const phone = "6282187287349";
-            const msg = currentLang === 'ENG' 
-                ? "Hello Director G (G CREATIVE), I am interested in your portfolio and would like to discuss a video project."
-                : "Halo Director G (G CREATIVE), saya tertarik dengan portofolio Anda dan ingin berkonsultasi mengenai projek video.";
-            window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
+            const s = getSettings();
+            const msg = "Hello Director G (G CREATIVE), I would like to discuss a project.";
+            window.open(`https://wa.me/${s.wa}?text=` + encodeURIComponent(msg), '_blank');
         }
-
-        function directWAPackage(pkgName) {
-            const phone = "6282187287349";
-            const msg = currentLang === 'ENG'
-                ? `Hello Director G (G CREATIVE), I am interested in booking/consulting regarding the *${pkgName} Package*.`
-                : `Halo Director G (G CREATIVE), saya berminat untuk booking/konsultasi mengenai *Paket Video ${pkgName}*.`;
-            window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
-        }
-
         function directIG() {
-            window.open('https://instagram.com/vgioo_', '_blank');
+            const s = getSettings();
+            window.open(`https://instagram.com/${s.ig}`, '_blank');
         }
 
-        function directEmail() {
-            window.location.href = "mailto:GCreative@gmail.com?subject=Inquiry%20Project%20Director%20G%20-%20G%20CREATIVE";
-        }
-
-        // PRICING PACKAGES CRUD
         const initialPricing = [
-            {
-                id: '1',
-                badge: 'BASIC',
-                title: 'Video Profile / Short Film',
-                price: 'Mulai 4.5 Jt / $300',
-                target: 'Suitable for: Freelancers, personal branding, or short profile videos.',
-                isPopular: false,
-                features: ['Duration: Max 1-2 Mins', '1 Production Day (1 Location)', '1 Multi-camera Setup + Lighting', 'Storyboard & Script Guidance', 'Professional Color Grading', '2x Editing Revisions']
-            },
-            {
-                id: '2',
-                badge: 'PRO BRAND',
-                title: 'Commercial / Travel Film',
-                price: 'Mulai 7 Jt / $480',
-                target: 'Suitable for: Startups, local brands, commercial ads & cinematic travel.',
-                isPopular: true,
-                features: ['Duration: Max 2-3 Mins', '1-2 Production Days (Multi-location)', '2 Camera Setup + Pro Lighting', 'Voice Over + Licensed Music', 'Output HD/4K + Reels/Teaser Cut', '3x Editing Revisions']
-            },
-            {
-                id: '3',
-                badge: 'CORPORATE',
-                title: 'Company Profile / Event',
-                price: 'Mulai 12 Jt / $800',
-                target: 'Suitable for: Companies, agencies, or high-impact brand campaigns.',
-                isPopular: false,
-                features: ['Full High-End Production Crew', 'Drone Aerial Shots (If applicable)', 'Full Creative Directing & Script', 'Pro Voice Over + Motion Graphics', 'Multi Format (Web, YouTube, Social)', '60 Days Raw Footage Backup']
-            }
+            { id: '1', badge: 'BASIC', title: 'Video Profile / Short Film', price: 'Mulai 4.5 Jt', isPopular: false, features: ['Duration: Max 1-2 Mins', '1 Production Day', 'Professional Color Grading'] },
+            { id: '2', badge: 'PRO BRAND', title: 'Commercial / Travel Film', price: 'Mulai 7 Jt', isPopular: true, features: ['Duration: Max 2-3 Mins', '1-2 Production Days', 'Voice Over + Licensed Music'] }
         ];
-
         function getPricingStorage() {
-            const stored = localStorage.getItem('directorG_pricing_v2');
-            if (!stored) {
-                localStorage.setItem('directorG_pricing_v2', JSON.stringify(initialPricing));
-                return initialPricing;
-            }
-            return JSON.parse(stored);
+            const stored = localStorage.getItem('directorG_pricing_v3');
+            return stored ? JSON.parse(stored) : initialPricing;
         }
-
         function renderPricing() {
             const grid = document.getElementById('pricingGrid');
             const data = getPricingStorage();
             grid.innerHTML = '';
-
             data.forEach(item => {
                 const card = document.createElement('div');
-                const popularBorder = item.isPopular 
-                    ? 'border-2 border-indigo-600 dark:border-brandRed shadow-2xl relative transform md:-translate-y-2' 
-                    : 'border border-slate-200 dark:border-slate-800/80 shadow-xl';
+                card.className = `bg-white dark:bg-brandCard p-6 rounded-2xl ${item.isPopular ? 'border-2 border-indigo-600 dark:border-brandRed shadow-2xl relative transform md:-translate-y-2' : 'border border-slate-200 dark:border-slate-800/80 shadow-xl'} flex flex-col justify-between transition-transform transform hover:-translate-y-1`;
                 
-                card.className = `bg-white dark:bg-brandCard p-6 rounded-2xl ${popularBorder} flex flex-col justify-between`;
+                const adminBtns = (isAdmin) ? `<div class="flex gap-2 mt-4 pt-3 border-t border-slate-200 dark:border-slate-800"><button onclick="editPricingPackage('${item.id}')" class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold px-2.5 py-1 rounded">Edit</button><button onclick="deletePricingPackage('${item.id}')" class="text-xs bg-rose-500/20 text-rose-500 font-semibold px-2.5 py-1 rounded">Delete</button></div>` : '';
 
-                const popularTag = item.isPopular 
-                    ? `<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 dark:bg-brandRed text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow">MOST POPULAR</span>` 
-                    : '';
-
-                const featuresListHTML = item.features.map(f => `<li class="flex items-center gap-2">✓ ${f}</li>`).join('');
-
-                const adminBtns = (isAdmin && !isClientView) 
-                    ? `<div class="flex gap-2 mt-4 pt-3 border-t border-slate-200 dark:border-slate-800">
-                        <button onclick="editPricingPackage('${item.id}')" class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold px-2.5 py-1 rounded">Edit</button>
-                        <button onclick="deletePricingPackage('${item.id}')" class="text-xs bg-rose-500/20 text-rose-500 font-semibold px-2.5 py-1 rounded">Delete</button>
-                      </div>`
-                    : '';
-
-                card.innerHTML = `
-                    ${popularTag}
-                    <div>
-                        <span class="bg-indigo-100 dark:bg-slate-800 text-indigo-600 dark:text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">${item.badge}</span>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-4">${item.title}</h3>
-                        <p class="text-2xl font-black text-indigo-600 dark:text-brandRed mt-2">${item.price}</p>
-                        ${item.target ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">${item.target}</p>` : ''}
-                        
-                        <ul class="mt-6 space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
-                            ${featuresListHTML}
-                        </ul>
-                    </div>
-                    <div>
-                        ${adminBtns}
-                        <button onclick="directWAPackage('${item.badge}')" class="mt-6 w-full ${item.isPopular ? 'bg-indigo-600 dark:bg-brandRed text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white'} hover:opacity-90 font-bold py-2.5 rounded-lg text-xs transition shadow">
-                            Select ${item.badge}
-                        </button>
-                    </div>
-                `;
+                card.innerHTML = `<div><span class="bg-indigo-100 dark:bg-slate-800 text-indigo-600 dark:text-slate-300 text-xs font-bold px-3 py-1 rounded-full uppercase">${item.badge}</span><h3 class="text-xl font-bold text-slate-900 dark:text-white mt-4">${item.title}</h3><p class="text-2xl font-black text-indigo-600 dark:text-brandRed mt-2">${item.price}</p><ul class="mt-6 space-y-2 text-xs text-slate-600 dark:text-slate-300">${item.features.map(f => `<li>✓ ${f}</li>`).join('')}</ul></div><div>${adminBtns}<button onclick="directWA()" class="mt-6 w-full bg-indigo-600 dark:bg-brandRed text-white font-bold py-2.5 rounded-lg text-xs transition shadow hover:opacity-90">Select Package</button></div>`;
                 grid.appendChild(card);
             });
         }
-
         function openPriceModal(pkg = null) {
-            if (!isAdmin || isClientView) return;
+            if (!isAdmin) return;
             document.getElementById('priceModal').classList.remove('hidden');
             if (pkg) {
-                document.getElementById('priceModalTitle').textContent = "Edit Package";
                 document.getElementById('pkgId').value = pkg.id;
                 document.getElementById('pkgBadge').value = pkg.badge;
                 document.getElementById('pkgTitle').value = pkg.title;
                 document.getElementById('pkgPrice').value = pkg.price;
-                document.getElementById('pkgTarget').value = pkg.target || '';
                 document.getElementById('pkgFeatures').value = pkg.features.join('\n');
                 document.getElementById('pkgPopular').checked = pkg.isPopular;
             } else {
-                document.getElementById('priceModalTitle').textContent = "Add New Package";
                 document.getElementById('pricingForm').reset();
                 document.getElementById('pkgId').value = '';
             }
         }
-
         function closePriceModal() { document.getElementById('priceModal').classList.add('hidden'); }
-
         function savePricingPackage(e) {
             e.preventDefault();
-            if (!isAdmin || isClientView) return;
             const id = document.getElementById('pkgId').value;
-            const badge = document.getElementById('pkgBadge').value;
-            const title = document.getElementById('pkgTitle').value;
-            const price = document.getElementById('pkgPrice').value;
-            const target = document.getElementById('pkgTarget').value;
-            const featuresRaw = document.getElementById('pkgFeatures').value;
-            const isPopular = document.getElementById('pkgPopular').checked;
-
-            const features = featuresRaw.split('\n').filter(f => f.trim() !== '');
-
+            const newItem = {
+                id: id || Date.now().toString(),
+                badge: document.getElementById('pkgBadge').value,
+                title: document.getElementById('pkgTitle').value,
+                price: document.getElementById('pkgPrice').value,
+                isPopular: document.getElementById('pkgPopular').checked,
+                features: document.getElementById('pkgFeatures').value.split('\n').filter(f => f.trim() !== '')
+            };
             let data = getPricingStorage();
-            if (id) {
-                data = data.map(item => item.id === id ? { id, badge, title, price, target, isPopular, features } : item);
-            } else {
-                data.push({ id: Date.now().toString(), badge, title, price, target, isPopular, features });
-            }
-
-            localStorage.setItem('directorG_pricing_v2', JSON.stringify(data));
-            closePriceModal();
-            renderPricing();
+            if (id) data = data.map(i => i.id === id ? newItem : i);
+            else data.push(newItem);
+            localStorage.setItem('directorG_pricing_v3', JSON.stringify(data));
+            closePriceModal(); renderPricing();
         }
-
         function editPricingPackage(id) {
-            const data = getPricingStorage();
-            const targetPkg = data.find(p => p.id === id);
-            if (targetPkg) openPriceModal(targetPkg);
+            const pkg = getPricingStorage().find(i => i.id === id);
+            if (pkg) openPriceModal(pkg);
         }
-
         function deletePricingPackage(id) {
-            if (!isAdmin || isClientView) return;
-            if (confirm('Delete this package?')) {
-                let data = getPricingStorage();
-                data = data.filter(p => p.id !== id);
-                localStorage.setItem('directorG_pricing_v2', JSON.stringify(data));
+            if (confirm('Hapus paket ini?')) {
+                let data = getPricingStorage().filter(i => i.id !== id);
+                localStorage.setItem('directorG_pricing_v3', JSON.stringify(data));
                 renderPricing();
             }
         }
 
-        // PORTFOLIO LOGIC
-        const initialPortfolio = [
-            { id: '1', title: 'Official Commercial Brand Campaign', category: 'commercial', src: 'https://www.youtube.com/embed/tgbNymZ7vqY', desc: 'Commercial Directing & Color Grading' },
-            { id: '2', title: 'Cinematic Wedding Film Highlight', category: 'wedding', src: 'https://www.youtube.com/embed/tgbNymZ7vqY', desc: 'Romantic & Emotional Storytelling' }
-        ];
-
-        function getStorage() {
-            const stored = localStorage.getItem('directorG_portfolio_v5');
-            if (!stored) {
-                localStorage.setItem('directorG_portfolio_v5', JSON.stringify(initialPortfolio));
-                return initialPortfolio;
+        const initialPhotos = [{ id: '1', title: 'Fashion Campaign', url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80' }];
+        function getPhotoStorage() {
+            const stored = localStorage.getItem('directorG_photos_v1');
+            return stored ? JSON.parse(stored) : initialPhotos;
+        }
+        function renderPhotoPortfolio() {
+            const grid = document.getElementById('photoGrid');
+            const data = getPhotoStorage();
+            grid.innerHTML = '';
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-brandCard p-3 rounded-xl border border-slate-200 dark:border-slate-800/80 shadow-lg transition-transform transform hover:-translate-y-1';
+                const deleteBtn = isAdmin ? `<button onclick="deletePhotoItem('${item.id}')" class="text-xs text-rose-500 font-semibold mt-2">Delete Photo</button>` : '';
+                card.innerHTML = `<div class="aspect-square w-full rounded-lg overflow-hidden bg-black mb-2"><img src="${item.url}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"></div><h3 class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</h3>${deleteBtn}`;
+                grid.appendChild(card);
+            });
+        }
+        function openPhotoModal() { document.getElementById('photoModal').classList.remove('hidden'); }
+        function closePhotoModal() { document.getElementById('photoModal').classList.add('hidden'); }
+        function savePhotoPortfolio(e) {
+            e.preventDefault();
+            const newItem = { id: Date.now().toString(), title: document.getElementById('photoTitle').value, url: document.getElementById('photoUrl').value };
+            const data = getPhotoStorage(); data.unshift(newItem);
+            localStorage.setItem('directorG_photos_v1', JSON.stringify(data));
+            closePhotoModal(); renderPhotoPortfolio();
+        }
+        function deletePhotoItem(id) {
+            if (confirm('Hapus foto?')) {
+                let data = getPhotoStorage().filter(i => i.id !== id);
+                localStorage.setItem('directorG_photos_v1', JSON.stringify(data));
+                renderPhotoPortfolio();
             }
-            return JSON.parse(stored);
         }
 
+        const initialPortfolio = [{ id: '1', title: 'Commercial Campaign', category: 'commercial', src: 'https://www.youtube.com/embed/tgbNymZ7vqY' }];
+        function getStorage() {
+            const stored = localStorage.getItem('directorG_portfolio_v5');
+            return stored ? JSON.parse(stored) : initialPortfolio;
+        }
         function formatVideoUrl(url) {
             if (!url) return '';
             if (url.includes('drive.google.com')) {
-                let fileId = '';
-                if (url.includes('/file/d/')) fileId = url.split('/file/d/')[1].split('/')[0];
-                else if (url.includes('id=')) fileId = new URLSearchParams(url.split('?')[1]).get('id');
+                let fileId = url.includes('/file/d/') ? url.split('/file/d/')[1].split('/')[0] : new URLSearchParams(url.split('?')[1]).get('id');
                 if (fileId) return `https://drive.google.com/file/d/${fileId}/preview`;
             }
-            let videoId = '';
-            if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
-            else if (url.includes('youtube.com/shorts/')) videoId = url.split('youtube.com/shorts/')[1].split('?')[0];
-            else if (url.includes('youtube.com/watch')) videoId = new URLSearchParams(url.split('?')[1]).get('v');
-            else if (url.includes('youtube.com/embed/')) return url;
+            let videoId = url.includes('youtu.be/') ? url.split('youtu.be/')[1].split('?')[0] : new URLSearchParams(url.split('?')[1]).get('v');
             return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
         }
-
         let currentFilter = 'all';
-
         function renderPortfolio() {
             const grid = document.getElementById('portfolioGrid');
             const data = getStorage();
             grid.innerHTML = '';
-
-            const filteredData = currentFilter === 'all' 
-                ? data 
-                : data.filter(item => item.category === currentFilter);
-
-            if (filteredData.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 text-sm">${dictionary[currentLang].emptyPort}</div>`;
-                return;
-            }
-
-            filteredData.forEach(item => {
+            const filtered = currentFilter === 'all' ? data : data.filter(i => i.category === currentFilter);
+            filtered.forEach(item => {
                 const card = document.createElement('div');
-                card.className = 'bg-white dark:bg-brandCard p-4 rounded-xl border border-slate-200 dark:border-slate-800/80 shadow-lg flex flex-col justify-between';
-
-                const embedUrl = formatVideoUrl(item.src);
-                const mediaHTML = `<iframe class="w-full h-full rounded-lg" src="${embedUrl}" title="${item.title}" allowfullscreen></iframe>`;
-
-                const deleteBtnHTML = (isAdmin && !isClientView) 
-                    ? `<button onclick="deleteItem('${item.id}')" class="text-xs text-rose-500 font-semibold transition">Delete</button>`
-                    : '';
-
-                card.innerHTML = `
-                    <div>
-                        <div class="aspect-video w-full rounded-lg overflow-hidden bg-black mb-3">${mediaHTML}</div>
-                        <div class="flex items-center justify-between gap-2">
-                            <span class="bg-indigo-100 dark:bg-brandRed/15 text-indigo-600 dark:text-brandRed font-semibold text-[10px] uppercase px-2 py-0.5 rounded border border-indigo-200 dark:border-brandRed/30">${item.category}</span>
-                            ${deleteBtnHTML}
-                        </div>
-                        <h3 class="text-base font-bold text-slate-900 dark:text-white mt-2">${item.title}</h3>
-                        ${item.desc ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${item.desc}</p>` : ''}
-                    </div>
-                `;
+                card.className = 'bg-white dark:bg-brandCard p-4 rounded-xl border border-slate-200 dark:border-slate-800/80 shadow-lg transition-transform transform hover:-translate-y-1';
+                const deleteBtn = isAdmin ? `<button onclick="deleteItem('${item.id}')" class="text-xs text-rose-500 font-semibold">Delete</button>` : '';
+                card.innerHTML = `<div class="aspect-video w-full rounded-lg overflow-hidden bg-black mb-3"><iframe class="w-full h-full" src="${formatVideoUrl(item.src)}" allowfullscreen></iframe></div><div class="flex justify-between items-center"><span class="bg-indigo-100 dark:bg-brandRed/15 text-indigo-600 dark:text-brandRed text-[10px] font-bold px-2 py-0.5 rounded uppercase">${item.category}</span>${deleteBtn}</div><h3 class="text-base font-bold text-slate-900 dark:text-white mt-2">${item.title}</h3>`;
                 grid.appendChild(card);
             });
         }
-
-        function filterCategory(category, btn) {
-            currentFilter = category;
-            document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('bg-indigo-600', 'dark:bg-brandRed', 'text-white');
-                b.classList.add('bg-slate-200', 'dark:bg-slate-800/80', 'text-slate-700', 'dark:text-slate-300');
-            });
-            btn.classList.remove('bg-slate-200', 'dark:bg-slate-800/80', 'text-slate-700', 'dark:text-slate-300');
-            btn.classList.add('bg-indigo-600', 'dark:bg-brandRed', 'text-white');
+        function filterCategory(cat, btn) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.className = 'filter-btn bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105');
+            btn.className = 'filter-btn bg-indigo-600 dark:bg-brandRed text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold transition hover:scale-105';
             renderPortfolio();
         }
-
-        function openModal() { if (isAdmin && !isClientView) document.getElementById('uploadModal').classList.remove('hidden'); }
-        function closeModal() { document.getElementById('uploadModal').classList.add('hidden'); document.getElementById('portfolioForm').reset(); }
-
+        function openModal() { if (isAdmin) document.getElementById('uploadModal').classList.remove('hidden'); }
+        function closeModal() { document.getElementById('uploadModal').classList.add('hidden'); }
         function savePortfolio(e) {
             e.preventDefault();
-            if (!isAdmin || isClientView) return;
-            const title = document.getElementById('videoTitle').value;
-            const category = document.getElementById('videoCategory').value;
-            const desc = document.getElementById('videoDesc').value;
-            const rawUrl = document.getElementById('videoUrl').value;
-
-            if (!rawUrl) return alert('Please enter video link!');
-            const newItem = { id: Date.now().toString(), title, category, src: rawUrl, desc };
-            
-            const data = getStorage();
-            data.unshift(newItem);
+            const newItem = { id: Date.now().toString(), title: document.getElementById('videoTitle').value, category: document.getElementById('videoCategory').value, src: document.getElementById('videoUrl').value };
+            const data = getStorage(); data.unshift(newItem);
             localStorage.setItem('directorG_portfolio_v5', JSON.stringify(data));
-            closeModal();
-            renderPortfolio();
+            closeModal(); renderPortfolio();
         }
-
         function deleteItem(id) {
-            if (!isAdmin || isClientView) return;
-            if (confirm('Delete this item?')) {
-                let data = getStorage();
-                data = data.filter(item => item.id !== id);
+            if (confirm('Hapus video?')) {
+                let data = getStorage().filter(i => i.id !== id);
                 localStorage.setItem('directorG_portfolio_v5', JSON.stringify(data));
                 renderPortfolio();
             }
         }
 
-        // Initial Calls
-        document.getElementById('txt-blog-content').innerHTML = dictionary[currentLang].blogContent;
-        renderPricing();
-        renderPortfolio();
+        renderPricing(); renderPortfolio(); renderPhotoPortfolio(); renderJournals();
     </script>
 </body>
 </html>
