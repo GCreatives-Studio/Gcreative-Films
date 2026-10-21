@@ -1,1210 +1,688 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-light">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VYCTO FILMS | High-End Cinema & Production</title>
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Vycto Films - High-End Cinema, Visual Directing & Photography">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villanesia Riverside - Exclusive Retreat</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-krem: #FDFBF7;
+      --krem-card: #F4EFE6;
+      --cokelat-tua: #2C1A17;
+      --hijau-forest: #1B4332;
+      --hijau-accent: #2D6A4F;
+      --gold: #C5A059;
+      --text-dark: #2B2B2B;
+      --text-muted: #666666;
+      --white: #FFFFFF;
+      --shadow: 0 10px 30px rgba(44, 26, 23, 0.08);
+      --transition: all 0.3s ease;
+    }
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    },
-                    colors: {
-                        darkBg: 'var(--bg-main)',
-                        darkCard: 'var(--bg-card)',
-                        darkBorder: 'var(--border-color)',
-                        textPrimary: 'var(--text-primary)',
-                        textSecondary: 'var(--text-secondary)',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* CSS VARIABLE UNTUK TEMA WARNA DYNAMIC */
-        :root, .theme-light {
-            --bg-main: #ffffff;
-            --bg-card: #f8fafc;
-            --border-color: #cbd5e1;
-            --text-primary: #0a1128;
-            --text-secondary: #334155;
-            --btn-bg: #0a1128;
-            --btn-text: #ffffff;
-            --header-bg: rgba(255, 255, 255, 0.85);
-            --header-text: #0a1128;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        .theme-dark {
-            --bg-main: #0a0a0a;
-            --bg-card: #121212;
-            --border-color: #262626;
-            --text-primary: #ffffff;
-            --text-secondary: #a3a3a3;
-            --btn-bg: #ffffff;
-            --btn-text: #0a0a0a;
-            --header-bg: rgba(10, 10, 10, 0.7);
-            --header-text: #ffffff;
-        }
+    body {
+      background-color: var(--bg-krem);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        .theme-navy {
-            --bg-main: #0a1128;
-            --bg-card: #16203b;
-            --border-color: #253358;
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --btn-bg: #ffffff;
-            --btn-text: #0a1128;
-            --header-bg: rgba(10, 17, 40, 0.8);
-            --header-text: #ffffff;
-        }
+    /* Header Simpel */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(44, 26, 23, 0.08);
+    }
 
-        .theme-slate {
-            --bg-main: #0f172a;
-            --bg-card: #1e293b;
-            --border-color: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --btn-bg: #38bdf8;
-            --btn-text: #0f172a;
-            --header-bg: rgba(15, 23, 42, 0.8);
-            --header-text: #ffffff;
-        }
+    .nav-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-        .theme-card {
-            background-color: var(--bg-card);
-            border-color: var(--border-color);
-            color: var(--text-primary);
-        }
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+      background-color: var(--hijau-forest);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
 
-        .theme-btn-primary {
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-        }
+    .logo-brand {
+      display: flex;
+      flex-direction: column;
+    }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-            animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px) scale(0.99);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+    .logo-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--cokelat-tua);
+      line-height: 1;
+    }
 
-        .card-interactive {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .card-interactive:hover {
-            transform: translateY(-6px);
-            border-color: var(--text-primary);
-        }
+    .logo-sub {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-top: 2px;
+    }
 
-        /* HERO IMAGE FADING SEAMLESS ALA VPRODUCTION */
-        .hero-fading-mask {
-            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
-        }
+    /* Burger Menu Icon */
+    .burger-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--krem-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid rgba(44, 26, 23, 0.1);
+    }
 
-        /* MASONRY GRID STYLING FOR PHOTOGRAPHY */
-        .masonry-grid {
-            column-count: 1;
-            column-gap: 1.5rem;
-        }
-        @media (min-width: 640px) {
-            .masonry-grid { column-count: 2; }
-        }
-        @media (min-width: 1024px) {
-            .masonry-grid { column-count: 3; }
-        }
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
-        }
-    </style>
+    .burger-icon span {
+      width: 18px;
+      height: 2px;
+      background-color: var(--cokelat-tua);
+      transition: var(--transition);
+    }
+
+    .burger-icon:hover {
+      background: var(--cokelat-tua);
+    }
+
+    .burger-icon:hover span {
+      background-color: var(--white);
+    }
+
+    /* Fullscreen Drawer Navigation */
+    .nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 380px;
+      height: 100vh;
+      background-color: var(--bg-krem);
+      z-index: 2000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .nav-drawer.active {
+      right: 0;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .close-drawer {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--cokelat-tua);
+      cursor: pointer;
+    }
+
+    .drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .drawer-links a {
+      text-decoration: none;
+      color: var(--cokelat-tua);
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .drawer-links a:hover {
+      color: var(--gold);
+      padding-left: 5px;
+    }
+
+    .drawer-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Overlay Backdrop */
+    .drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      display: none;
+    }
+
+    .drawer-backdrop.active {
+      display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      background: linear-gradient(rgba(44, 26, 23, 0.65), rgba(27, 67, 50, 0.75)), 
+                  url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .badge-status {
+      display: inline-block;
+      padding: 6px 18px;
+      background: rgba(197, 160, 89, 0.2);
+      border: 1px solid var(--gold);
+      color: #FFF8E7;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: var(--hijau-forest);
+      color: var(--white);
+      padding: 0.85rem 1.8rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--hijau-accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--white);
+      padding: 0.85rem 1.8rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--cokelat-tua);
+    }
+
+    /* Section Component */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--cokelat-tua);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Modal Setting */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-krem);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--cokelat-tua);
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #CCC;
+    }
+
+    /* Floating WA */
+    .floating-wa {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    /* Admin Setting Button (Hidden in Client Mode) */
+    .admin-only {
+      display: flex;
+    }
+
+    body.client-mode .admin-only {
+      display: none !important;
+    }
+
+    footer {
+      background: var(--cokelat-tua);
+      color: var(--bg-krem);
+      padding: 3rem 0 1.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+    }
+  </style>
 </head>
-<body class="font-sans min-h-screen flex flex-col justify-between" id="bodyRoot">
+<body>
 
-    <!-- HEADER / NAVBAR ULTRA MINIMALIS ALA VPRODUCTION (VYCTO + BURGER MENU) -->
-    <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all py-3.5 px-6 sm:px-12" style="background-color: var(--header-bg); color: var(--header-text);">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            
-            <!-- BRAND VYCTO FILMS -->
-            <div class="cursor-pointer group flex flex-col" onclick="switchPage('home')">
-                <span class="text-lg sm:text-2xl font-black tracking-[0.25em] uppercase group-hover:opacity-80 transition-opacity">
-                    VYCTO <span class="font-light opacity-60">FILMS</span>
-                </span>
-                <span class="text-[7.5px] tracking-[0.3em] opacity-70 uppercase font-semibold mt-0.5">
-                    Visual Studio & Cinema Production
-                </span>
-            </div>
-
-            <!-- BURGER MENU ICON ONLY -->
-            <div class="flex items-center space-x-3">
-                <span id="adminBadge" class="hidden bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-[9px] font-bold px-2.5 py-0.5 rounded-full animate-pulse">ADMIN</span>
-
-                <button onclick="toggleBurgerMenu()" class="p-2 hover:opacity-70 transition" title="Menu">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path></svg>
-                </button>
-            </div>
+  <!-- Header Simpel -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-badge"><i class="fa-solid fa-tree"></i></div>
+        <div class="logo-brand">
+          <span class="logo-title">Villanesia</span>
+          <span class="logo-sub">Riverside</span>
         </div>
-    </header>
+      </a>
 
-    <!-- FULLSCREEN BURGER MENU OVERLAY -->
-    <div id="burgerOverlay" class="fixed inset-0 backdrop-blur-2xl z-50 hidden flex flex-col justify-center items-center transition-all duration-300" style="background-color: var(--bg-main); color: var(--text-primary);">
-        <button onclick="toggleBurgerMenu()" class="absolute top-6 right-8 opacity-70 hover:opacity-100 p-2">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      <!-- Burger Menu Icon -->
+      <div class="burger-icon" onclick="toggleDrawer()">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Fullscreen Drawer Navigation -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleDrawer()"></div>
+  <div class="nav-drawer" id="navDrawer">
+    <div>
+      <div class="drawer-header">
+        <div class="logo-brand">
+          <span class="logo-title">Villanesia</span>
+          <span class="logo-sub">Riverside</span>
+        </div>
+        <button class="close-drawer" onclick="toggleDrawer()">&times;</button>
+      </div>
+
+      <ul class="drawer-links">
+        <li><a href="#about" onclick="toggleDrawer()">Tentang Villa</a></li>
+        <li><a href="#suitability" onclick="toggleDrawer()">Kegiatan & Acara</a></li>
+        <li><a href="#gallery" onclick="toggleDrawer()">Galeri Foto</a></li>
+        <li><a href="#location" onclick="toggleDrawer()">Lokasi Google Maps</a></li>
+      </ul>
+    </div>
+
+    <div class="drawer-footer">
+      <button class="btn-primary" style="width:100%; justify-content:center;" onclick="directWA('Halo Ivan, saya ingin tanya sewa Villanesia Riverside.')">
+        <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+      </button>
+      
+      <!-- Tombol Admin Setting di Drawer -->
+      <button class="btn-outline admin-only" style="width:100%; justify-content:center; color:var(--cokelat-tua); border-color:var(--cokelat-tua);" onclick="toggleDrawer(); openModal();">
+        <i class="fa-solid fa-gear"></i> Pengaturan Web
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div id="badgeContainer">
+        <span class="badge-status" id="villaBadge"><i class="fa-solid fa-clock"></i> COMING SOON</span>
+      </div>
+      <h1>Keindahan Alam Tepi Sungai Yang Sempurna</h1>
+      <p>Persewaan villa eksklusif bernuansa asri dan tenang. Tempat ideal untuk mengukir kenangan bersama keluarga besar, retret sekolah, gathering instansi, maupun acara komunitas.</p>
+      
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="directWA('Halo Ivan, saya ingin reservasi/info harga Villanesia Riverside.')">
+          <i class="fa-brands fa-whatsapp"></i> Reservasi WhatsApp
         </button>
-
-        <nav class="text-center space-y-8 text-2xl sm:text-4xl font-extrabold tracking-[0.25em] uppercase">
-            <div><a href="#" onclick="switchPage('home')" class="hover:opacity-60 transition">Home</a></div>
-            <div><a href="#" onclick="switchPage('portfolio')" class="hover:opacity-60 transition">Works</a></div>
-            <div><a href="#" onclick="switchPage('pricing')" class="hover:opacity-60 transition">Services & Rates</a></div>
-            <div><a href="#" onclick="switchPage('blog')" class="hover:opacity-60 transition">Journal</a></div>
-            <div><a href="#" onclick="switchPage('contact')" class="hover:opacity-60 transition">Contact</a></div>
-        </nav>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <main class="flex-grow w-full pt-16">
-
-        <!-- SECTION: HOME / HERO -->
-        <div id="page-home" class="page-section animate-fade-in-up">
-            <section id="heroSection" class="relative w-full min-h-[90vh] flex items-center justify-center text-center bg-cover bg-center overflow-hidden px-6 py-24 border-b border-black/10 dark:border-white/10">
-                <div id="heroOverlay" class="absolute inset-0 transition-all duration-300 hero-fading-mask" style="background-color: var(--bg-main); opacity: 0.5;"></div>
-
-                <div class="relative z-20 max-w-4xl mx-auto">
-                    <span id="heroBadge" class="font-semibold text-[10px] sm:text-xs tracking-[0.3em] uppercase mb-4 inline-block px-4 py-1.5 border rounded-full backdrop-blur theme-card">Official Portfolio & Cinema Directing</span>
-                    
-                    <h1 id="heroTitle" class="text-3xl sm:text-6xl md:text-7xl font-black mt-3 mb-6 leading-[1.15] tracking-tight drop-shadow-lg">
-                        Transforming Vision Into <span class="italic font-extrabold opacity-80">Cinematic Art</span>
-                    </h1>
-                    
-                    <p id="heroSubtext" class="text-sm sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-semibold opacity-90">
-                        High-end cinematography, precision editing & visual storytelling by Vycto Films for Brands, Commercials, Weddings, and Documentaries.
-                    </p>
-                    
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <button onclick="switchPage('portfolio')" class="theme-btn-primary font-extrabold px-8 py-4 rounded-full text-xs tracking-widest uppercase hover:opacity-90 transition shadow-2xl hover:scale-105">
-                            Explore Works
-                        </button>
-                        <button onclick="switchPage('pricing')" class="theme-card border font-extrabold px-8 py-4 rounded-full text-xs tracking-widest uppercase hover:opacity-80 transition shadow-lg hover:scale-105">
-                            View Services & Rates
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- STATS -->
-            <section class="max-w-6xl mx-auto px-6 py-12 reveal">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                    <div class="theme-card p-6 rounded-2xl border card-interactive shadow-lg">
-                        <p class="text-3xl sm:text-5xl font-black tracking-tight">50+</p>
-                        <p class="text-[10px] opacity-70 uppercase tracking-widest font-bold mt-2">Projects Completed</p>
-                    </div>
-                    <div class="theme-card p-6 rounded-2xl border card-interactive shadow-lg">
-                        <p class="text-3xl sm:text-5xl font-black tracking-tight">100%</p>
-                        <p class="text-[10px] opacity-70 uppercase tracking-widest font-bold mt-2">Client Satisfaction</p>
-                    </div>
-                    <div class="theme-card p-6 rounded-2xl border card-interactive shadow-lg">
-                        <p class="text-3xl sm:text-5xl font-black tracking-tight">4K RAW</p>
-                        <p class="text-[10px] opacity-70 uppercase tracking-widest font-bold mt-2">Cinema Quality</p>
-                    </div>
-                    <div class="theme-card p-6 rounded-2xl border card-interactive shadow-lg">
-                        <p class="text-3xl sm:text-5xl font-black tracking-tight">5+ Yrs</p>
-                        <p class="text-[10px] opacity-70 uppercase tracking-widest font-bold mt-2">Directing Experience</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CORE EXPERTISE -->
-            <section class="max-w-6xl mx-auto px-6 py-12 reveal">
-                <div class="text-center mb-12">
-                    <span class="opacity-70 text-xs tracking-[0.25em] uppercase font-extrabold">Field of Work</span>
-                    <h2 class="text-2xl sm:text-4xl font-black mt-1.5 tracking-tight">Core Expertise</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="theme-card p-8 rounded-3xl border text-center card-interactive shadow-xl">
-                        <h3 class="text-lg font-black mb-3 tracking-tight uppercase">Commercial & Brand Ads</h3>
-                        <p class="text-xs opacity-80 leading-relaxed font-normal">Character-driven commercials designed to convert and elevate your brand presence.</p>
-                    </div>
-
-                    <div class="theme-card p-8 rounded-3xl border text-center card-interactive shadow-xl">
-                        <h3 class="text-lg font-black mb-3 tracking-tight uppercase">Cinematic Wedding Films</h3>
-                        <p class="text-xs opacity-80 leading-relaxed font-normal">Capturing unforgettable emotions in high-end documentary cinematic style.</p>
-                    </div>
-
-                    <div class="theme-card p-8 rounded-3xl border text-center card-interactive shadow-xl">
-                        <h3 class="text-lg font-black mb-3 tracking-tight uppercase">Travel & Vlog Directing</h3>
-                        <p class="text-xs opacity-80 leading-relaxed font-normal">Story-rich travel documentaries and aesthetic lifestyle video production.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- SECTION: PRICING -->
-        <div id="page-pricing" class="page-section hidden max-w-6xl mx-auto px-6 py-10 animate-fade-in-up">
-            <div class="flex justify-between items-center mb-10">
-                <div>
-                    <span class="opacity-70 text-xs tracking-widest uppercase font-bold">Services & Rates</span>
-                    <h2 class="text-2xl md:text-4xl font-black mt-1">Production Packages</h2>
-                </div>
-                <button onclick="openPriceModal()" id="adminAddPriceBtn" class="hidden bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-emerald-500 transition shadow-lg">+ Add Package</button>
-            </div>
-            <div id="pricingGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
-        </div>
-
-        <!-- SECTION: PORTFOLIO SHOWCASE -->
-        <div id="page-portfolio" class="page-section hidden max-w-6xl mx-auto px-6 py-10 animate-fade-in-up">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-                <div>
-                    <h2 class="text-2xl md:text-4xl font-black">Portfolio Showcase</h2>
-                    <p class="opacity-70 text-xs mt-1 font-medium">Switch between Video & Photography works</p>
-                </div>
-
-                <div class="flex theme-card p-1.5 rounded-full border">
-                    <button onclick="switchPortTab('video')" id="tabBtnVideo" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider theme-btn-primary shadow">Video Works</button>
-                    <button onclick="switchPortTab('photo')" id="tabBtnPhoto" class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider opacity-70">Photography</button>
-                </div>
-            </div>
-
-            <div id="adminPortControls" class="hidden mb-6 flex gap-3">
-                <button onclick="openModal()" class="theme-btn-primary font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider shadow">+ Add Video</button>
-                <button onclick="openPhotoModal()" class="bg-purple-700 text-white font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider shadow">+ Add Photo</button>
-            </div>
-
-            <!-- FILTERS VIDEO -->
-            <div id="videoCategoryFilters" class="flex flex-wrap gap-2 mb-8">
-                <button onclick="filterCategory('all', this)" class="filter-btn theme-btn-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">All</button>
-                <button onclick="filterCategory('commercial', this)" class="filter-btn border border-black/20 dark:border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Commercial</button>
-                <button onclick="filterCategory('wedding', this)" class="filter-btn border border-black/20 dark:border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Wedding Film</button>
-                <button onclick="filterCategory('travel', this)" class="filter-btn border border-black/20 dark:border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Travel / Vlog</button>
-            </div>
-
-            <!-- FILTERS ALBUM PHOTO -->
-            <div id="photoCategoryFilters" class="hidden flex flex-wrap gap-2 mb-8">
-                <button onclick="filterPhotoAlbum('all', this)" class="photo-filter-btn theme-btn-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">All Albums</button>
-                <button onclick="filterPhotoAlbum('lookbook', this)" class="photo-filter-btn border border-black/20 dark:border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Editorial & Lookbook</button>
-                <button onclick="filterPhotoAlbum('commercial', this)" class="photo-filter-btn border border-black/20 dark:border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Commercial</button>
-                <button onclick="filterPhotoAlbum('wedding', this)" class="photo-filter-btn border border-black/20 dark:border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Wedding Stories</button>
-                <button onclick="filterPhotoAlbum('street', this)" class="photo-filter-btn border border-black/20 dark:border-white/20 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">Street & Travel</button>
-            </div>
-
-            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
-            
-            <!-- MASONRY PHOTO GRID -->
-            <div id="photoGrid" class="masonry-grid hidden"></div>
-        </div>
-
-        <!-- SECTION: JOURNAL -->
-        <div id="page-blog" class="page-section hidden max-w-4xl mx-auto px-6 py-10 animate-fade-in-up">
-            <div class="mb-10 text-center border-b border-black/10 dark:border-white/10 pb-6">
-                <span class="opacity-70 text-xs tracking-[0.25em] uppercase font-bold">Director's Insights</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-1">Journal & Articles</h2>
-            </div>
-            <div id="journalContainer" class="space-y-8"></div>
-        </div>
-
-        <!-- SECTION: CONTACT -->
-        <div id="page-contact" class="page-section hidden max-w-3xl mx-auto px-6 py-10 animate-fade-in-up">
-            <div class="theme-card p-10 rounded-3xl border text-center shadow-2xl">
-                <h2 class="text-2xl md:text-3xl font-black mb-2">Book / Consult Direct</h2>
-                <p class="opacity-70 text-xs sm:text-sm mb-8 font-medium">Connect directly via official WhatsApp, Instagram, or Email.</p>
-                
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <button onclick="directWA()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-widest transition shadow-lg">
-                        WhatsApp: <span id="displayWa">6282187287349</span>
-                    </button>
-                    <button onclick="directIG()" class="w-full sm:w-auto theme-btn-primary font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-widest transition shadow-lg">
-                        Instagram: <span id="displayIg">@vgioo_</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="#" onclick="directWA()" class="fixed bottom-6 right-6 bg-emerald-600 hover:bg-emerald-500 text-white p-4 rounded-full shadow-2xl transition-all z-40 transform hover:scale-110" title="Chat on WhatsApp">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    </a>
-
-    <!-- ADMIN FLOATING BUTTON (Z-50 FIXED) -->
-    <div id="adminControlsContainer" class="fixed bottom-6 left-6 z-50 flex items-center gap-2">
-        <button onclick="toggleAdminMode()" id="adminToggleBtn" class="theme-card p-3.5 rounded-full border shadow-2xl transition text-xs flex items-center gap-1.5 hover:opacity-80">
-            <span id="lockIcon">🔒</span> <span id="adminBtnText">Admin</span>
+        <button class="btn-outline" onclick="directMaps()">
+          <i class="fa-solid fa-location-dot"></i> Petunjuk Google Maps
         </button>
-        <button onclick="openClientLinkModal()" id="adminClientLinkBtn" class="hidden bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-3 rounded-full shadow-2xl text-xs font-bold">
-            🔗 Client Link
+      </div>
+    </div>
+  </section>
+
+  <!-- Section About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Suasana Asri & Privat</h2>
+        <p>Rasukan ketenangan menginap dengan pemandangan alam sungai alami.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3><i class="fa-solid fa-users" style="color:var(--hijau-forest)"></i> Acara Keluarga</h3>
+          <p>Cocok untuk reuni, arisan, dan liburan privat keluarga besar.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-graduation-cap" style="color:var(--hijau-forest)"></i> Acara Sekolah</h3>
+          <p>Area lapang aman untuk makrab, camping, dan perpisahan sekolah.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-briefcase" style="color:var(--hijau-forest)"></i> Gathering Instansi</h3>
+          <p>Fasilitas lengkap untuk acara rapat kerja dan outbound kantor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Villanesia Riverside. All Rights Reserved.</p>
+      <p style="font-size:0.85rem; opacity:0.7; margin-top:5px;">Marketing: <span id="footerMarketingName">Ivan Nolan</span> (+62 822-1155-9404)</p>
+      
+      <!-- Option Admin Setting di Footer -->
+      <div class="admin-only" style="justify-content: center; margin-top: 15px;">
+        <button onclick="openModal()" style="background:none; border:none; color:var(--gold); cursor:pointer; font-size:0.85rem; text-decoration:underline;">
+          <i class="fa-solid fa-gear"></i> Menu Admin / Setting
         </button>
-        <button onclick="openSettingsModal()" id="adminSettingsBtn" class="hidden theme-card p-3.5 rounded-full shadow-2xl text-xs font-bold" title="Setting Admin">
-            ⚙️ Settings
-        </button>
+      </div>
     </div>
+  </footer>
 
-    <!-- FOOTER -->
-    <footer class="py-10 border-t border-black/10 dark:border-white/10 text-center text-xs opacity-70 font-sans">
-        <p class="text-sm font-black uppercase tracking-widest mb-2">VYCTO FILMS</p>
-        <p>&copy; 2026 All Rights Reserved. | Instagram: <a href="https://instagram.com/vgioo_" id="footerIgLink" target="_blank" class="font-bold hover:underline">@vgioo_</a></p>
-    </footer>
+  <!-- Floating WhatsApp -->
+  <a class="floating-wa" onclick="directWA('Halo Ivan, saya ingin bertanya tentang Villanesia Riverside.')">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
-    <!-- LIGHTBOX PHOTO MODAL -->
-    <div id="lightboxModal" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
-        <img id="lightboxImage" src="" class="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl">
+  <!-- Modal Settings Dynamic -->
+  <div class="modal-overlay" id="settingModal">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+        <h3 style="color:var(--cokelat-tua);"><i class="fa-solid fa-sliders"></i> Pengaturan Web Admin</h3>
+        <button onclick="closeModal()" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+
+      <div class="input-group">
+        <label>Status Villa</label>
+        <select id="cfgStatus">
+          <option value="COMING_SOON">Coming Soon</option>
+          <option value="READY">Sudah Buka / Ready</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Nama Marketing</label>
+        <input type="text" id="cfgName" value="Ivan Nolan">
+      </div>
+
+      <div class="input-group">
+        <label>Nomor WhatsApp (+62...)</label>
+        <input type="text" id="cfgPhone" value="+62 822-1155-9404">
+      </div>
+
+      <div class="input-group">
+        <label>Email Kontak</label>
+        <input type="email" id="cfgEmail" value="info@villanesia.com">
+      </div>
+
+      <button class="btn-primary" style="width:100%; justify-content:center; margin-bottom: 10px;" onclick="saveSettings()">
+        <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+      </button>
+
+      <!-- Button Khusus Generator Link Client -->
+      <button class="btn-outline" style="width:100%; justify-content:center; color:var(--cokelat-tua); border-color:var(--cokelat-tua);" onclick="copyClientLink()">
+        <i class="fa-solid fa-link"></i> Salin Link Khusus Klien (Tanpa Setting)
+      </button>
     </div>
-
-    <!-- MODAL CLIENT LINK GENERATOR SERBAGUNA (UMUM / SPESIFIK) -->
-    <div id="clientLinkModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="theme-card border w-full max-w-md p-6 rounded-3xl relative shadow-2xl">
-            <button onclick="closeClientLinkModal()" class="absolute top-4 right-4 opacity-70 hover:opacity-100">✕</button>
-            <h3 class="text-xl font-bold mb-2">Create Portfolio Link</h3>
-            <p class="text-xs opacity-70 mb-4 font-medium">Buat link khusus klien atau link umum portofolio tanpa tombol Admin.</p>
-            
-            <form onsubmit="generateClientLink(event)" class="space-y-4 text-xs">
-                <div>
-                    <label class="block font-bold mb-1">Nama Klien / Perusahaan (Opsional)</label>
-                    <input type="text" id="clientName" placeholder="Kosongkan jika untuk Link Umum (Bio Instagram)" class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-3 rounded-xl focus:outline-none">
-                </div>
-                <div>
-                    <label class="block font-bold mb-1">Halaman Tujuan</label>
-                    <select id="clientPage" class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-3 rounded-xl focus:outline-none">
-                        <option value="home">Home (Utama)</option>
-                        <option value="pricing">Services & Rates (Harga)</option>
-                        <option value="portfolio">Portfolio Showcase</option>
-                        <option value="blog">Journal / Blog</option>
-                        <option value="contact">Contact</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block font-bold mb-1">Pesan Custom / Note (Opsional)</label>
-                    <input type="text" id="clientNote" placeholder="contoh: Silakan periksa penawaran khusus dari kami." class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-3 rounded-xl focus:outline-none">
-                </div>
-                
-                <div class="pt-2">
-                    <button type="submit" class="w-full theme-btn-primary font-bold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-lg">Generate Link</button>
-                </div>
-            </form>
-
-            <div id="generatedLinkResult" class="hidden mt-5 pt-4 border-t border-black/10 dark:border-white/10 space-y-2">
-                <label class="block font-bold text-xs">Link Siap Bagikan:</label>
-                <div class="flex gap-2">
-                    <input type="text" id="generatedUrlInput" readonly class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl text-xs text-indigo-600 dark:text-indigo-400 font-mono">
-                    <button onclick="copyGeneratedUrl()" class="theme-btn-primary px-3 py-2 rounded-xl text-xs font-bold uppercase">Copy</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SETTINGS MODAL -->
-    <div id="settingsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="theme-card border w-full max-w-lg p-6 rounded-3xl relative shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
-            <button onclick="closeSettingsModal()" class="absolute top-4 right-4 opacity-70 hover:opacity-100">✕</button>
-            <h3 class="text-xl font-bold mb-4">Comprehensive Admin Settings</h3>
-            
-            <form onsubmit="saveAdminSettings(event)" class="space-y-5 text-xs">
-                <div class="border-b border-black/10 dark:border-white/10 pb-4 space-y-3">
-                    <h4 class="font-bold uppercase opacity-80">1. Pilihan Warna Tema Website</h4>
-                    <div>
-                        <label class="block font-bold mb-1">Tema Warna Utama</label>
-                        <select id="settingColorTheme" class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl font-bold focus:outline-none">
-                            <option value="theme-light">☀️ Day Light (Putih & Biru Tua)</option>
-                            <option value="theme-dark">🖤 Dark Luxury (Hitam & Putih - Default)</option>
-                            <option value="theme-navy">💙 Navy White Gray (Biru Tua, Putih, Abu)</option>
-                            <option value="theme-slate">🩶 Monochrome Slate (Abu Slate, Hitam, Putih)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="border-b border-black/10 dark:border-white/10 pb-4 space-y-3">
-                    <h4 class="font-bold uppercase opacity-80">2. Pengaturan Kontak</h4>
-                    <div>
-                        <label class="block font-bold mb-1">Nomor WhatsApp</label>
-                        <input type="text" id="settingWa" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block font-bold mb-1">Username Instagram</label>
-                        <input type="text" id="settingIg" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block font-bold mb-1">Email Resmi</label>
-                        <input type="email" id="settingEmail" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none">
-                    </div>
-                </div>
-
-                <div class="border-b border-black/10 dark:border-white/10 pb-4 space-y-3">
-                    <h4 class="font-bold uppercase opacity-80">3. Hero Background Settings</h4>
-                    <div>
-                        <label class="block font-bold mb-1">Upload File Foto dari HP</label>
-                        <input type="file" id="settingBgFile" accept="image/*" class="w-full text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:border-0 file:text-xs file:font-bold file:bg-black file:text-white dark:file:bg-white dark:file:text-black rounded-xl">
-                    </div>
-                    <div class="text-center font-bold text-slate-400 text-[10px] uppercase">- ATAU -</div>
-                    <div>
-                        <label class="block font-bold mb-1">Link URL Gambar</label>
-                        <input type="text" id="settingBgUrl" placeholder="https://..." class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block font-bold mb-1">Overlay Brightness (0.1 - 0.9)</label>
-                        <div class="flex items-center gap-3">
-                            <input type="range" id="settingOpacity" min="0.1" max="0.9" step="0.05" value="0.5" class="w-full accent-black dark:accent-white" oninput="document.getElementById('opacityVal').textContent = this.value">
-                            <span id="opacityVal" class="font-bold text-sm">0.5</span>
-                        </div>
-                    </div>
-                    <button type="button" onclick="resetHeroBackground()" class="text-xs text-rose-500 font-bold hover:underline">Reset Background Hero</button>
-                </div>
-
-                <div class="space-y-3">
-                    <div class="flex justify-between items-center">
-                        <h4 class="font-bold uppercase opacity-80">4. Kelola Artikel Jurnal / Blog</h4>
-                        <button type="button" onclick="openJournalModal()" class="bg-emerald-600 text-white px-3 py-1 rounded-xl text-[11px] font-bold uppercase">+ Tambah Artikel</button>
-                    </div>
-                    <div id="adminJournalList" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
-                </div>
-
-                <div class="flex justify-end gap-2 pt-3 border-t border-black/10 dark:border-white/10">
-                    <button type="button" onclick="closeSettingsModal()" class="px-4 py-2 opacity-70 font-bold rounded-xl">Cancel</button>
-                    <button type="submit" class="px-5 py-2 theme-btn-primary font-bold uppercase rounded-xl">Simpan Perubahan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- JOURNAL MODAL -->
-    <div id="journalModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="theme-card border w-full max-w-md p-6 rounded-3xl relative shadow-2xl">
-            <button onclick="closeJournalModal()" class="absolute top-4 right-4 opacity-70 hover:opacity-100">✕</button>
-            <h3 id="journalModalTitle" class="text-xl font-bold mb-4">Tambah Artikel Jurnal</h3>
-            <form onsubmit="saveJournalArticle(event)" class="space-y-3 text-xs">
-                <input type="hidden" id="journalId">
-                <div><label class="block font-bold mb-1">Kategori / Tag</label><input type="text" id="journalTag" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></div>
-                <div><label class="block font-bold mb-1">Judul Artikel</label><input type="text" id="journalTitle" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></div>
-                <div><label class="block font-bold mb-1">Isi Artikel</label><textarea id="journalContent" rows="5" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></textarea></div>
-                <div class="flex justify-end gap-2 pt-3">
-                    <button type="button" onclick="closeJournalModal()" class="px-4 py-2 opacity-70 font-bold rounded-xl">Cancel</button>
-                    <button type="submit" class="px-5 py-2 theme-btn-primary font-bold uppercase rounded-xl">Simpan Artikel</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- PHOTO MODAL ENHANCED -->
-    <div id="photoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="theme-card border w-full max-w-md p-6 rounded-3xl relative shadow-2xl">
-            <button onclick="closePhotoModal()" class="absolute top-4 right-4 opacity-70 hover:opacity-100">✕</button>
-            <h3 class="text-xl font-bold mb-4">Add Photo Work</h3>
-            <form onsubmit="savePhotoPortfolio(event)" class="space-y-3 text-xs">
-                <div><label class="block font-bold mb-1">Photo Title</label><input type="text" id="photoTitle" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></div>
-                
-                <div>
-                    <label class="block font-bold mb-1">Kategori Album</label>
-                    <select id="photoAlbum" class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none">
-                        <option value="lookbook">Editorial & Lookbook</option>
-                        <option value="commercial">Commercial</option>
-                        <option value="wedding">Wedding Stories</option>
-                        <option value="street">Street & Travel</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block font-bold mb-1">Rasio Tampilan Foto</label>
-                    <select id="photoRatio" class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none">
-                        <option value="auto">Auto (Sesuai Asli Foto)</option>
-                        <option value="portrait">Portrait (Tinggi / Tall)</option>
-                        <option value="landscape">Landscape (Lebar / Wide)</option>
-                        <option value="square">Square (Persegi 1:1)</option>
-                    </select>
-                </div>
-
-                <div><label class="block font-bold mb-1">Upload File Foto</label><input type="file" id="photoFile" accept="image/*" class="w-full text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:border-0 file:text-xs file:font-bold file:bg-black file:text-white dark:file:bg-white dark:file:text-black rounded-xl"></div>
-                <div class="text-center font-bold text-slate-400 text-[10px] uppercase">- ATAU -</div>
-                <div><label class="block font-bold mb-1">Link URL Gambar</label><input type="text" id="photoUrl" placeholder="https://..." class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></div>
-                <div class="flex justify-end gap-2 pt-3">
-                    <button type="button" onclick="closePhotoModal()" class="px-4 py-2 opacity-70 font-bold rounded-xl">Cancel</button>
-                    <button type="submit" class="px-5 py-2 bg-purple-700 text-white font-bold uppercase rounded-xl">Save Photo</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- PRICING MODAL -->
-    <div id="priceModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="theme-card border w-full max-w-md p-6 rounded-3xl relative shadow-2xl">
-            <button onclick="closePriceModal()" class="absolute top-4 right-4 opacity-70 hover:opacity-100">✕</button>
-            <h3 class="text-xl font-bold mb-4">Add / Edit Package</h3>
-            <form id="pricingForm" onsubmit="savePricingPackage(event)" class="space-y-3 text-xs">
-                <input type="hidden" id="pkgId">
-                <div><label class="block font-bold mb-1">Badge Name</label><input type="text" id="pkgBadge" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></div>
-                <div><label class="block font-bold mb-1">Package Title</label><input type="text" id="pkgTitle" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></div>
-                <div><label class="block font-bold mb-1">Price Text</label><input type="text" id="pkgPrice" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></div>
-                <div><label class="block font-bold mb-1">Features (One per line)</label><textarea id="pkgFeatures" rows="4" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl focus:outline-none"></textarea></div>
-                <div class="flex items-center gap-2 py-1"><input type="checkbox" id="pkgPopular" class="rounded"><label for="pkgPopular" class="font-bold">Highlight "MOST POPULAR"</label></div>
-                <div class="flex justify-end gap-2 pt-3">
-                    <button type="button" onclick="closePriceModal()" class="px-4 py-2 opacity-70 font-bold rounded-xl">Cancel</button>
-                    <button type="submit" class="px-5 py-2 theme-btn-primary font-bold uppercase rounded-xl">Save Package</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- VIDEO MODAL -->
-    <div id="uploadModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="theme-card border w-full max-w-lg p-6 rounded-3xl relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 opacity-70 hover:opacity-100">✕</button>
-            <h3 class="text-xl font-bold mb-4">Add New Video Work</h3>
-            <form onsubmit="savePortfolio(event)" class="space-y-4">
-                <div><label class="block text-xs font-bold mb-1">Video Title</label><input type="text" id="videoTitle" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl text-sm focus:outline-none"></div>
-                <div>
-                    <label class="block text-xs font-bold mb-1">Video Category</label>
-                    <select id="videoCategory" class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl text-sm focus:outline-none">
-                        <option value="commercial">Commercial / Ads</option>
-                        <option value="wedding">Wedding Film</option>
-                        <option value="travel">Travel & Vlog</option>
-                        <option value="mv">Music Video</option>
-                        <option value="company">Company Profile</option>
-                    </select>
-                </div>
-                <div><label class="block text-xs font-bold mb-1">Video Link (YouTube / Google Drive)</label><input type="text" id="videoUrl" required class="w-full bg-black/10 dark:bg-black/30 border border-black/20 dark:border-white/20 p-2.5 rounded-xl text-sm focus:outline-none"></div>
-                <div class="flex justify-end gap-2 pt-2">
-                    <button type="button" onclick="closeModal()" class="px-4 py-2 opacity-70 font-bold text-xs rounded-xl">Cancel</button>
-                    <button type="submit" class="px-5 py-2 theme-btn-primary font-bold uppercase text-xs rounded-xl">Save Work</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        const defaultSettings = { wa: "6282187287349", ig: "vgioo_", email: "VyctoFilms@gmail.com", bg: "", opacity: "0.5", theme: "theme-light" };
-        function getSettings() {
-            const stored = localStorage.getItem('vyctoFilms_settings_v21');
-            return stored ? JSON.parse(stored) : defaultSettings;
-        }
-
-        function applySettingsUI() {
-            const s = getSettings();
-            document.getElementById('displayWa').textContent = s.wa;
-            document.getElementById('displayIg').textContent = "@" + s.ig;
-            const footerIg = document.getElementById('footerIgLink');
-            footerIg.href = `https://instagram.com/${s.ig}`;
-            footerIg.textContent = `@${s.ig}`;
-
-            const activeTheme = s.theme || "theme-light";
-            document.documentElement.className = activeTheme;
-
-            const hero = document.getElementById('heroSection');
-            const overlay = document.getElementById('heroOverlay');
-            if (s.bg) {
-                hero.style.backgroundImage = `url('${s.bg}')`;
-            } else {
-                hero.style.backgroundImage = 'none';
-            }
-            overlay.style.opacity = s.opacity;
-        }
-        applySettingsUI();
-
-        // COMPRESSOR UTILITY
-        function compressImage(file, maxDimension, quality, callback) {
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                const img = new Image();
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    let width = img.width;
-                    let height = img.height;
-
-                    if (width > height) {
-                        if (width > maxDimension) {
-                            height = Math.round((height * maxDimension) / width);
-                            width = maxDimension;
-                        }
-                    } else {
-                        if (height > maxDimension) {
-                            width = Math.round((width * maxDimension) / height);
-                            height = maxDimension;
-                        }
-                    }
-
-                    canvas.width = width;
-                    canvas.height = height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, width, height);
-                    callback(canvas.toDataURL('image/jpeg', quality));
-                };
-                img.src = evt.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-
-        // URL CLIENT PARSER
-        function checkClientURLParams() {
-            const params = new URLSearchParams(window.location.search);
-            const clientName = params.get('client');
-            const targetPage = params.get('page');
-            const note = params.get('note');
-
-            if (clientName) {
-                const adminContainer = document.getElementById('adminControlsContainer');
-                if(adminContainer) adminContainer.style.display = 'none';
-
-                const banner = document.createElement('div');
-                banner.className = 'theme-btn-primary px-4 py-3 text-center text-xs font-semibold fixed top-14 left-0 right-0 z-30 shadow-2xl flex justify-between items-center max-w-6xl mx-auto rounded-b-2xl';
-                banner.innerHTML = `<span>Welcome, ${decodeURIComponent(clientName)}! ${note ? '- ' + decodeURIComponent(note) : ''}</span><button onclick="this.parentElement.remove()" class="font-bold ml-4">✕</button>`;
-                document.body.appendChild(banner);
-            }
-
-            if (targetPage) {
-                switchPage(targetPage);
-            }
-        }
-
-        const initialJournals = [
-            {
-                id: '1',
-                tag: 'Filmmaking & Strategy',
-                title: 'Why High-End Visuals Are Essential to Personal & Brand Value?',
-                content: 'Cinema is emotional connection through light, color, and pacing. In this journal entry, we dive deep into how visual grammar changes brand perception from average to top-tier market value.'
-            }
-        ];
-
-        function getJournalStorage() {
-            const stored = localStorage.getItem('vyctoFilms_journals_v2');
-            return stored ? JSON.parse(stored) : initialJournals;
-        }
-
-        function renderJournals() {
-            const container = document.getElementById('journalContainer');
-            const data = getJournalStorage();
-            container.innerHTML = '';
-
-            data.forEach(item => {
-                const card = document.createElement('article');
-                card.className = 'theme-card p-8 rounded-3xl border relative card-interactive shadow-xl';
-                
-                const adminEdit = isAdmin ? `<div class="absolute top-6 right-6 flex gap-2"><button onclick="editJournal('${item.id}')" class="text-xs bg-black/10 dark:bg-black/30 px-3 py-1 font-bold uppercase rounded-lg">Edit</button><button onclick="deleteJournal('${item.id}')" class="text-xs bg-rose-500/20 text-rose-500 px-3 py-1 font-bold uppercase rounded-lg">Delete</button></div>` : '';
-
-                card.innerHTML = `
-                    ${adminEdit}
-                    <span class="opacity-70 text-[10px] font-bold uppercase tracking-[0.2em] block mb-2">${item.tag}</span>
-                    <h2 class="text-2xl md:text-3xl font-black mb-4 leading-snug">${item.title}</h2>
-                    <div class="opacity-80 text-sm leading-relaxed font-normal">
-                        <p>${item.content}</p>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function renderAdminJournalList() {
-            const list = document.getElementById('adminJournalList');
-            if(!list) return;
-            const data = getJournalStorage();
-            list.innerHTML = '';
-            data.forEach(item => {
-                const row = document.createElement('div');
-                row.className = 'flex justify-between items-center bg-black/10 dark:bg-black/30 p-2.5 rounded-xl border border-black/10 dark:border-white/10 text-[11px]';
-                row.innerHTML = `<span class="truncate max-w-[200px] font-bold">${item.title}</span><div class="flex gap-1"><button type="button" onclick="editJournal('${item.id}')" class="bg-black/20 dark:bg-black/40 px-2 py-0.5 rounded-lg">Edit</button><button type="button" onclick="deleteJournal('${item.id}')" class="bg-rose-500/20 text-rose-500 px-2 py-0.5 rounded-lg">Hapus</button></div>`;
-                list.appendChild(row);
-            });
-        }
-
-        function openJournalModal(item = null) {
-            document.getElementById('journalModal').classList.remove('hidden');
-            if (item) {
-                document.getElementById('journalModalTitle').textContent = "Edit Artikel Jurnal";
-                document.getElementById('journalId').value = item.id;
-                document.getElementById('journalTag').value = item.tag;
-                document.getElementById('journalTitle').value = item.title;
-                document.getElementById('journalContent').value = item.content;
-            } else {
-                document.getElementById('journalModalTitle').textContent = "Tambah Artikel Jurnal";
-                document.getElementById('journalId').value = '';
-                document.getElementById('journalTag').value = 'Filmmaking & Strategy';
-                document.getElementById('journalTitle').value = '';
-                document.getElementById('journalContent').value = '';
-            }
-        }
-        function closeJournalModal() { document.getElementById('journalModal').classList.add('hidden'); }
-
-        function saveJournalArticle(e) {
-            e.preventDefault();
-            const id = document.getElementById('journalId').value;
-            const newItem = {
-                id: id || Date.now().toString(),
-                tag: document.getElementById('journalTag').value,
-                title: document.getElementById('journalTitle').value,
-                content: document.getElementById('journalContent').value
-            };
-            let data = getJournalStorage();
-            if (id) data = data.map(i => i.id === id ? newItem : i);
-            else data.unshift(newItem);
-            localStorage.setItem('vyctoFilms_journals_v2', JSON.stringify(data));
-            closeJournalModal();
-            renderJournals();
-            renderAdminJournalList();
-        }
-
-        function editJournal(id) {
-            const item = getJournalStorage().find(i => i.id === id);
-            if (item) openJournalModal(item);
-        }
-
-        function deleteJournal(id) {
-            if (confirm('Hapus artikel jurnal ini?')) {
-                let data = getJournalStorage().filter(i => i.id !== id);
-                localStorage.setItem('vyctoFilms_journals_v2', JSON.stringify(data));
-                renderJournals();
-                renderAdminJournalList();
-            }
-        }
-
-        // CLIENT LINK GENERATOR FUNCTIONS (UMUM / SPESIFIK)
-        function openClientLinkModal() {
-            document.getElementById('clientLinkModal').classList.remove('hidden');
-            document.getElementById('generatedLinkResult').classList.add('hidden');
-        }
-        function closeClientLinkModal() {
-            document.getElementById('clientLinkModal').classList.add('hidden');
-        }
-        function generateClientLink(e) {
-            e.preventDefault();
-            const cNameVal = document.getElementById('clientName').value.trim();
-            const cName = cNameVal ? encodeURIComponent(cNameVal) : '';
-            const cPage = document.getElementById('clientPage').value;
-            const cNoteVal = document.getElementById('clientNote').value.trim();
-            const cNote = cNoteVal ? encodeURIComponent(cNoteVal) : '';
-
-            const baseUrl = window.location.origin + window.location.pathname;
-            let fullUrl = `${baseUrl}?page=${cPage}`;
-            if (cName) fullUrl += `&client=${cName}`;
-            if (cNote) fullUrl += `&note=${cNote}`;
-
-            document.getElementById('generatedUrlInput').value = fullUrl;
-            document.getElementById('generatedLinkResult').classList.remove('hidden');
-        }
-        function copyGeneratedUrl() {
-            const input = document.getElementById('generatedUrlInput');
-            input.select();
-            navigator.clipboard.writeText(input.value);
-            alert('Link berhasil disalin ke clipboard!');
-        }
-
-        function toggleBurgerMenu() { document.getElementById('burgerOverlay').classList.toggle('hidden'); }
-        function switchPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
-            const target = document.getElementById('page-' + pageId);
-            if(target) {
-                target.classList.remove('hidden');
-                target.classList.remove('animate-fade-in-up');
-                void target.offsetWidth;
-                target.classList.add('animate-fade-in-up');
-            }
-            document.getElementById('burgerOverlay').classList.add('hidden');
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function switchPortTab(tab) {
-            const btnV = document.getElementById('tabBtnVideo');
-            const btnP = document.getElementById('tabBtnPhoto');
-            const gridV = document.getElementById('portfolioGrid');
-            const gridP = document.getElementById('photoGrid');
-            const filtersV = document.getElementById('videoCategoryFilters');
-            const filtersP = document.getElementById('photoCategoryFilters');
-
-            if (tab === 'video') {
-                btnV.className = 'px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider theme-btn-primary shadow';
-                btnP.className = 'px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider opacity-70';
-                gridV.classList.remove('hidden'); gridP.classList.add('hidden'); 
-                filtersV.classList.remove('hidden'); filtersP.classList.add('hidden');
-            } else {
-                btnP.className = 'px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider theme-btn-primary shadow';
-                btnV.className = 'px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider opacity-70';
-                gridP.classList.remove('hidden'); gridV.classList.add('hidden'); 
-                filtersP.classList.remove('hidden'); filtersV.classList.add('hidden');
-            }
-        }
-
-        const ADMIN_PIN = "1997";
-        let isAdmin = false;
-
-        function toggleAdminMode() {
-            if (isAdmin) {
-                isAdmin = false;
-                updateAdminUI();
-                alert('Exited Admin Mode.');
-            } else {
-                const pin = prompt('Enter Admin PIN (1997):');
-                if (pin === ADMIN_PIN) {
-                    isAdmin = true;
-                    updateAdminUI();
-                    alert('Correct PIN! Admin Mode Active.');
-                } else if (pin !== null) alert('Wrong PIN!');
-            }
-        }
-
-        function updateAdminUI() {
-            const badge = document.getElementById('adminBadge');
-            const btnText = document.getElementById('adminBtnText');
-            const lockIcon = document.getElementById('lockIcon');
-            const adminAddPriceBtn = document.getElementById('adminAddPriceBtn');
-            const adminPortControls = document.getElementById('adminPortControls');
-            const adminSettingsBtn = document.getElementById('adminSettingsBtn');
-            const adminClientLinkBtn = document.getElementById('adminClientLinkBtn');
-
-            if (isAdmin) {
-                badge.classList.remove('hidden');
-                adminAddPriceBtn.classList.remove('hidden');
-                adminPortControls.classList.remove('hidden');
-                adminSettingsBtn.classList.remove('hidden');
-                adminClientLinkBtn.classList.remove('hidden');
-                btnText.textContent = 'Exit Admin';
-                lockIcon.textContent = '🔓';
-            } else {
-                badge.classList.add('hidden');
-                adminAddPriceBtn.classList.add('hidden');
-                adminPortControls.classList.add('hidden');
-                adminSettingsBtn.classList.add('hidden');
-                adminClientLinkBtn.classList.add('hidden');
-                btnText.textContent = 'Admin';
-                lockIcon.textContent = '🔒';
-            }
-            renderPricing(); renderPortfolio(); renderPhotoPortfolio(); renderJournals(); renderAdminJournalList();
-        }
-
-        function openSettingsModal() {
-            const s = getSettings();
-            document.getElementById('settingWa').value = s.wa;
-            document.getElementById('settingIg').value = s.ig;
-            document.getElementById('settingEmail').value = s.email;
-            document.getElementById('settingColorTheme').value = s.theme || 'theme-light';
-            document.getElementById('settingBgUrl').value = s.bg && !s.bg.startsWith('data:') ? s.bg : '';
-            document.getElementById('settingOpacity').value = s.opacity;
-            document.getElementById('opacityVal').textContent = s.opacity;
-            renderAdminJournalList();
-            document.getElementById('settingsModal').classList.remove('hidden');
-        }
-        function closeSettingsModal() { document.getElementById('settingsModal').classList.add('hidden'); }
-
-        function saveAdminSettings(e) {
-            e.preventDefault();
-            const s = getSettings();
-            const fileInput = document.getElementById('settingBgFile');
-            const urlInput = document.getElementById('settingBgUrl').value.trim();
-            const opacityVal = document.getElementById('settingOpacity').value;
-
-            s.wa = document.getElementById('settingWa').value.trim();
-            s.ig = document.getElementById('settingIg').value.trim();
-            s.email = document.getElementById('settingEmail').value.trim();
-            s.theme = document.getElementById('settingColorTheme').value;
-            s.opacity = opacityVal;
-
-            const executeSave = () => {
-                try {
-                    localStorage.setItem('vyctoFilms_settings_v21', JSON.stringify(s));
-                    applySettingsUI();
-                    closeSettingsModal();
-                    alert('Pengaturan berhasil disimpan!');
-                } catch (err) {
-                    alert('Memori penyimpanan penuh. Coba gunakan link URL gambar atau hapus beberapa foto portofolio.');
-                }
-            };
-
-            if (fileInput.files && fileInput.files[0]) {
-                compressImage(fileInput.files[0], 1280, 0.6, function(compressedBase64) {
-                    s.bg = compressedBase64;
-                    executeSave();
-                });
-            } else {
-                if (urlInput !== '') {
-                    s.bg = urlInput;
-                }
-                executeSave();
-            }
-        }
-
-        function resetHeroBackground() {
-            const s = getSettings();
-            s.bg = "";
-            s.opacity = "0.5";
-            s.theme = "theme-light";
-            localStorage.setItem('vyctoFilms_settings_v21', JSON.stringify(s));
-            applySettingsUI();
-            closeSettingsModal();
-            alert('Background hero berhasil di-reset!');
-        }
-
-        function directWA() {
-            const s = getSettings();
-            const msg = "Hello Vycto Films, I would like to discuss a cinematic project.";
-            window.open(`https://wa.me/${s.wa}?text=` + encodeURIComponent(msg), '_blank');
-        }
-        function directIG() {
-            const s = getSettings();
-            window.open(`https://instagram.com/${s.ig}`, '_blank');
-        }
-
-        const initialPricing = [
-            { id: '1', badge: 'BASIC', title: 'Video Profile / Short Film', price: 'Mulai 4.5 Jt', isPopular: false, features: ['Duration: Max 1-2 Mins', '1 Production Day', 'Professional Color Grading'] },
-            { id: '2', badge: 'PRO BRAND', title: 'Commercial / Travel Film', price: 'Mulai 7 Jt', isPopular: true, features: ['Duration: Max 2-3 Mins', '1-2 Production Days', 'Voice Over + Licensed Music'] }
-        ];
-        function getPricingStorage() {
-            const stored = localStorage.getItem('vyctoFilms_pricing_v3');
-            return stored ? JSON.parse(stored) : initialPricing;
-        }
-        function renderPricing() {
-            const grid = document.getElementById('pricingGrid');
-            if(!grid) return;
-            const data = getPricingStorage();
-            grid.innerHTML = '';
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = `theme-card p-8 rounded-3xl ${item.isPopular ? 'border-2 border-black/80 dark:border-white shadow-2xl relative' : 'border'} flex flex-col justify-between card-interactive`;
-                const adminBtns = (isAdmin) ? `<div class="flex gap-2 mt-4 pt-3 border-t border-black/10 dark:border-white/10"><button onclick="editPricingPackage('${item.id}')" class="text-xs bg-black/10 dark:bg-black/30 opacity-80 font-semibold px-3 py-1 uppercase rounded-lg">Edit</button><button onclick="deletePricingPackage('${item.id}')" class="text-xs bg-rose-500/20 text-rose-500 font-semibold px-3 py-1 uppercase rounded-lg">Delete</button></div>` : '';
-                card.innerHTML = `<div><span class="bg-black/10 dark:bg-black/30 opacity-80 text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-full">${item.badge}</span><h3 class="text-xl font-bold mt-4">${item.title}</h3><p class="text-3xl font-black mt-2 tracking-tight">${item.price}</p><ul class="mt-6 space-y-2.5 text-xs opacity-80 font-normal">${item.features.map(f => `<li>✓ ${f}</li>`).join('')}</ul></div><div>${adminBtns}<button onclick="directWA()" class="mt-8 w-full theme-btn-primary font-bold py-3.5 text-xs uppercase tracking-widest hover:opacity-90 transition rounded-xl shadow-lg">Select Package</button></div>`;
-                grid.appendChild(card);
-            });
-        }
-        function openPriceModal(pkg = null) {
-            if (!isAdmin) return;
-            document.getElementById('priceModal').classList.remove('hidden');
-            if (pkg) {
-                document.getElementById('pkgId').value = pkg.id;
-                document.getElementById('pkgBadge').value = pkg.badge;
-                document.getElementById('pkgTitle').value = pkg.title;
-                document.getElementById('pkgPrice').value = pkg.price;
-                document.getElementById('pkgFeatures').value = pkg.features.join('\n');
-                document.getElementById('pkgPopular').checked = pkg.isPopular;
-            } else {
-                document.getElementById('pricingForm').reset();
-                document.getElementById('pkgId').value = '';
-            }
-        }
-        function closePriceModal() { document.getElementById('priceModal').classList.add('hidden'); }
-        function savePricingPackage(e) {
-            e.preventDefault();
-            const id = document.getElementById('pkgId').value;
-            const newItem = {
-                id: id || Date.now().toString(),
-                badge: document.getElementById('pkgBadge').value,
-                title: document.getElementById('pkgTitle').value,
-                price: document.getElementById('pkgPrice').value,
-                isPopular: document.getElementById('pkgPopular').checked,
-                features: document.getElementById('pkgFeatures').value.split('\n').filter(f => f.trim() !== '')
-            };
-            let data = getPricingStorage();
-            if (id) data = data.map(i => i.id === id ? newItem : i);
-            else data.push(newItem);
-            localStorage.setItem('vyctoFilms_pricing_v3', JSON.stringify(data));
-            closePriceModal(); renderPricing();
-        }
-        function editPricingPackage(id) {
-            const pkg = getPricingStorage().find(i => i.id === id);
-            if (pkg) openPriceModal(pkg);
-        }
-        function deletePricingPackage(id) {
-            if (confirm('Hapus paket ini?')) {
-                let data = getPricingStorage().filter(i => i.id !== id);
-                localStorage.setItem('vyctoFilms_pricing_v3', JSON.stringify(data));
-                renderPricing();
-            }
-        }
-
-        // MASONRY PHOTO PORTFOLIO
-        const initialPhotos = [
-            { id: '1', title: 'Editorial Lookbook Shoot', album: 'lookbook', ratio: 'portrait', url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80' },
-            { id: '2', title: 'Modern Fashion Campaign', album: 'commercial', ratio: 'landscape', url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80' }
-        ];
-        function getPhotoStorage() {
-            const stored = localStorage.getItem('vyctoFilms_photos_v5');
-            return stored ? JSON.parse(stored) : initialPhotos;
-        }
-
-        let currentPhotoFilter = 'all';
-
-        function renderPhotoPortfolio() {
-            const grid = document.getElementById('photoGrid');
-            if(!grid) return;
-            const data = getPhotoStorage();
-            grid.innerHTML = '';
-
-            const filtered = currentPhotoFilter === 'all' ? data : data.filter(i => i.album === currentPhotoFilter);
-
-            filtered.forEach(item => {
-                const itemWrapper = document.createElement('div');
-                itemWrapper.className = 'masonry-item theme-card p-3 rounded-2xl border card-interactive shadow-lg group relative';
-                
-                let ratioClass = "w-full rounded-xl overflow-hidden bg-black/10 cursor-pointer relative ";
-                if (item.ratio === 'portrait') ratioClass += "aspect-[3/4]";
-                else if (item.ratio === 'landscape') ratioClass += "aspect-[16/10]";
-                else if (item.ratio === 'square') ratioClass += "aspect-square";
-                else ratioClass += "h-auto";
-
-                const deleteBtn = isAdmin ? `<button onclick="event.stopPropagation(); deletePhotoItem('${item.id}')" class="text-xs text-rose-500 font-bold mt-2 hover:underline inline-block">Delete Photo</button>` : '';
-
-                itemWrapper.innerHTML = `
-                    <div class="${ratioClass}" onclick="openLightbox('${item.url}')">
-                        <img src="${item.url}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="${item.title}" loading="lazy">
-                    </div>
-                    <div class="mt-3 flex justify-between items-center px-1">
-                        <div>
-                            <h3 class="text-sm font-bold">${item.title}</h3>
-                            <span class="text-[9px] opacity-60 font-semibold uppercase tracking-wider">${item.album || 'Portfolio'}</span>
-                        </div>
-                    </div>
-                    ${deleteBtn}
-                `;
-                grid.appendChild(itemWrapper);
-            });
-        }
-
-        function filterPhotoAlbum(album, btn) {
-            currentPhotoFilter = album;
-            document.querySelectorAll('.photo-filter-btn').forEach(b => b.className = 'photo-filter-btn border border-black/20 dark:border-white/20 opacity-80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider');
-            btn.className = 'photo-filter-btn theme-btn-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider';
-            renderPhotoPortfolio();
-        }
-
-        function openLightbox(url) {
-            document.getElementById('lightboxImage').src = url;
-            document.getElementById('lightboxModal').classList.remove('hidden');
-        }
-        function closeLightbox() {
-            document.getElementById('lightboxModal').classList.add('hidden');
-        }
-
-        function openPhotoModal() { document.getElementById('photoModal').classList.remove('hidden'); }
-        function closePhotoModal() { document.getElementById('photoModal').classList.add('hidden'); }
-        
-        function savePhotoPortfolio(e) {
-            e.preventDefault();
-            const title = document.getElementById('photoTitle').value;
-            const album = document.getElementById('photoAlbum').value;
-            const ratio = document.getElementById('photoRatio').value;
-            const fileInput = document.getElementById('photoFile');
-            const urlInput = document.getElementById('photoUrl').value.trim();
-
-            const pushAndSavePhoto = (photoUrl) => {
-                const newItem = { id: Date.now().toString(), title, album, ratio, url: photoUrl };
-                const data = getPhotoStorage();
-                data.unshift(newItem);
-                try {
-                    localStorage.setItem('vyctoFilms_photos_v5', JSON.stringify(data));
-                    closePhotoModal();
-                    renderPhotoPortfolio();
-                } catch(err) {
-                    alert('Memori penyimpanan browser penuh! Hapus beberapa foto portofolio lama terlebih dahulu.');
-                }
-            };
-
-            if (fileInput.files && fileInput.files[0]) {
-                compressImage(fileInput.files[0], 1200, 0.7, function(compressedBase64) {
-                    pushAndSavePhoto(compressedBase64);
-                });
-            } else if (urlInput !== '') {
-                pushAndSavePhoto(urlInput);
-            } else {
-                alert('Silakan pilih file foto atau masukkan link URL!');
-            }
-        }
-
-        function deletePhotoItem(id) {
-            if (confirm('Hapus foto ini dari portofolio?')) {
-                let data = getPhotoStorage().filter(i => i.id !== id);
-                localStorage.setItem('vyctoFilms_photos_v5', JSON.stringify(data));
-                renderPhotoPortfolio();
-            }
-        }
-
-        const initialPortfolio = [{ id: '1', title: 'Commercial Campaign', category: 'commercial', src: 'https://www.youtube.com/embed/tgbNymZ7vqY' }];
-        function getStorage() {
-            const stored = localStorage.getItem('vyctoFilms_portfolio_v5');
-            return stored ? JSON.parse(stored) : initialPortfolio;
-        }
-        function formatVideoUrl(url) {
-            if (!url) return '';
-            if (url.includes('drive.google.com')) {
-                let fileId = url.includes('/file/d/') ? url.split('/file/d/')[1].split('/')[0] : new URLSearchParams(url.split('?')[1]).get('id');
-                if (fileId) return `https://drive.google.com/file/d/${fileId}/preview`;
-            }
-            let videoId = url.includes('youtu.be/') ? url.split('youtu.be/')[1].split('?')[0] : new URLSearchParams(url.split('?')[1]).get('v');
-            return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
-        }
-        let currentFilter = 'all';
-        function renderPortfolio() {
-            const grid = document.getElementById('portfolioGrid');
-            if(!grid) return;
-            const data = getStorage();
-            grid.innerHTML = '';
-            const filtered = currentFilter === 'all' ? data : data.filter(i => i.category === currentFilter);
-            filtered.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'theme-card p-4 rounded-2xl border card-interactive shadow-xl';
-                const deleteBtn = isAdmin ? `<button onclick="deleteItem('${item.id}')" class="text-xs text-rose-500 font-semibold">Delete</button>` : '';
-                card.innerHTML = `<div class="aspect-video w-full rounded-xl overflow-hidden bg-black mb-3"><iframe class="w-full h-full" src="${formatVideoUrl(item.src)}" allowfullscreen></iframe></div><div class="flex justify-between items-center"><span class="bg-black/10 dark:bg-black/30 opacity-80 text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-full">${item.category}</span>${deleteBtn}</div><h3 class="text-base font-bold mt-3 px-1">${item.title}</h3>`;
-                grid.appendChild(card);
-            });
-        }
-        function filterCategory(cat, btn) {
-            currentFilter = cat;
-            document.querySelectorAll('.filter-btn').forEach(b => b.className = 'filter-btn border border-black/20 dark:border-white/20 opacity-80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider');
-            btn.className = 'filter-btn theme-btn-primary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider';
-            renderPortfolio();
-        }
-        function openModal() { if (isAdmin) document.getElementById('uploadModal').classList.remove('hidden'); }
-        function closeModal() { document.getElementById('uploadModal').classList.add('hidden'); }
-        function savePortfolio(e) {
-            e.preventDefault();
-            const newItem = { id: Date.now().toString(), title: document.getElementById('videoTitle').value, category: document.getElementById('videoCategory').value, src: document.getElementById('videoUrl').value };
-            const data = getStorage(); data.unshift(newItem);
-            localStorage.setItem('vyctoFilms_portfolio_v5', JSON.stringify(data));
-            closeModal(); renderPortfolio();
-        }
-        function deleteItem(id) {
-            if (confirm('Hapus video?')) {
-                let data = getStorage().filter(i => i.id !== id);
-                localStorage.setItem('vyctoFilms_portfolio_v5', JSON.stringify(data));
-                renderPortfolio();
-            }
-        }
-
-        renderPricing(); renderPortfolio(); renderPhotoPortfolio(); renderJournals(); checkClientURLParams();
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    </script>
+  </div>
+
+  <script>
+    const MAPS_URL = "https://maps.app.goo.gl/ySFqTtAbkvroezxZ6";
+    let appConfig = {
+      status: "COMING_SOON",
+      name: "Ivan Nolan",
+      phone: "+62 822-1155-9404",
+      email: "info@villanesia.com"
+    };
+
+    // Deteksi Parameter Client Mode
+    function checkClientMode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('mode') === 'client') {
+        document.body.classList.add('client-mode');
+      }
+    }
+
+    // Direct WA System
+    function directWA(message) {
+      const cleanPhone = appConfig.phone.replace(/[^0-9]/g, '');
+      const encodedMsg = encodeURIComponent(message);
+      const waUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodedMsg}`;
+
+      try {
+        const win = window.open(waUrl, '_blank');
+        if (!win || win.closed) window.top.location.href = waUrl;
+      } catch (e) {
+        window.top.location.href = waUrl;
+      }
+    }
+
+    // Direct Maps System
+    function directMaps() {
+      try {
+        const win = window.open(MAPS_URL, '_blank');
+        if (!win || win.closed) window.top.location.href = MAPS_URL;
+      } catch (e) {
+        window.top.location.href = MAPS_URL;
+      }
+    }
+
+    function toggleDrawer() {
+      document.getElementById('navDrawer').classList.toggle('active');
+      document.getElementById('drawerBackdrop').classList.toggle('active');
+    }
+
+    function openModal() {
+      document.getElementById('cfgStatus').value = appConfig.status;
+      document.getElementById('cfgName').value = appConfig.name;
+      document.getElementById('cfgPhone').value = appConfig.phone;
+      document.getElementById('cfgEmail').value = appConfig.email;
+      document.getElementById('settingModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('settingModal').classList.remove('active');
+    }
+
+    function saveSettings() {
+      appConfig.status = document.getElementById('cfgStatus').value;
+      appConfig.name = document.getElementById('cfgName').value;
+      appConfig.phone = document.getElementById('cfgPhone').value;
+      appConfig.email = document.getElementById('cfgEmail').value;
+
+      localStorage.setItem('villanesia_cfg', JSON.stringify(appConfig));
+      renderUI();
+      closeModal();
+      alert('Pengaturan berhasil disimpan!');
+    }
+
+    function copyClientLink() {
+      const clientUrl = window.location.origin + window.location.pathname + '?mode=client';
+      navigator.clipboard.writeText(clientUrl).then(() => {
+        alert('Link Khusus Klien berhasil disalin!\n\nURL: ' + clientUrl + '\n\n(Link ini tidak akan menampilkan menu Pengaturan Web/Admin).');
+      });
+    }
+
+    function renderUI() {
+      const saved = localStorage.getItem('villanesia_cfg');
+      if (saved) {
+        try { appConfig = { ...appConfig, ...JSON.parse(saved) }; } catch(e){}
+      }
+
+      document.getElementById('footerMarketingName').innerText = appConfig.name;
+      const badgeContainer = document.getElementById('badgeContainer');
+
+      if (appConfig.status === 'COMING_SOON') {
+        badgeContainer.innerHTML = `<span class="badge-status"><i class="fa-solid fa-clock"></i> COMING SOON - SEGERA HADIR</span>`;
+      } else {
+        badgeContainer.innerHTML = `<span class="badge-status" style="background:rgba(45,106,79,0.3); border-color:#52B788;"><i class="fa-solid fa-circle-check"></i> SUDAH BUKA / READY BOOKING</span>`;
+      }
+    }
+
+    window.onload = function() {
+      checkClientMode();
+      renderUI();
+    };
+  </script>
 </body>
 </html>
-
