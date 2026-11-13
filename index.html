@@ -1,1922 +1,536 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light">
+<html lang="id" class="theme-dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VYCTO FILMS — Creative Visual &amp; Commercial Production Studio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VYCTO FILMS | Editorial Art & Cinema Production</title>
+    
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* =========================================================================
-       VYCTO FILMS — DESIGN SYSTEM & CORPORATE NAVY / LIGHT / STUDIO THEMES
-       ========================================================================= */
-    :root,
-    [data-theme="light"] {
-      --bg-primary: #F8FAFC;
-      --bg-secondary: #FFFFFF;
-      --bg-elevated: #F1F5F9;
-      --bg-frame: #0B1220;
-      --text-primary: #0F172A;
-      --text-secondary: #475569;
-      --text-muted: #94A3B8;
-      --border-subtle: rgba(15, 23, 42, 0.08);
-      --border-strong: rgba(15, 23, 42, 0.16);
-      --accent-navy: #0F2347;
-      --accent-blue: #2563EB;
-      --accent-soft: rgba(37, 99, 235, 0.08);
-      --shadow-card: 0 12px 32px -8px rgba(15, 23, 42, 0.06);
-      --shadow-frame: 0 28px 70px -16px rgba(11, 18, 32, 0.22);
-      --glass-bg: rgba(255, 255, 255, 0.84);
-    }
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        creamBg: '#F9F8F6',
+                        charcoal: '#1E1E1E',
+                        cinematicBlack: '#121212',
+                        ivory: '#F4F4F0',
+                        goldAccent: '#C5A880',
+                        terracotta: '#A85A32'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Variabel Warna Tema Dinamis */
+        :root, .theme-light {
+            --bg-main: #F9F8F6;
+            --text-main: #1E1E1E;
+            --card-bg: #FFFFFF;
+            --border-color: #E2DDD5;
+            --accent: #A85A32;
+        }
 
-    [data-theme="navy"] {
-      --bg-primary: #0A1428;
-      --bg-secondary: #101E3A;
-      --bg-elevated: #16284C;
-      --bg-frame: #060D1B;
-      --text-primary: #F8FAFC;
-      --text-secondary: #CBD5E1;
-      --text-muted: #64748B;
-      --border-subtle: rgba(148, 163, 184, 0.14);
-      --border-strong: rgba(148, 163, 184, 0.28);
-      --accent-navy: #3B82F6;
-      --accent-blue: #60A5FA;
-      --accent-soft: rgba(59, 130, 246, 0.14);
-      --shadow-card: 0 14px 36px -10px rgba(2, 6, 23, 0.45);
-      --shadow-frame: 0 32px 80px -16px rgba(2, 6, 23, 0.65);
-      --glass-bg: rgba(10, 20, 40, 0.86);
-    }
+        .theme-dark {
+            --bg-main: #121212;
+            --text-main: #F4F4F0;
+            --card-bg: #1A1A1A;
+            --border-color: #2A2A2A;
+            --accent: #C5A880;
+        }
 
-    [data-theme="dark"] {
-      --bg-primary: #0B0F17;
-      --bg-secondary: #121824;
-      --bg-elevated: #1A2232;
-      --bg-frame: #05080E;
-      --text-primary: #F1F5F9;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-strong: rgba(255, 255, 255, 0.16);
-      --accent-navy: #38BDF8;
-      --accent-blue: #0EA5E9;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --shadow-card: 0 14px 36px -10px rgba(0, 0, 0, 0.5);
-      --shadow-frame: 0 32px 80px -16px rgba(0, 0, 0, 0.7);
-      --glass-bg: rgba(11, 15, 23, 0.86);
-    }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
 
-    [data-theme="slate"] {
-      --bg-primary: #EFF3F8;
-      --bg-secondary: #FFFFFF;
-      --bg-elevated: #E2E8F0;
-      --bg-frame: #0F172A;
-      --text-primary: #1E293B;
-      --text-secondary: #475569;
-      --text-muted: #64748B;
-      --border-subtle: rgba(30, 41, 59, 0.1);
-      --border-strong: rgba(30, 41, 59, 0.2);
-      --accent-navy: #1E3A8A;
-      --accent-blue: #1D4ED8;
-      --accent-soft: rgba(29, 78, 216, 0.08);
-      --shadow-card: 0 12px 28px -8px rgba(30, 41, 59, 0.08);
-      --shadow-frame: 0 28px 65px -16px rgba(15, 23, 42, 0.25);
-      --glass-bg: rgba(239, 243, 248, 0.88);
-    }
+        .editorial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+        .editorial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.15);
+        }
 
-    * {
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+        /* Glassmorphism Modal */
+        .glass-modal {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-blur: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .theme-light .glass-modal {
+            background: rgba(249, 248, 246, 0.9);
+        }
 
-    .font-mono-code {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      overflow-x: hidden;
-      transition: background-color 0.35s ease, color 0.35s ease;
-    }
-
-    /* Precision Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-primary);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--border-strong);
-      border-radius: 9999px;
-    }
-
-    /* Frame.io Studio Glass & Surface Helpers */
-    .surface-card {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-card);
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease, box-shadow 0.28s ease;
-    }
-
-    .surface-card:hover {
-      border-color: var(--border-strong);
-    }
-
-    .glass-nav {
-      background-color: var(--glass-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    /* Frame.io Player Frame Styling */
-    .studio-frame-shell {
-      background: #080E1A;
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      box-shadow: var(--shadow-frame);
-    }
-
-    /* Kinetic Boxed Marquee — Clean, Uniform Square/Rect Cards */
-    @keyframes marqueeLeft {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
-    }
-
-    @keyframes marqueeRight {
-      0% { transform: translate3d(-50%, 0, 0); }
-      100% { transform: translate3d(0, 0, 0); }
-    }
-
-    .kinetic-track-left {
-      display: flex;
-      width: max-content;
-      animation: marqueeLeft 38s linear infinite;
-    }
-
-    .kinetic-track-right {
-      display: flex;
-      width: max-content;
-      animation: marqueeRight 44s linear infinite;
-    }
-
-    .kinetic-wrapper:hover .kinetic-track-left,
-    .kinetic-wrapper:hover .kinetic-track-right {
-      animation-play-state: paused;
-    }
-
-    /* Timeline Playhead Sweep */
-    @keyframes playheadProgress {
-      0% { width: 0%; }
-      100% { width: 100%; }
-    }
-
-    .animate-playhead {
-      animation: playheadProgress 14s linear infinite;
-    }
-
-    /* Aspect Ratio Frame Helpers */
-    .ratio-16-9 { aspect-ratio: 16 / 9; }
-    .ratio-9-16 { aspect-ratio: 9 / 16; }
-    .ratio-4-5  { aspect-ratio: 4 / 5; }
-    .ratio-1-1  { aspect-ratio: 1 / 1; }
-
-    /* Modal Backdrop */
-    .modal-backdrop {
-      background: rgba(6, 12, 24, 0.72);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    /* Subtle Grid Background Pattern (Frame.io Studio Precision) */
-    .studio-grid-bg {
-      background-image:
-        linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
-      background-size: 48px 48px;
-    }
-  </style>
+        /* Smooth Hide/Show Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+    </style>
 </head>
-<body class="antialiased selection:bg-blue-600 selection:text-white">
-
-  <!-- =========================================================================
-       TOP STUDIO HEADER & BURGER TRIGGER
-       ========================================================================= -->
-  <header class="fixed top-0 inset-x-0 z-40 glass-nav">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
-      <!-- Brand Identity -->
-      <a href="#top" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0F2347] text-white flex items-center justify-center shadow-sm border border-white/15 group-hover:scale-105 transition-transform">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <rect x="2.5" y="4.5" width="19" height="15" rx="3"></rect>
-            <polygon points="10 9 15.5 12 10 15 10 9" fill="currentColor" stroke="none"></polygon>
-          </svg>
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="font-bold tracking-tight text-base sm:text-lg" style="color: var(--text-primary)">VYCTO FILMS</span>
-            <span id="adminBadgeNav" class="hidden text-[10px] font-mono-code uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-600 text-white font-semibold">Studio Admin</span>
-          </div>
-          <p class="text-[11px] tracking-wide hidden sm:block" style="color: var(--text-muted)">Commercial Cinema &amp; Visual Production</p>
-        </div>
-      </a>
-
-      <!-- Center Quick Nav (Desktop) -->
-      <nav class="hidden lg:flex items-center gap-1 p-1 rounded-2xl border" style="background: var(--bg-elevated); border-color: var(--border-subtle);">
-        <a href="#frames" class="px-4 py-1.5 rounded-xl text-xs font-medium transition-colors hover:bg-white/70 dark:hover:bg-white/10" style="color: var(--text-primary)">Motion Frames</a>
-        <a href="#kinetic-gallery" class="px-4 py-1.5 rounded-xl text-xs font-medium transition-colors hover:bg-white/70 dark:hover:bg-white/10" style="color: var(--text-primary)">Boxed Gallery</a>
-        <a href="#albums" class="px-4 py-1.5 rounded-xl text-xs font-medium transition-colors hover:bg-white/70 dark:hover:bg-white/10" style="color: var(--text-primary)">Curated Albums</a>
-        <a href="#packages" class="px-4 py-1.5 rounded-xl text-xs font-medium transition-colors hover:bg-white/70 dark:hover:bg-white/10" style="color: var(--text-primary)">Rate Card</a>
-        <a href="#journal" class="px-4 py-1.5 rounded-xl text-xs font-medium transition-colors hover:bg-white/70 dark:hover:bg-white/10" style="color: var(--text-primary)">Journal</a>
-      </nav>
-
-      <!-- Right Actions: Client Greeting + Burger Menu Button -->
-      <div class="flex items-center gap-2.5 sm:gap-3">
-        <div id="clientGreetingBadge" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-medium border" style="background: var(--accent-soft); border-color: var(--border-subtle); color: var(--accent-blue);">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span id="clientGreetingText">Private Deck</span>
-        </div>
-
-        <button onclick="openBurgerDrawer()" aria-label="Open Studio Menu" class="flex items-center gap-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-medium transition-all hover:scale-[1.02] active:scale-[0.98]" style="background: var(--bg-secondary); border-color: var(--border-strong); color: var(--text-primary);">
-          <span class="hidden sm:inline">Menu</span>
-          <div class="w-5 h-4 flex flex-col justify-between">
-            <span class="w-full h-0.5 rounded-full bg-current"></span>
-            <span class="w-3.5 h-0.5 rounded-full bg-current self-end"></span>
-            <span class="w-full h-0.5 rounded-full bg-current"></span>
-          </div>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- =========================================================================
-       BURGER DRAWER NAVIGATION + EMBEDDED ADMIN PIN LOGIN (PIN: 1997)
-       ========================================================================= -->
-  <div id="burgerDrawerOverlay" class="fixed inset-0 z-50 hidden modal-backdrop transition-opacity" onclick="closeBurgerDrawer()">
-    <aside id="burgerDrawerPanel" class="absolute right-0 top-0 bottom-0 w-full max-w-md p-6 sm:p-8 overflow-y-auto flex flex-col justify-between border-l shadow-2xl transition-transform" style="background: var(--bg-secondary); border-color: var(--border-subtle);" onclick="event.stopPropagation()">
-      <div>
-        <!-- Drawer Header -->
-        <div class="flex items-center justify-between pb-6 border-b" style="border-color: var(--border-subtle);">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-[#0F2347] text-white flex items-center justify-center font-bold text-xs">VF</div>
-            <div>
-              <h2 class="text-sm font-bold tracking-tight">VYCTO STUDIO DECK</h2>
-              <p class="text-[11px]" style="color: var(--text-muted)">Navigation &amp; Workspace Controls</p>
-            </div>
-          </div>
-          <button onclick="closeBurgerDrawer()" class="w-9 h-9 rounded-xl border flex items-center justify-center hover:opacity-75" style="border-color: var(--border-subtle);">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 6L6 18M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Primary Links -->
-        <div class="py-6 space-y-1.5">
-          <p class="text-[10px] font-mono-code uppercase tracking-widest mb-3 px-2" style="color: var(--text-muted)">01 / Directory</p>
-          <a href="#top" onclick="closeBurgerDrawer()" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500/10 transition-colors">
-            <span>Studio Reel &amp; Overview</span>
-            <span class="text-xs font-mono-code" style="color: var(--text-muted)">01</span>
-          </a>
-          <a href="#frames" onclick="closeBurgerDrawer()" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500/10 transition-colors">
-            <span>Silent Cinema Frames (Multi-Ratio)</span>
-            <span class="text-xs font-mono-code" style="color: var(--text-muted)">02</span>
-          </a>
-          <a href="#kinetic-gallery" onclick="closeBurgerDrawer()" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500/10 transition-colors">
-            <span>Boxed Kinetic Gallery</span>
-            <span class="text-xs font-mono-code" style="color: var(--text-muted)">03</span>
-          </a>
-          <a href="#albums" onclick="closeBurgerDrawer()" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500/10 transition-colors">
-            <span>Curated Photography Albums</span>
-            <span class="text-xs font-mono-code" style="color: var(--text-muted)">04</span>
-          </a>
-          <a href="#packages" onclick="closeBurgerDrawer()" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500/10 transition-colors">
-            <span>Production Packages &amp; Rate Card</span>
-            <span class="text-xs font-mono-code" style="color: var(--text-muted)">05</span>
-          </a>
-          <a href="#journal" onclick="closeBurgerDrawer()" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500/10 transition-colors">
-            <span>Production Journal &amp; Notes</span>
-            <span class="text-xs font-mono-code" style="color: var(--text-muted)">06</span>
-          </a>
-          <a href="#contact" onclick="closeBurgerDrawer()" class="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium hover:bg-blue-500/10 transition-colors">
-            <span>Direct Booking &amp; WhatsApp</span>
-            <span class="text-xs font-mono-code" style="color: var(--text-muted)">07</span>
-          </a>
-        </div>
-
-        <!-- Quick Theme Switcher Inside Menu -->
-        <div class="py-5 border-t" style="border-color: var(--border-subtle);">
-          <p class="text-[10px] font-mono-code uppercase tracking-widest mb-3 px-1" style="color: var(--text-muted)">02 / Studio Appearance</p>
-          <div class="grid grid-cols-2 gap-2">
-            <button onclick="setTheme('light')" data-theme-btn="light" class="theme-chip px-3 py-2.5 rounded-xl border text-xs font-medium flex items-center gap-2 transition-all">
-              <span class="w-3 h-3 rounded-full bg-[#F8FAFC] border border-slate-400"></span> Day Light
-            </button>
-            <button onclick="setTheme('navy')" data-theme-btn="navy" class="theme-chip px-3 py-2.5 rounded-xl border text-xs font-medium flex items-center gap-2 transition-all">
-              <span class="w-3 h-3 rounded-full bg-[#0A1428] border border-blue-400"></span> Corporate Navy
-            </button>
-            <button onclick="setTheme('dark')" data-theme-btn="dark" class="theme-chip px-3 py-2.5 rounded-xl border text-xs font-medium flex items-center gap-2 transition-all">
-              <span class="w-3 h-3 rounded-full bg-[#0B0F17] border border-sky-400"></span> Dark Studio
-            </button>
-            <button onclick="setTheme('slate')" data-theme-btn="slate" class="theme-chip px-3 py-2.5 rounded-xl border text-xs font-medium flex items-center gap-2 transition-all">
-              <span class="w-3 h-3 rounded-full bg-[#E2E8F0] border border-slate-600"></span> Cool Slate
-            </button>
-          </div>
-        </div>
-
-        <!-- Embedded Admin Access Inside Burger Menu -->
-        <div class="py-5 border-t" style="border-color: var(--border-subtle);">
-          <p class="text-[10px] font-mono-code uppercase tracking-widest mb-3 px-1" style="color: var(--text-muted)">03 / Producer Access</p>
-
-          <!-- Locked State -->
-          <div id="adminLoginBox" class="p-4 rounded-2xl border space-y-3" style="background: var(--bg-elevated); border-color: var(--border-subtle);">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-semibold">Studio CMS Login</span>
-              <span class="text-[10px] font-mono-code px-2 py-0.5 rounded bg-slate-500/10" style="color: var(--text-muted)">PIN REQUIRED</span>
-            </div>
-            <div class="flex gap-2">
-              <input id="adminPinInput" type="password" maxlength="8" placeholder="Enter PIN (1997)" onkeydown="if(event.key==='Enter') verifyAdminPin()" class="w-full px-3.5 py-2 rounded-xl border text-xs font-mono-code focus:outline-none focus:ring-2 focus:ring-blue-500" style="background: var(--bg-secondary); border-color: var(--border-strong); color: var(--text-primary);" />
-              <button onclick="verifyAdminPin()" class="px-4 py-2 rounded-xl bg-[#0F2347] hover:bg-blue-700 text-white text-xs font-semibold transition-colors shrink-0">
-                Unlock
-              </button>
-            </div>
-            <p id="adminPinError" class="hidden text-[11px] text-rose-500 font-medium">Incorrect PIN. Please try again.</p>
-          </div>
-
-          <!-- Unlocked Admin Controls -->
-          <div id="adminUnlockedBox" class="hidden p-4 rounded-2xl border space-y-2.5" style="background: var(--accent-soft); border-color: var(--accent-blue);">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-xs font-bold text-blue-600 dark:text-blue-400">Admin Session Active</span>
-              <button onclick="logoutAdmin()" class="text-[11px] underline opacity-80 hover:opacity-100">Lock</button>
-            </div>
-            <button onclick="closeBurgerDrawer(); openSettingsModal();" class="w-full py-2.5 px-3.5 rounded-xl bg-[#0F2347] text-white text-xs font-semibold flex items-center justify-between hover:bg-blue-700 transition-colors">
-              <span>Studio Settings &amp; Media Manager</span>
-              <span>&rarr;</span>
-            </button>
-            <button onclick="closeBurgerDrawer(); openClientLinkModal();" class="w-full py-2.5 px-3.5 rounded-xl border text-xs font-semibold flex items-center justify-between hover:bg-white/50 transition-colors" style="background: var(--bg-secondary); border-color: var(--border-strong);">
-              <span>Generate Client Presentation Link</span>
-              <span>&#128279;</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Drawer Footer -->
-      <div class="pt-4 border-t flex items-center justify-between text-[11px]" style="border-color: var(--border-subtle); color: var(--text-muted);">
-        <span>VYCTO FILMS &copy; 2026</span>
-        <span class="font-mono-code">BUILD 4.2 // FRAME-READY</span>
-      </div>
-    </aside>
-  </div>
-
-  <!-- =========================================================================
-       01. HERO SECTION — FRAME.IO INSPIRED SILENT CINEMA PLAYER & STUDIO HEADER
-       ========================================================================= -->
-  <main id="top" class="pt-24 sm:pt-28 pb-16 studio-grid-bg">
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Top Studio Metadata Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border text-xs font-medium" style="background: var(--bg-secondary); border-color: var(--border-subtle);">
-          <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-          <span id="heroEyebrow">COMMERCIAL &amp; BRAND CINEMATOGRAPHY STUDIO</span>
-        </div>
-        <div class="flex items-center gap-2 text-xs font-mono-code" style="color: var(--text-muted);">
-          <span class="px-2.5 py-1 rounded-lg border" style="background: var(--bg-secondary); border-color: var(--border-subtle);">4K RAW / LOG-C</span>
-          <span class="px-2.5 py-1 rounded-lg border" style="background: var(--bg-secondary); border-color: var(--border-subtle);">SILENT LOOP PREVIEW</span>
-        </div>
-      </div>
-
-      <!-- Minimalist Editorial Headline + Action Row -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-8 sm:mb-10">
-        <div class="lg:col-span-8">
-          <h1 id="heroHeadline" class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08]">
-            Precision Visual Storytelling, Crafted Frame by Frame.
-          </h1>
-        </div>
-        <div class="lg:col-span-4 space-y-4">
-          <p id="heroSubheadline" class="text-sm sm:text-base leading-relaxed" style="color: var(--text-secondary);">
-            High-impact commercial films, brand campaigns, and editorial visual systems engineered for modern screens.
-          </p>
-          <div class="flex flex-wrap items-center gap-3">
-            <a href="#frames" class="px-5 py-3 rounded-xl bg-[#0F2347] hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all">
-              Explore Motion Frames
-            </a>
-            <button onclick="openWhatsAppDirect('Halo VYCTO FILMS, saya tertarik berdiskusi mengenai project produksi visual.')" class="px-5 py-3 rounded-xl border text-xs sm:text-sm font-semibold inline-flex items-center gap-2 transition-all hover:border-emerald-500/60" style="background: var(--bg-secondary); border-color: var(--border-strong);">
-              <!-- Official WhatsApp SVG Icon -->
-              <svg class="w-4 h-4 text-[#25D366]" viewBox="0 0 448 512" fill="currentColor">
-                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-              </svg>
-              <span>Start a Project</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- FRAME.IO INSPIRED INTERACTIVE SILENT CINEMA PLAYER -->
-      <div class="studio-frame-shell rounded-3xl overflow-hidden">
-        <!-- Frame Top Studio Bar -->
-        <div class="px-4 sm:px-6 py-3 bg-[#0E1628] border-b border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
-          <div class="flex items-center gap-3">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-            </div>
-            <span class="font-mono-code text-[11px] text-white/90 font-medium" id="heroReelFilename">VYCTO_SHOWREEL_2026_MASTER.MP4</span>
-            <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono-code text-[10px]">
-              SILENT AUTOPLAY
-            </span>
-          </div>
-
-          <div class="flex items-center gap-2 sm:gap-3">
-            <span class="font-mono-code text-[11px] text-slate-400 hidden md:inline">23.976 FPS &bull; REC.709</span>
-            <button id="heroMuteToggleBtn" onclick="toggleHeroAudio()" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-[11px] font-mono-code text-white flex items-center gap-1.5 transition-colors">
-              <svg id="heroMuteIcon" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <line x1="23" y1="9" x2="17" y2="15"></line>
-                <line x1="17" y1="9" x2="23" y2="15"></line>
-              </svg>
-              <span id="heroMuteLabel">MUTED</span>
-            </button>
-            <button onclick="openSettingsModal('hero')" class="admin-only-btn hidden px-2.5 py-1 rounded-lg bg-blue-600 hover:bg-blue-500 text-[11px] font-semibold text-white">
-              Change Reel
-            </button>
-          </div>
-        </div>
-
-        <!-- Silent Video / Cinema Viewport -->
-        <div class="relative w-full aspect-[16/9] max-h-[640px] bg-[#050912] overflow-hidden group">
-          <video id="heroSilentVideo" class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1800&q=85">
-            <source id="heroVideoSource" src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />
-          </video>
-
-          <!-- Optional Image Fallback if user selects image background -->
-          <img id="heroFallbackImage" src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1800&q=85" alt="VYCTO FILMS Showreel" class="hidden w-full h-full object-cover" />
-
-          <!-- Subtle Viewfinder Safe-Margin Guides (Frame.io Aesthetic) -->
-          <div class="pointer-events-none absolute inset-4 sm:inset-8 border border-white/15 rounded-xl flex flex-col justify-between p-3 sm:p-5">
-            <div class="flex justify-between items-start">
-              <span class="font-mono-code text-[10px] tracking-widest text-white/60 uppercase bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">
-                TC 01:00:14:08
-              </span>
-              <span class="font-mono-code text-[10px] tracking-widest text-white/60 uppercase bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">
-                CAM A // ARRI ALEXA MINI LF
-              </span>
-            </div>
-            <div class="flex justify-between items-end">
-              <div class="max-w-md bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-3 sm:p-4 text-white">
-                <p class="text-[10px] font-mono-code uppercase tracking-wider text-blue-300 mb-0.5">Featured Director's Cut</p>
-                <p id="heroReelCaption" class="text-xs sm:text-sm font-medium">2026 Commercial &amp; Atmospheric Visual Anthology</p>
-              </div>
-              <button onclick="openVideoLightbox(currentState.hero.videoUrl, currentState.hero.reelTitle, '16:9 Master Showreel')" class="pointer-events-auto px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 text-white text-xs font-medium flex items-center gap-2 transition-all">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <polyline points="9 21 3 21 3 15"></polyline>
-                  <line x1="21" y1="3" x2="14" y2="10"></line>
-                  <line x1="3" y1="21" x2="10" y2="14"></line>
-                </svg>
-                <span class="hidden sm:inline">Expand Frame</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Frame.io Signature Timeline Scrub & Marker Bar -->
-        <div class="px-4 sm:px-6 py-3.5 bg-[#0B1220] border-t border-white/10 space-y-2">
-          <!-- Timeline Bar with Review Markers -->
-          <div class="relative h-2 w-full bg-white/10 rounded-full overflow-hidden">
-            <div class="h-full bg-gradient-to-r from-blue-500 to-sky-400 rounded-full animate-playhead"></div>
-          </div>
-          <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-code text-slate-400">
-            <div class="flex items-center gap-4">
-              <span class="text-white font-medium">00:00:14:08</span>
-              <span>/</span>
-              <span>00:01:30:00</span>
-              <span class="hidden sm:inline text-blue-400">&bull; 4 Editorial Chapters</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span>STREAMING SMOOTH SILENT LOOP</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =========================================================================
-       02. CREATIVE SILENT VIDEO FRAMES (FRAME.IO MULTI-ASPECT SHOWCASE)
-       ========================================================================= -->
-  <section id="frames" class="py-16 sm:py-24 border-t" style="border-color: var(--border-subtle);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono-code uppercase tracking-wider mb-3 border" style="background: var(--accent-soft); border-color: var(--border-subtle); color: var(--accent-blue);">
-            <span>01 // SILENT MOTION FRAMES</span>
-          </div>
-          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Creative Video Frames</h2>
-          <p class="mt-2 text-sm sm:text-base max-w-2xl" style="color: var(--text-secondary);">
-            Curated silent looping films across cinema widescreen, vertical social reels, and editorial square formats. Click any frame to inspect in studio theater mode.
-          </p>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-2">
-          <!-- Ratio Filter Pills -->
-          <div class="inline-flex p-1 rounded-xl border" style="background: var(--bg-secondary); border-color: var(--border-subtle);">
-            <button onclick="filterMotionFrames('all')" data-frame-filter="all" class="frame-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#0F2347] text-white transition-all">All Frames</button>
-            <button onclick="filterMotionFrames('16:9')" data-frame-filter="16:9" class="frame-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition-all">16:9 Wide</button>
-            <button onclick="filterMotionFrames('9:16')" data-frame-filter="9:16" class="frame-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition-all">9:16 Vertical</button>
-            <button onclick="filterMotionFrames('4:5')" data-frame-filter="4:5" class="frame-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition-all">4:5 Editorial</button>
-          </div>
-
-          <button onclick="openAddVideoFrameModal()" class="admin-only-btn hidden px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-all">
-            + Add Video Frame
-          </button>
-        </div>
-      </div>
-
-      <!-- Multi-Aspect Silent Looping Video Grid -->
-      <div id="motionFramesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-start">
-        <!-- Rendered dynamically by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       03. BOXED KINETIC PHOTO GALLERY (KOTAK-KOTAK RAPIH & ESTETIK)
-       ========================================================================= -->
-  <section id="kinetic-gallery" class="py-16 sm:py-24 border-t overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-subtle);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono-code uppercase tracking-wider mb-3 border" style="background: var(--accent-soft); border-color: var(--border-subtle); color: var(--accent-blue);">
-            <span>02 // PRECISION BOXED STILLS</span>
-          </div>
-          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Boxed Kinetic Visual Grid</h2>
-          <p class="mt-2 text-sm sm:text-base max-w-2xl" style="color: var(--text-secondary);">
-            Uniform geometric frames arranged in synchronized kinetic rows and structured bento cards—designed for crisp visual rhythm.
-          </p>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-2.5">
-          <!-- Toggle Between Smooth Kinetic Strip & Precision Bento Grid -->
-          <div class="inline-flex p-1 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-subtle);">
-            <button id="btnKineticMode" onclick="setKineticViewMode('kinetic')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#0F2347] text-white transition-all">
-              Kinetic Boxes
-            </button>
-            <button id="btnBentoMode" onclick="setKineticViewMode('bento')" class="px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all">
-              Structured Grid
-            </button>
-          </div>
-
-          <button onclick="openKineticManagerModal()" class="admin-only-btn hidden px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-all">
-            + Manage Boxes
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODE A: NEAT UNIFORM BOXED KINETIC STRIPS (2 SYNCHRONIZED ROWS OF CRISP CARDS) -->
-    <div id="kineticStripContainer" class="kinetic-wrapper space-y-5">
-      <!-- Row 1 -->
-      <div class="overflow-hidden">
-        <div id="kineticRow1" class="kinetic-track-left gap-5 px-2.5">
-          <!-- Populated dynamically with uniform rounded-2xl cards -->
-        </div>
-      </div>
-      <!-- Row 2 -->
-      <div class="overflow-hidden">
-        <div id="kineticRow2" class="kinetic-track-right gap-5 px-2.5">
-          <!-- Populated dynamically with uniform rounded-2xl cards -->
-        </div>
-      </div>
-    </div>
-
-    <!-- MODE B: PRECISION STRUCTURED BENTO BOX GRID -->
-    <div id="kineticBentoContainer" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div id="kineticBentoGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
-        <!-- Populated dynamically with clean uniform square boxes -->
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       04. CURATED PHOTOGRAPHY ALBUMS
-       ========================================================================= -->
-  <section id="albums" class="py-16 sm:py-24 border-t" style="border-color: var(--border-subtle);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono-code uppercase tracking-wider mb-3 border" style="background: var(--accent-soft); border-color: var(--border-subtle); color: var(--accent-blue);">
-            <span>03 // EDITORIAL SERIES</span>
-          </div>
-          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Photography Albums</h2>
-          <p class="mt-2 text-sm sm:text-base max-w-xl" style="color: var(--text-secondary);">
-            Complete campaign lookbooks, architectural documentation, and executive portraits.
-          </p>
-        </div>
-        <button onclick="openAlbumModal()" class="admin-only-btn hidden px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold self-start sm:self-auto">
-          + New Album
-        </button>
-      </div>
-
-      <div id="albumsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       05. PRODUCTION PACKAGES & RATE CARD
-       ========================================================================= -->
-  <section id="packages" class="py-16 sm:py-24 border-t" style="background: var(--bg-secondary); border-color: var(--border-subtle);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono-code uppercase tracking-wider mb-3 border" style="background: var(--accent-soft); border-color: var(--border-subtle); color: var(--accent-blue);">
-            <span>04 // PRODUCTION TIERS</span>
-          </div>
-          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Production Packages</h2>
-          <p class="mt-2 text-sm sm:text-base max-w-2xl" style="color: var(--text-secondary);">
-            Transparent studio production tiers tailored for commercial brands, corporate profiles, and digital campaigns.
-          </p>
-        </div>
-        <button onclick="openPackageModal()" class="admin-only-btn hidden px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold self-start sm:self-auto">
-          + Add Package
-        </button>
-      </div>
-
-      <div id="packagesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       06. STUDIO JOURNAL & PRODUCTION NOTES
-       ========================================================================= -->
-  <section id="journal" class="py-16 sm:py-24 border-t" style="border-color: var(--border-subtle);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono-code uppercase tracking-wider mb-3 border" style="background: var(--accent-soft); border-color: var(--border-subtle); color: var(--accent-blue);">
-            <span>05 // BEHIND THE LENS</span>
-          </div>
-          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Production Journal</h2>
-          <p class="mt-2 text-sm sm:text-base max-w-xl" style="color: var(--text-secondary);">
-            Notes on cinematography workflows, color grading pipelines, and recent commercial sets.
-          </p>
-        </div>
-        <button onclick="openSettingsModal('journal')" class="admin-only-btn hidden px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold self-start sm:self-auto">
-          + Manage Journal
-        </button>
-      </div>
-
-      <div id="journalGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       07. DIRECT BOOKING & CONTACT SECTION WITH OFFICIAL WHATSAPP LOGO
-       ========================================================================= -->
-  <section id="contact" class="py-16 sm:py-24 border-t" style="background: var(--bg-secondary); border-color: var(--border-subtle);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl p-8 sm:p-12 lg:p-16 bg-[#0F2347] text-white relative overflow-hidden shadow-2xl">
-        <!-- Subtle Studio Grid Accent -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
-
-        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-7 space-y-4">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-blue-200 font-mono-code text-xs">
-              DIRECT STUDIO DESK
-            </span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
-              Ready to Frame Your Next Campaign?
-            </h2>
-            <p class="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
-              Consult directly with our executive producer for treatment decks, shooting schedules, and tailored production estimates.
-            </p>
-            <div class="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-300 font-mono-code">
-              <span id="displayStudioEmail">hello@vyctofilms.com</span>
-              <span>&bull;</span>
-              <span id="displayStudioIg">@vyctofilms</span>
-              <span>&bull;</span>
-              <span>JAKARTA / BALI / WORLDWIDE</span>
-            </div>
-          </div>
-
-          <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3.5">
-            <!-- Official WhatsApp Logo CTA Button -->
-            <button onclick="openWhatsAppDirect('Halo VYCTO FILMS, saya ingin konsultasi jadwal & penawaran produksi.')" class="w-full py-4 px-6 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-bold text-sm sm:text-base flex items-center justify-center gap-3 shadow-lg shadow-emerald-950/30 transition-all hover:scale-[1.01]">
-              <svg class="w-6 h-6 shrink-0" viewBox="0 0 448 512" fill="currentColor">
-                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-              </svg>
-              <span>Chat on WhatsApp</span>
-            </button>
-
-            <a id="contactEmailBtn" href="mailto:hello@vyctofilms.com" class="w-full py-3.5 px-6 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-medium text-sm flex items-center justify-center gap-2 transition-all">
-              <span>Send Production Brief via Email</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       FOOTER
-       ========================================================================= -->
-  <footer class="py-8 border-t text-xs" style="border-color: var(--border-subtle); color: var(--text-muted);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2.5">
-        <span class="font-bold" style="color: var(--text-primary)">VYCTO FILMS</span>
-        <span>&bull; Visual Production &amp; Commercial Cinema</span>
-      </div>
-      <div class="flex items-center gap-5">
-        <a href="#frames" class="hover:underline">Motion Frames</a>
-        <a href="#kinetic-gallery" class="hover:underline">Boxed Gallery</a>
-        <a href="#packages" class="hover:underline">Rate Card</a>
-        <button onclick="openBurgerDrawer()" class="hover:underline">Studio Menu</button>
-      </div>
-    </div>
-  </footer>
-
-  <!-- =========================================================================
-       FLOATING WHATSAPP BUTTON WITH AUTHENTIC WHATSAPP LOGO
-       ========================================================================= -->
-  <button onclick="openWhatsAppDirect('Halo VYCTO FILMS, saya ingin bertanya mengenai layanan produksi video/foto.')" aria-label="Chat via WhatsApp" class="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-40 group flex items-center gap-2.5 pl-3.5 pr-4 py-3 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white shadow-xl shadow-emerald-950/25 transition-all hover:scale-105 active:scale-95">
-    <!-- Official WhatsApp SVG Logo -->
-    <svg class="w-6 h-6 text-white shrink-0" viewBox="0 0 448 512" fill="currentColor">
-      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-    </svg>
-    <span class="text-xs font-bold tracking-wide hidden sm:inline">WhatsApp</span>
-  </button>
-
-  <!-- =========================================================================
-       MODAL 1: FULLSCREEN FRAME.IO STYLE VIDEO LIGHTBOX
-       ========================================================================= -->
-  <div id="videoLightboxModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6" onclick="closeVideoLightbox()">
-    <div class="w-full max-w-5xl rounded-3xl overflow-hidden bg-[#080E1A] border border-white/15 shadow-2xl" onclick="event.stopPropagation()">
-      <div class="px-5 py-3.5 bg-[#0E1628] border-b border-white/10 flex items-center justify-between text-white">
-        <div class="flex items-center gap-3">
-          <span class="px-2.5 py-0.5 rounded bg-blue-600 text-[10px] font-mono-code uppercase" id="lightboxRatioBadge">16:9</span>
-          <h3 id="lightboxVideoTitle" class="text-sm font-semibold truncate">Frame Preview</h3>
-        </div>
-        <button onclick="closeVideoLightbox()" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
-          &times;
-        </button>
-      </div>
-      <div id="lightboxMediaContainer" class="w-full aspect-video bg-black flex items-center justify-center">
-        <!-- Video or iframe injected here -->
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       MODAL 2: ADD / EDIT SILENT VIDEO FRAME
-       ========================================================================= -->
-  <div id="videoFrameModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4" onclick="closeVideoFrameModal()">
-    <div class="w-full max-w-lg rounded-3xl p-6 sm:p-7 border shadow-2xl space-y-5" style="background: var(--bg-secondary); border-color: var(--border-subtle);" onclick="event.stopPropagation()">
-      <div class="flex items-center justify-between border-b pb-4" style="border-color: var(--border-subtle);">
-        <h3 class="text-base font-bold">Add Silent Video Frame</h3>
-        <button onclick="closeVideoFrameModal()" class="text-lg opacity-70 hover:opacity-100">&times;</button>
-      </div>
-
-      <div class="space-y-3.5 text-xs">
-        <div>
-          <label class="block font-semibold mb-1">Frame Title</label>
-          <input id="vfTitle" type="text" placeholder="e.g., Porsche Taycan Night Commercial" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-semibold mb-1">Category / Client</label>
-            <input id="vfCategory" type="text" placeholder="Automotive / Brand" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-          </div>
-          <div>
-            <label class="block font-semibold mb-1">Aspect Ratio Frame</label>
-            <select id="vfRatio" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);">
-              <option value="16:9">16:9 Cinema Wide</option>
-              <option value="9:16">9:16 Vertical Reel</option>
-              <option value="4:5">4:5 Editorial Portrait</option>
-              <option value="1:1">1:1 Square Frame</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="block font-semibold mb-1">Direct MP4 / WebM Video URL</label>
-          <input id="vfUrl" type="url" placeholder="https://.../video.mp4" class="w-full px-3.5 py-2.5 rounded-xl border font-mono-code" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-        </div>
-
-        <div>
-          <label class="block font-semibold mb-1">Or Upload Local Video File (MP4 / WebM)</label>
-          <input id="vfFileInput" type="file" accept="video/mp4,video/webm" onchange="handleVideoFrameFileUpload(event)" class="w-full text-xs file:mr-3 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:bg-blue-600 file:text-white file:font-semibold" />
-        </div>
-      </div>
-
-      <div class="flex justify-end gap-2.5 pt-2">
-        <button onclick="closeVideoFrameModal()" class="px-4 py-2.5 rounded-xl border text-xs font-medium" style="border-color: var(--border-strong);">Cancel</button>
-        <button onclick="saveNewVideoFrame()" class="px-5 py-2.5 rounded-xl bg-[#0F2347] hover:bg-blue-700 text-white text-xs font-semibold">Add Frame</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       MODAL 3: MANAGE BOXED KINETIC GALLERY (KOTAK-KOTAK FOTO)
-       ========================================================================= -->
-  <div id="kineticManagerModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4" onclick="closeKineticManagerModal()">
-    <div class="w-full max-w-2xl max-h-[88vh] overflow-y-auto rounded-3xl p-6 sm:p-7 border shadow-2xl space-y-5" style="background: var(--bg-secondary); border-color: var(--border-subtle);" onclick="event.stopPropagation()">
-      <div class="flex items-center justify-between border-b pb-4" style="border-color: var(--border-subtle);">
-        <div>
-          <h3 class="text-base font-bold">Manage Boxed Kinetic Photos</h3>
-          <p class="text-[11px]" style="color: var(--text-muted);">Add or remove clean geometric photo boxes in the kinetic strip &amp; grid.</p>
-        </div>
-        <button onclick="closeKineticManagerModal()" class="text-lg opacity-70 hover:opacity-100">&times;</button>
-      </div>
-
-      <!-- Add New Boxed Photo -->
-      <div class="p-4 rounded-2xl border space-y-3 text-xs" style="background: var(--bg-primary); border-color: var(--border-subtle);">
-        <p class="font-semibold">Add New Photo Box</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input id="kbTitle" type="text" placeholder="Caption / Project Label" class="px-3.5 py-2 rounded-xl border" style="background: var(--bg-secondary); border-color: var(--border-strong);" />
-          <input id="kbTag" type="text" placeholder="Tag (e.g., COMMERCIAL, STILL)" class="px-3.5 py-2 rounded-xl border" style="background: var(--bg-secondary); border-color: var(--border-strong);" />
-        </div>
-        <div class="flex flex-col sm:flex-row gap-2.5">
-          <input id="kbUrl" type="url" placeholder="Paste Image URL (https://...)" class="flex-1 px-3.5 py-2 rounded-xl border font-mono-code" style="background: var(--bg-secondary); border-color: var(--border-strong);" />
-          <label class="px-4 py-2 rounded-xl border font-semibold text-center cursor-pointer hover:bg-blue-500/10" style="border-color: var(--border-strong);">
-            Upload Photo
-            <input type="file" accept="image/*" class="hidden" onchange="handleKineticBoxFileUpload(event)" />
-          </label>
-          <button onclick="addKineticBoxItem()" class="px-5 py-2 rounded-xl bg-[#0F2347] text-white font-semibold">Add Box</button>
-        </div>
-      </div>
-
-      <!-- Existing Boxes List -->
-      <div id="kineticManagerList" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       MODAL 4: STUDIO SETTINGS MODAL (THEMES, HERO SILENT REEL, CONTACTS, JOURNAL)
-       ========================================================================= -->
-  <div id="settingsModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4" onclick="closeSettingsModal()">
-    <div class="w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 border shadow-2xl space-y-6" style="background: var(--bg-secondary); border-color: var(--border-subtle);" onclick="event.stopPropagation()">
-      <div class="flex items-center justify-between border-b pb-4" style="border-color: var(--border-subtle);">
-        <div>
-          <h3 class="text-lg font-bold">VYCTO Studio Settings &amp; CMS</h3>
-          <p class="text-xs" style="color: var(--text-muted);">Configure themes, hero silent reel, contact endpoints, and journal entries.</p>
-        </div>
-        <button onclick="closeSettingsModal()" class="w-8 h-8 rounded-lg border flex items-center justify-center" style="border-color: var(--border-subtle);">&times;</button>
-      </div>
-
-      <!-- Tabs -->
-      <div class="flex flex-wrap gap-2 border-b pb-3" style="border-color: var(--border-subtle);">
-        <button onclick="switchSettingsTab('general')" data-stab="general" class="stab-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-[#0F2347] text-white">Theme &amp; Contact</button>
-        <button onclick="switchSettingsTab('hero')" data-stab="hero" class="stab-btn px-3.5 py-1.5 rounded-xl text-xs font-medium">Hero Silent Reel</button>
-        <button onclick="switchSettingsTab('journal')" data-stab="journal" class="stab-btn px-3.5 py-1.5 rounded-xl text-xs font-medium">Journal CRUD</button>
-      </div>
-
-      <!-- TAB 1: THEME & CONTACT -->
-      <div id="settingsTabGeneral" class="space-y-4 text-xs">
-        <div>
-          <label class="block font-semibold mb-2">Studio Color Theme</label>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-            <button onclick="setTheme('light')" class="p-3 rounded-xl border text-left font-medium hover:border-blue-500" style="border-color: var(--border-strong);">Day Light</button>
-            <button onclick="setTheme('navy')" class="p-3 rounded-xl border text-left font-medium hover:border-blue-500" style="border-color: var(--border-strong);">Corporate Navy</button>
-            <button onclick="setTheme('dark')" class="p-3 rounded-xl border text-left font-medium hover:border-blue-500" style="border-color: var(--border-strong);">Dark Studio</button>
-            <button onclick="setTheme('slate')" class="p-3 rounded-xl border text-left font-medium hover:border-blue-500" style="border-color: var(--border-strong);">Cool Slate</button>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div>
-            <label class="block font-semibold mb-1">WhatsApp Number (628...)</label>
-            <input id="setWhatsapp" type="text" class="w-full px-3.5 py-2.5 rounded-xl border font-mono-code" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-          </div>
-          <div>
-            <label class="block font-semibold mb-1">Instagram Handle</label>
-            <input id="setInstagram" type="text" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-          </div>
-          <div>
-            <label class="block font-semibold mb-1">Studio Email</label>
-            <input id="setEmail" type="email" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-          </div>
-        </div>
-
-        <div class="pt-2 flex justify-end">
-          <button onclick="saveGeneralSettings()" class="px-5 py-2.5 rounded-xl bg-[#0F2347] text-white font-semibold">Save Contact &amp; Theme</button>
-        </div>
-      </div>
-
-      <!-- TAB 2: HERO SILENT REEL -->
-      <div id="settingsTabHero" class="hidden space-y-4 text-xs">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block font-semibold mb-1">Hero Headline</label>
-            <input id="setHeroHeadline" type="text" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-          </div>
-          <div>
-            <label class="block font-semibold mb-1">Player Filename Label</label>
-            <input id="setHeroFilename" type="text" class="w-full px-3.5 py-2.5 rounded-xl border font-mono-code" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-          </div>
-        </div>
-
-        <div>
-          <label class="block font-semibold mb-1">Hero Subheadline</label>
-          <textarea id="setHeroSubheadline" rows="2" class="w-full px-3.5 py-2 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);"></textarea>
-        </div>
-
-        <div>
-          <label class="block font-semibold mb-1">Silent Looping Video URL (MP4 / WebM)</label>
-          <input id="setHeroVideoUrl" type="url" class="w-full px-3.5 py-2.5 rounded-xl border font-mono-code" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-        </div>
-
-        <div>
-          <label class="block font-semibold mb-1">Or Upload Local MP4 Showreel</label>
-          <input type="file" accept="video/mp4,video/webm" onchange="handleHeroVideoUpload(event)" class="w-full text-xs file:mr-3 file:py-2 file:px-3.5 file:rounded-xl file:border-0 file:bg-blue-600 file:text-white file:font-semibold" />
-        </div>
-
-        <div class="pt-2 flex justify-end">
-          <button onclick="saveHeroSettings()" class="px-5 py-2.5 rounded-xl bg-[#0F2347] text-white font-semibold">Update Hero Frame</button>
-        </div>
-      </div>
-
-      <!-- TAB 3: JOURNAL CRUD -->
-      <div id="settingsTabJournal" class="hidden space-y-4 text-xs">
-        <div class="p-4 rounded-2xl border space-y-3" style="background: var(--bg-primary); border-color: var(--border-subtle);">
-          <p class="font-semibold">Publish New Journal Entry</p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <input id="jrnTitle" type="text" placeholder="Article / Production Note Title" class="px-3.5 py-2 rounded-xl border" style="background: var(--bg-secondary); border-color: var(--border-strong);" />
-            <input id="jrnTag" type="text" placeholder="Category (e.g., Cinematography)" class="px-3.5 py-2 rounded-xl border" style="background: var(--bg-secondary); border-color: var(--border-strong);" />
-          </div>
-          <input id="jrnImage" type="url" placeholder="Cover Image URL (https://...)" class="w-full px-3.5 py-2 rounded-xl border font-mono-code" style="background: var(--bg-secondary); border-color: var(--border-strong);" />
-          <textarea id="jrnExcerpt" rows="2" placeholder="Summary / Notes..." class="w-full px-3.5 py-2 rounded-xl border" style="background: var(--bg-secondary); border-color: var(--border-strong);"></textarea>
-          <button onclick="addJournalEntry()" class="px-4 py-2 rounded-xl bg-[#0F2347] text-white font-semibold">Publish Entry</button>
-        </div>
-
-        <div id="settingsJournalList" class="space-y-2">
-          <!-- Existing journal items -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       MODAL 5: CLIENT PRESENTATION LINK GENERATOR
-       ========================================================================= -->
-  <div id="clientLinkModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4" onclick="closeClientLinkModal()">
-    <div class="w-full max-w-md rounded-3xl p-6 sm:p-7 border shadow-2xl space-y-4" style="background: var(--bg-secondary); border-color: var(--border-subtle);" onclick="event.stopPropagation()">
-      <div class="flex items-center justify-between border-b pb-3" style="border-color: var(--border-subtle);">
-        <h3 class="text-base font-bold">Client Presentation Link</h3>
-        <button onclick="closeClientLinkModal()" class="text-lg opacity-70">&times;</button>
-      </div>
-      <p class="text-xs" style="color: var(--text-secondary);">
-        Generate a clean presentation link. Leave client name blank for a general public link, or enter a brand/client name for a personalized greeting badge.
-      </p>
-      <div class="space-y-3 text-xs">
-        <div>
-          <label class="block font-semibold mb-1">Client / Brand Name (Optional)</label>
-          <input id="clientNameInput" type="text" oninput="updateGeneratedClientLink()" placeholder="e.g., PT Astra International" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-        </div>
-        <div>
-          <label class="block font-semibold mb-1">Shareable URL</label>
-          <div class="flex gap-2">
-            <input id="generatedLinkOutput" type="text" readonly class="w-full px-3 py-2 rounded-xl border font-mono-code text-[11px]" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-            <button onclick="copyGeneratedClientLink()" class="px-4 py-2 rounded-xl bg-[#0F2347] text-white font-semibold shrink-0">Copy</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       MODAL 6: PACKAGE & ALBUM QUICK CREATOR MODALS
-       ========================================================================= -->
-  <div id="packageModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4" onclick="closePackageModal()">
-    <div class="w-full max-w-md rounded-3xl p-6 border shadow-2xl space-y-4 text-xs" style="background: var(--bg-secondary); border-color: var(--border-subtle);" onclick="event.stopPropagation()">
-      <h3 class="text-base font-bold">Add Production Package</h3>
-      <input id="pkgName" type="text" placeholder="Package Name (e.g., Commercial Director Cut)" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-      <input id="pkgPrice" type="text" placeholder="Price (e.g., IDR 25.000.000)" class="w-full px-3.5 py-2.5 rounded-xl border font-mono-code" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-      <textarea id="pkgFeatures" rows="3" placeholder="Features (one per line)" class="w-full px-3.5 py-2 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);"></textarea>
-      <div class="flex justify-end gap-2">
-        <button onclick="closePackageModal()" class="px-4 py-2 rounded-xl border" style="border-color: var(--border-strong);">Cancel</button>
-        <button onclick="saveNewPackage()" class="px-4 py-2 rounded-xl bg-[#0F2347] text-white font-semibold">Save Package</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="albumModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4" onclick="closeAlbumModal()">
-    <div class="w-full max-w-md rounded-3xl p-6 border shadow-2xl space-y-4 text-xs" style="background: var(--bg-secondary); border-color: var(--border-subtle);" onclick="event.stopPropagation()">
-      <h3 class="text-base font-bold">Create Photography Album</h3>
-      <input id="albTitle" type="text" placeholder="Album Title" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-      <input id="albCategory" type="text" placeholder="Category (e.g., Architecture / Lookbook)" class="w-full px-3.5 py-2.5 rounded-xl border" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-      <input id="albCover" type="url" placeholder="Cover Image URL" class="w-full px-3.5 py-2.5 rounded-xl border font-mono-code" style="background: var(--bg-primary); border-color: var(--border-strong);" />
-      <div class="flex justify-end gap-2">
-        <button onclick="closeAlbumModal()" class="px-4 py-2 rounded-xl border" style="border-color: var(--border-strong);">Cancel</button>
-        <button onclick="saveNewAlbum()" class="px-4 py-2 rounded-xl bg-[#0F2347] text-white font-semibold">Create Album</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       TOAST NOTIFICATION
-       ========================================================================= -->
-  <div id="studioToast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden px-5 py-3 rounded-2xl bg-[#0F2347] text-white text-xs font-medium shadow-xl border border-white/15">
-    Action completed.
-  </div>
-
-  <!-- =========================================================================
-       APPLICATION LOGIC & STATE MANAGEMENT
-       ========================================================================= -->
-  <script>
-    const ADMIN_PIN = '1997';
-    const STORAGE_KEY = 'vycto_films_studio_v4';
-
-    const DEFAULT_STATE = {
-      theme: 'light',
-      contact: {
-        whatsapp: '6281234567890',
-        instagram: '@vyctofilms',
-        email: 'hello@vyctofilms.com'
-      },
-      hero: {
-        headline: 'Precision Visual Storytelling, Crafted Frame by Frame.',
-        subheadline: 'High-impact commercial films, brand campaigns, and editorial visual systems engineered for modern screens.',
-        reelTitle: '2026 Commercial & Atmospheric Visual Anthology',
-        reelFilename: 'VYCTO_SHOWREEL_2026_MASTER.MP4',
-        videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4'
-      },
-      motionFrames: [
-        {
-          id: 'mf-1',
-          title: 'Horizon Automotive Launch',
-          category: 'Commercial Film',
-          ratio: '16:9',
-          duration: '00:45',
-          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-driving-through-a-forest-road-in-autumn-41536-large.mp4'
-        },
-        {
-          id: 'mf-2',
-          title: 'Architectural Concrete & Light',
-          category: 'Brand Identity',
-          ratio: '9:16',
-          duration: '00:24',
-          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4'
-        },
-        {
-          id: 'mf-3',
-          title: 'Minimalist Atelier Lookbook',
-          category: 'Editorial Fashion',
-          ratio: '4:5',
-          duration: '00:30',
-          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-woman-walking-on-a-beach-at-sunset-1179-large.mp4'
-        },
-        {
-          id: 'mf-4',
-          title: 'Nordic Roastery Craft',
-          category: 'Product Cinema',
-          ratio: '1:1',
-          duration: '00:18',
-          videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-pouring-coffee-in-a-cup-slow-motion-41529-large.mp4'
-        }
-      ],
-      kineticBoxes: [
-        { id: 'kb-1', title: 'Apex Tower Jakarta', tag: 'ARCHITECTURE', url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80' },
-        { id: 'kb-2', title: 'Kinetix Studio Set', tag: 'BEHIND THE SCENES', url: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=800&q=80' },
-        { id: 'kb-3', title: 'Monolith Watch Campaign', tag: 'COMMERCIAL', url: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80' },
-        { id: 'kb-4', title: 'Coastal Expedition', tag: 'DOCUMENTARY', url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80' },
-        { id: 'kb-5', title: 'Executive Summit', tag: 'CORPORATE', url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80' },
-        { id: 'kb-6', title: 'Nocturne Motorsport', tag: 'AUTOMOTIVE', url: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80' },
-        { id: 'kb-7', title: 'Botanical Essence', tag: 'STILL LIFE', url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80' },
-        { id: 'kb-8', title: 'Aviation Hangar', tag: 'INDUSTRIAL', url: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80' }
-      ],
-      albums: [
-        {
-          id: 'alb-1',
-          title: 'Corporate Architectural Monograph',
-          category: 'Architecture & Spaces',
-          count: '24 Stills',
-          cover: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80'
-        },
-        {
-          id: 'alb-2',
-          title: 'Signature Automotive Campaign',
-          category: 'Commercial Key Visuals',
-          count: '18 Stills',
-          cover: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=80'
-        },
-        {
-          id: 'alb-3',
-          title: 'C-Suite Leadership Portraits',
-          category: 'Executive Editorial',
-          count: '32 Stills',
-          cover: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=80'
-        }
-      ],
-      packages: [
-        {
-          id: 'pkg-1',
-          name: 'Brand Essential Reel',
-          price: 'IDR 12.500.000',
-          badge: 'SOCIAL & DIGITAL',
-          featured: false,
-          features: [
-            '1 Full Production Day (Up to 8 Hours)',
-            '1x Main Hero Video (60s) + 3x Vertical Reels (9:16)',
-            '4K Cinema Camera Package & Lighting Kit',
-            'Color Grading & Sound Design Master'
-          ]
-        },
-        {
-          id: 'pkg-2',
-          name: 'Commercial Campaign Pro',
-          price: 'IDR 28.000.000',
-          badge: 'MOST REQUESTED',
-          featured: true,
-          features: [
-            '2 Full Production Days + Creative Treatment Deck',
-            '1x Master Commercial Film (90s) + Multi-Ratio Cutdowns',
-            'Full Cinema Crew (Director, DOP, Gaffer, Sound)',
-            '25 High-Resolution Editorial Key Visual Photos',
-            'Frame.io Review Link & 2 Rounds of Revisions'
-          ]
-        },
-        {
-          id: 'pkg-3',
-          name: 'Enterprise Retainer',
-          price: 'IDR 55.000.000',
-          badge: 'QUARTERLY PARTNER',
-          featured: false,
-          features: [
-            'Dedicated Monthly Shoot Days & Priority Scheduling',
-            'Full Brand Visual Library (Video + Stills)',
-            'Executive Documentary & Product Launch Coverage',
-            'Raw Footage Archiving & Dedicated Producer'
-          ]
-        }
-      ],
-      journal: [
-        {
-          id: 'jrn-1',
-          title: 'Designing Silent Autoplay Loops for Modern Digital Flagships',
-          tag: 'Workflow',
-          date: 'NOV 2026',
-          image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80',
-          excerpt: 'How pacing, negative space, and clean framing allow muted hero cinema loops to communicate brand authority immediately.'
-        },
-        {
-          id: 'jrn-2',
-          title: 'Precision Lighting Ratios on Corporate Architectural Sets',
-          tag: 'Cinematography',
-          date: 'OCT 2026',
-          image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80',
-          excerpt: 'Balancing natural daylight spill with controlled diffused key lights for crisp, clean skin tones and true-to-life interiors.'
-        },
-        {
-          id: 'jrn-3',
-          title: 'Multi-Aspect Framing: Shooting Simultaneously for 16:9 and 9:16',
-          tag: 'Production',
-          date: 'SEP 2026',
-          image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80',
-          excerpt: 'Using custom open-gate sensor frame guides on monitor so every composition translates cleanly across cinema and mobile.'
-        }
-      ]
-    };
-
-    let currentState = loadState();
-    let isAdminLoggedIn = sessionStorage.getItem('vycto_admin_unlocked') === 'true';
-    let activeFrameFilter = 'all';
-    let kineticViewMode = 'kinetic';
-
-    function loadState() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return JSON.parse(JSON.stringify(DEFAULT_STATE));
-        const parsed = JSON.parse(raw);
-        return { ...JSON.parse(JSON.stringify(DEFAULT_STATE)), ...parsed };
-      } catch (e) {
-        return JSON.parse(JSON.stringify(DEFAULT_STATE));
-      }
-    }
-
-    function saveState() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(currentState));
-      } catch (e) {
-        showToast('Storage limit reached for local media; using active session memory.');
-      }
-    }
-
-    function showToast(msg) {
-      const el = document.getElementById('studioToast');
-      el.textContent = msg;
-      el.classList.remove('hidden');
-      clearTimeout(window._toastTimer);
-      window._toastTimer = setTimeout(() => el.classList.add('hidden'), 3200);
-    }
-
-    /* =========================================================================
-       THEME & CLIENT URL PARAMS
-       ========================================================================= */
-    function setTheme(themeName) {
-      currentState.theme = themeName;
-      document.documentElement.setAttribute('data-theme', themeName);
-      saveState();
-      document.querySelectorAll('.theme-chip').forEach(btn => {
-        const active = btn.getAttribute('data-theme-btn') === themeName;
-        btn.style.borderColor = active ? 'var(--accent-blue)' : 'var(--border-subtle)';
-        btn.style.background = active ? 'var(--accent-soft)' : 'transparent';
-      });
-    }
-
-    function checkClientUrlParameter() {
-      const params = new URLSearchParams(window.location.search);
-      const clientName = params.get('client');
-      if (clientName && clientName.trim()) {
-        const badge = document.getElementById('clientGreetingBadge');
-        const text = document.getElementById('clientGreetingText');
-        text.textContent = `Prepared for ${decodeURIComponent(clientName.trim())}`;
-        badge.classList.remove('hidden');
-      }
-    }
-
-    /* =========================================================================
-       BURGER DRAWER & ADMIN PIN AUTH (PIN: 1997)
-       ========================================================================= */
-    function openBurgerDrawer() {
-      document.getElementById('burgerDrawerOverlay').classList.remove('hidden');
-    }
-
-    function closeBurgerDrawer() {
-      document.getElementById('burgerDrawerOverlay').classList.add('hidden');
-    }
-
-    function verifyAdminPin() {
-      const input = document.getElementById('adminPinInput');
-      const err = document.getElementById('adminPinError');
-      if (input.value.trim() === ADMIN_PIN) {
-        isAdminLoggedIn = true;
-        sessionStorage.setItem('vycto_admin_unlocked', 'true');
-        input.value = '';
-        err.classList.add('hidden');
-        syncAdminUI();
-        showToast('Studio Admin unlocked.');
-      } else {
-        err.classList.remove('hidden');
-      }
-    }
-
-    function logoutAdmin() {
-      isAdminLoggedIn = false;
-      sessionStorage.removeItem('vycto_admin_unlocked');
-      syncAdminUI();
-      showToast('Admin session locked.');
-    }
-
-    function syncAdminUI() {
-      const loginBox = document.getElementById('adminLoginBox');
-      const unlockedBox = document.getElementById('adminUnlockedBox');
-      const navBadge = document.getElementById('adminBadgeNav');
-
-      if (isAdminLoggedIn) {
-        loginBox.classList.add('hidden');
-        unlockedBox.classList.remove('hidden');
-        navBadge.classList.remove('hidden');
-      } else {
-        loginBox.classList.remove('hidden');
-        unlockedBox.classList.add('hidden');
-        navBadge.classList.add('hidden');
-      }
-
-      document.querySelectorAll('.admin-only-btn').forEach(btn => {
-        if (isAdminLoggedIn) btn.classList.remove('hidden');
-        else btn.classList.add('hidden');
-      });
-
-      renderMotionFrames();
-      renderPackages();
-      renderAlbums();
-    }
-
-    /* =========================================================================
-       HERO SILENT PLAYER CONTROLS
-       ========================================================================= */
-    function renderHero() {
-      document.getElementById('heroHeadline').textContent = currentState.hero.headline;
-      document.getElementById('heroSubheadline').textContent = currentState.hero.subheadline;
-      document.getElementById('heroReelCaption').textContent = currentState.hero.reelTitle;
-      document.getElementById('heroReelFilename').textContent = currentState.hero.reelFilename;
-
-      const video = document.getElementById('heroSilentVideo');
-      const src = document.getElementById('heroVideoSource');
-      if (src.getAttribute('src') !== currentState.hero.videoUrl) {
-        src.setAttribute('src', currentState.hero.videoUrl);
-        video.load();
-        video.play().catch(() => {});
-      }
-
-      document.getElementById('displayStudioEmail').textContent = currentState.contact.email;
-      document.getElementById('displayStudioIg').textContent = currentState.contact.instagram;
-      document.getElementById('contactEmailBtn').href = `mailto:${currentState.contact.email}`;
-    }
-
-    function toggleHeroAudio() {
-      const video = document.getElementById('heroSilentVideo');
-      const label = document.getElementById('heroMuteLabel');
-      video.muted = !video.muted;
-      label.textContent = video.muted ? 'MUTED' : 'SOUND ON';
-    }
-
-    /* =========================================================================
-       02. CREATIVE VIDEO FRAMES (SILENT LOOPING MULTI-ASPECT CARDS)
-       ========================================================================= */
-    function filterMotionFrames(ratio) {
-      activeFrameFilter = ratio;
-      document.querySelectorAll('.frame-filter-btn').forEach(btn => {
-        const isMatch = btn.getAttribute('data-frame-filter') === ratio;
-        btn.className = isMatch
-          ? 'frame-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#0F2347] text-white transition-all'
-          : 'frame-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium transition-all';
-      });
-      renderMotionFrames();
-    }
-
-    function renderMotionFrames() {
-      const grid = document.getElementById('motionFramesGrid');
-      const items = activeFrameFilter === 'all'
-        ? currentState.motionFrames
-        : currentState.motionFrames.filter(item => item.ratio === activeFrameFilter);
-
-      grid.innerHTML = items.map(frame => {
-        const ratioClass = frame.ratio === '9:16'
-          ? 'ratio-9-16'
-          : frame.ratio === '4:5'
-            ? 'ratio-4-5'
-            : frame.ratio === '1:1'
-              ? 'ratio-1-1'
-              : 'ratio-16-9';
-
-        const deleteBtn = isAdminLoggedIn
-          ? `<button onclick="event.stopPropagation(); deleteMotionFrame('${frame.id}')" class="px-2 py-1 rounded-lg bg-rose-600 text-white text-[10px] font-semibold hover:bg-rose-500">Delete</button>`
-          : '';
-
-        return `
-          <article onclick="openVideoLightbox('${frame.videoUrl}', '${escapeHtml(frame.title)}', '${frame.ratio}')" class="surface-card rounded-2xl overflow-hidden cursor-pointer group flex flex-col">
-            <!-- Top Frame.io Style Metadata Header -->
-            <div class="px-3.5 py-2.5 border-b flex items-center justify-between text-[11px]" style="border-color: var(--border-subtle);">
-              <span class="font-mono-code font-semibold px-2 py-0.5 rounded bg-blue-600/10 text-blue-600 dark:text-blue-400">${frame.ratio}</span>
-              <div class="flex items-center gap-2">
-                <span class="font-mono-code" style="color: var(--text-muted);">${frame.duration || 'LOOP'}</span>
-                ${deleteBtn}
-              </div>
-            </div>
-
-            <!-- Silent Autoplay Video Container -->
-            <div class="relative w-full ${ratioClass} bg-[#080E1A] overflow-hidden">
-              <video class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" autoplay muted loop playsinline>
-                <source src="${frame.videoUrl}" type="video/mp4" />
-              </video>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-
-              <!-- Subtle Silent Indicator & Expand Icon -->
-              <div class="absolute top-3 right-3 px-2 py-1 rounded-md bg-black/45 backdrop-blur-md border border-white/15 text-[10px] font-mono-code text-white/90">
-                SILENT
-              </div>
-
-              <div class="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between text-white">
-                <div>
-                  <p class="text-[10px] font-mono-code uppercase tracking-wider text-blue-300">${escapeHtml(frame.category)}</p>
-                  <h3 class="text-sm font-semibold leading-snug">${escapeHtml(frame.title)}</h3>
-                </div>
-                <span class="w-8 h-8 rounded-xl bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors">
-                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="8 5 19 12 8 19 8 5"></polygon>
-                  </svg>
+<body class="min-h-screen flex flex-col justify-between selection:bg-goldAccent selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md border-b border-[var(--border-color)] transition-all py-5 px-6 md:px-12 bg-[var(--bg-main)]/80">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- BRAND LOGO -->
+            <a href="#" class="flex flex-col group">
+                <span class="font-serif text-2xl md:text-3xl font-bold tracking-[0.2em] uppercase">
+                    VYCTO <span class="font-light italic text-[var(--accent)]">Films</span>
                 </span>
-              </div>
+                <span class="text-[9px] tracking-[0.3em] uppercase opacity-60 font-medium">Editorial Art & Cinema Studio</span>
+            </a>
+
+            <!-- NAVIGATION MENU & THEME SWITCH -->
+            <div class="flex items-center space-x-6 md:space-x-8">
+                <nav class="hidden md:flex space-x-6 text-xs uppercase tracking-[0.2em] font-semibold opacity-80">
+                    <a href="#portfolio" class="hover:text-[var(--accent)] transition">Portfolio</a>
+                    <a href="#packages" class="hover:text-[var(--accent)] transition">Packages</a>
+                    <a href="#about" class="hover:text-[var(--accent)] transition">About</a>
+                    <a href="#contact" class="hover:text-[var(--accent)] transition">Contact</a>
+                </nav>
+
+                <!-- THEME TOGGLE SWITCH -->
+                <button onclick="toggleTheme()" class="p-2.5 rounded-full border border-[var(--border-color)] hover:border-[var(--accent)] transition flex items-center justify-center" aria-label="Toggle Theme">
+                    <span id="themeIcon" class="text-sm">☀️</span>
+                </button>
             </div>
-          </article>
-        `;
-      }).join('');
-    }
-
-    function openAddVideoFrameModal() {
-      document.getElementById('videoFrameModal').classList.remove('hidden');
-    }
-
-    function closeVideoFrameModal() {
-      document.getElementById('videoFrameModal').classList.add('hidden');
-    }
-
-    function handleVideoFrameFileUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const objectUrl = URL.createObjectURL(file);
-      document.getElementById('vfUrl').value = objectUrl;
-      if (!document.getElementById('vfTitle').value) {
-        document.getElementById('vfTitle').value = file.name.replace(/\.[^/.]+$/, '');
-      }
-      showToast('Local video loaded into frame preview.');
-    }
-
-    function saveNewVideoFrame() {
-      const title = document.getElementById('vfTitle').value.trim() || 'Untitled Studio Cut';
-      const category = document.getElementById('vfCategory').value.trim() || 'Commercial';
-      const ratio = document.getElementById('vfRatio').value;
-      const videoUrl = document.getElementById('vfUrl').value.trim();
-
-      if (!videoUrl) {
-        showToast('Please provide a video URL or upload a file.');
-        return;
-      }
-
-      currentState.motionFrames.unshift({
-        id: 'mf-' + Date.now(),
-        title,
-        category,
-        ratio,
-        duration: 'LOOP',
-        videoUrl
-      });
-
-      saveState();
-      renderMotionFrames();
-      closeVideoFrameModal();
-      document.getElementById('vfTitle').value = '';
-      document.getElementById('vfCategory').value = '';
-      document.getElementById('vfUrl').value = '';
-      showToast('Silent video frame added.');
-    }
-
-    function deleteMotionFrame(id) {
-      currentState.motionFrames = currentState.motionFrames.filter(item => item.id !== id);
-      saveState();
-      renderMotionFrames();
-      showToast('Video frame removed.');
-    }
-
-    /* =========================================================================
-       03. NEAT BOXED KINETIC PHOTO GALLERY (KOTAK-KOTAK RAPIH & ESTETIK)
-       ========================================================================= */
-    function setKineticViewMode(mode) {
-      kineticViewMode = mode;
-      const strip = document.getElementById('kineticStripContainer');
-      const bento = document.getElementById('kineticBentoContainer');
-      const btnK = document.getElementById('btnKineticMode');
-      const btnB = document.getElementById('btnBentoMode');
-
-      if (mode === 'kinetic') {
-        strip.classList.remove('hidden');
-        bento.classList.add('hidden');
-        btnK.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#0F2347] text-white transition-all';
-        btnB.className = 'px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all';
-      } else {
-        strip.classList.add('hidden');
-        bento.classList.remove('hidden');
-        btnB.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#0F2347] text-white transition-all';
-        btnK.className = 'px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all';
-      }
-    }
-
-    function renderKineticBoxes() {
-      const boxes = currentState.kineticBoxes;
-      const half = Math.ceil(boxes.length / 2);
-      const row1Items = boxes.slice(0, half);
-      const row2Items = boxes.slice(half);
-
-      const createCardHTML = (item) => `
-        <div class="w-64 sm:w-72 shrink-0 p-2.5 rounded-2xl border surface-card group">
-          <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-slate-900">
-            <img src="${item.url}" alt="${escapeHtml(item.title)}" onerror="this.src='https://placehold.co/600x450/0F2347/FFFFFF?text=VYCTO+FRAME'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-black/55 backdrop-blur-md text-[10px] font-mono-code text-white">
-              ${escapeHtml(item.tag)}
-            </span>
-          </div>
-          <div class="pt-2.5 px-1 flex items-center justify-between">
-            <p class="text-xs font-semibold truncate">${escapeHtml(item.title)}</p>
-            <span class="text-[10px] font-mono-code" style="color: var(--text-muted);">RAW</span>
-          </div>
         </div>
-      `;
+    </header>
 
-      // Duplicate arrays for seamless infinite kinetic loop
-      const row1Loop = [...row1Items, ...row1Items, ...row1Items];
-      const row2Loop = [...row2Items, ...row2Items, ...row2Items];
-
-      document.getElementById('kineticRow1').innerHTML = row1Loop.map(createCardHTML).join('');
-      document.getElementById('kineticRow2').innerHTML = (row2Loop.length ? row2Loop : row1Loop).map(createCardHTML).join('');
-
-      // Render Structured Bento Box Grid
-      document.getElementById('kineticBentoGrid').innerHTML = boxes.map(item => `
-        <div class="p-2.5 rounded-2xl border surface-card group">
-          <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-slate-900">
-            <img src="${item.url}" alt="${escapeHtml(item.title)}" onerror="this.src='https://placehold.co/600x600/0F2347/FFFFFF?text=VYCTO+FRAME'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div>
-            <div class="absolute bottom-2.5 left-2.5 right-2.5 text-white">
-              <span class="text-[9px] font-mono-code uppercase tracking-wider text-blue-300 block">${escapeHtml(item.tag)}</span>
-              <p class="text-xs font-semibold truncate">${escapeHtml(item.title)}</p>
+    <!-- HERO SECTION -->
+    <main class="flex-grow pt-32 md:pt-40">
+        <section class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 text-center">
+            <span class="text-xs uppercase tracking-[0.3em] text-[var(--accent)] font-bold mb-4 inline-block">Visual Directing & Cinematography</span>
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-8xl font-normal tracking-tight mb-8 leading-[1.1]">
+                Capturing Soul <br><span class="italic font-light">Through The Lens</span>
+            </h1>
+            <p class="max-w-xl mx-auto text-sm sm:text-base opacity-80 leading-relaxed font-light mb-10">
+                Pendekatan artistik dan sinematik untuk menangkap esensi terdalam dari setiap cerita komersial, pernikahan, maupun narasi personal Anda.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#portfolio" class="px-8 py-4 bg-[var(--text-main)] text-[var(--bg-main)] text-xs font-bold uppercase tracking-[0.2em] rounded-full hover:opacity-90 transition shadow-lg">
+                    Jelajahi Karya
+                </a>
+                <a href="#packages" class="px-8 py-4 border border-[var(--border-color)] hover:border-[var(--accent)] text-xs font-bold uppercase tracking-[0.2em] rounded-full transition">
+                    Lihat Pricelist
+                </a>
             </div>
-          </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="max-w-7xl mx-auto px-6 md:px-12 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-[var(--border-color)] pb-6">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold">Curated Works</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-normal mt-2">Selected Portfolio</h2>
+                </div>
+                
+                <!-- CATEGORY FILTER BUTTONS -->
+                <div id="filterContainer" class="flex flex-wrap gap-2 mt-6 md:mt-0 text-xs font-semibold uppercase tracking-widest">
+                    <button onclick="filterPortfolio('All')" class="filter-btn px-5 py-2.5 rounded-full border border-[var(--border-color)] bg-[var(--text-main)] text-[var(--bg-main)] transition">All</button>
+                    <button onclick="filterPortfolio('Photography')" class="filter-btn px-5 py-2.5 rounded-full border border-[var(--border-color)] hover:border-[var(--accent)] transition">Photography</button>
+                    <button onclick="filterPortfolio('Videography')" class="filter-btn px-5 py-2.5 rounded-full border border-[var(--border-color)] hover:border-[var(--accent)] transition">Videography</button>
+                    <button onclick="filterPortfolio('Blog/BTS')" class="filter-btn px-5 py-2.5 rounded-full border border-[var(--border-color)] hover:border-[var(--accent)] transition">Blog / BTS</button>
+                </div>
+            </div>
+
+            <!-- MASONRY GRID RENDERED VIA JS -->
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data akan dimasukkan secara dinamis melalui script JS di bawah -->
+            </div>
+        </section>
+
+        <!-- PACKAGES / PRICELIST SECTION -->
+        <section id="packages" class="max-w-7xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--border-color)]">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold">Investment & Rates</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-normal mt-2">Services & Packages</h2>
+                <p class="text-xs sm:text-sm opacity-70 mt-3 font-light">Pilih paket layanan sinematik yang dirancang khusus untuk kebutuhan personal maupun komersial Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paket 1 -->
+                <div class="editorial-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--accent)] bg-[var(--accent)]/10 px-3 py-1 rounded-full">Personal</span>
+                        <h3 class="font-serif text-2xl font-bold mt-4">Portrait Session</h3>
+                        <p class="text-xs opacity-70 mt-2 font-light">Sesi foto editorial personal, profil profesional, atau model lookbook dengan arahan gaya artistik.</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-serif font-bold">IDR 2.5 Jt</span>
+                            <span class="text-xs opacity-60 block mt-1">Estimasi durasi: 2 Jam</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs opacity-80 font-light border-t border-[var(--border-color)] pt-6">
+                            <li>✓ 30 Edited High-Res Photos</li>
+                            <li>✓ Moodboard & Styling Consultation</li>
+                            <li>✓ Private Online Gallery</li>
+                        </ul>
+                    </div>
+                    <button onclick="bookPackage('Portrait Session (IDR 2.5 Jt)')" class="mt-8 w-full py-3.5 bg-[var(--text-main)] text-[var(--bg-main)] text-xs font-bold uppercase tracking-widest rounded-xl hover:opacity-90 transition">
+                        Book This Package
+                    </button>
+                </div>
+
+                <!-- Paket 2 (Featured) -->
+                <div class="editorial-card p-8 rounded-3xl flex flex-col justify-between border-2 border-[var(--accent)] relative shadow-2xl">
+                    <span class="absolute -top-3.5 right-8 bg-[var(--accent)] text-white text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">Most Popular</span>
+                    <div>
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--accent)] bg-[var(--accent)]/10 px-3 py-1 rounded-full">Cinema</span>
+                        <h3 class="font-serif text-2xl font-bold mt-4">Wedding / Event Film</h3>
+                        <p class="text-xs opacity-70 mt-2 font-light">Dokumentasi sinematik penuh emosi untuk hari spesial pernikahan atau event eksklusif Anda.</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-serif font-bold">IDR 7.5 Jt</span>
+                            <span class="text-xs opacity-60 block mt-1">Full Day Coverage</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs opacity-80 font-light border-t border-[var(--border-color)] pt-6">
+                            <li>✓ Cinematic Highlight Video (1-3 Min)</li>
+                            <li>✓ Full Documentary Edit (15-30 Min)</li>
+                            <li>✓ 4K RAW Cinema Quality & Drone Shot</li>
+                        </ul>
+                    </div>
+                    <button onclick="bookPackage('Wedding / Event Film (IDR 7.5 Jt)')" class="mt-8 w-full py-3.5 bg-[var(--accent)] text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:opacity-90 transition">
+                        Book This Package
+                    </button>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="editorial-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--accent)] bg-[var(--accent)]/10 px-3 py-1 rounded-full">Commercial</span>
+                        <h3 class="font-serif text-2xl font-bold mt-4">Commercial Product</h3>
+                        <p class="text-xs opacity-70 mt-2 font-light">Video iklan komersial, reel media sosial, dan foto katalog produk berstandar tinggi untuk brand.</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-serif font-bold">IDR 5.0 Jt</span>
+                            <span class="text-xs opacity-60 block mt-1">Mulai dari / Proyek</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs opacity-80 font-light border-t border-[var(--border-color)] pt-6">
+                            <li>✓ Commercial Concept & Storyboard</li>
+                            <li>✓ High-End Color Grading</li>
+                            <li>✓ Multiple Aspect Ratios for Ads</li>
+                        </ul>
+                    </div>
+                    <button onclick="bookPackage('Commercial Product (IDR 5.0 Jt)')" class="mt-8 w-full py-3.5 bg-[var(--text-main)] text-[var(--bg-main)] text-xs font-bold uppercase tracking-widest rounded-xl hover:opacity-90 transition">
+                        Book This Package
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="max-w-5xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--border-color)] text-center">
+            <span class="text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold">The Director</span>
+            <h2 class="font-serif text-3xl md:text-4xl font-normal mt-2 mb-6">Behind The Vycto Lens</h2>
+            <p class="max-w-2xl mx-auto text-sm sm:text-base opacity-80 font-light leading-relaxed">
+                "Bagi kami, kamera bukan sekadar alat merekam gambar, melainkan kuas untuk melukis emosi dan memori abadi. Setiap karya dirancang dengan sentuhan artistik yang jujur dan berkarakter." — <span class="font-semibold">Director G</span>
+            </p>
+        </section>
+
+        <!-- CONTACT & SOCIALS SECTION -->
+        <section id="contact" class="max-w-7xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--border-color)]">
+            <div class="editorial-card p-10 md:p-16 rounded-3xl text-center relative overflow-hidden">
+                <span class="text-xs uppercase tracking-[0.3em] text-[var(--accent)] font-bold">Let's Create Together</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-normal mt-2 mb-6">Start A Project</h2>
+                <p class="max-w-md mx-auto text-xs sm:text-sm opacity-70 font-light mb-10">
+                    Punya ide kolaborasi atau ingin memesan jadwal sesi foto/video? Hubungi kami langsung melalui tautan di bawah ini.
+                </p>
+
+                <div class="flex flex-wrap justify-center items-center gap-4">
+                    <!-- WhatsApp Button -->
+                    <button onclick="directWhatsApp()" class="px-8 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs uppercase tracking-widest rounded-full transition shadow-lg flex items-center gap-2.5">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                        WhatsApp Us
+                    </button>
+
+                    <!-- Email Copy Button -->
+                    <button onclick="copyEmail()" class="px-8 py-4 border border-[var(--border-color)] hover:border-[var(--accent)] font-bold text-xs uppercase tracking-widest rounded-full transition relative">
+                        <span id="emailText">VyctoFilms@gmail.com</span>
+                    </button>
+
+                    <!-- Instagram Link -->
+                    <a href="https://instagram.com/vgioo_" target="_blank" class="px-8 py-4 border border-[var(--border-color)] hover:border-[var(--accent)] font-bold text-xs uppercase tracking-widest rounded-full transition">
+                        Instagram @vgioo_
+                    </a>
+                </div>
+
+                <!-- Small Notification Toast -->
+                <div id="toast" class="hidden absolute bottom-4 left-1/2 -translate-x-1/2 bg-[var(--accent)] text-white text-[10px] tracking-widest uppercase font-bold px-4 py-2 rounded-full shadow-lg transition-all">
+                    Email berhasil disalin ke clipboard!
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-[var(--border-color)] text-center text-xs opacity-60 font-light">
+        <p>&copy; 2026 VYCTO FILMS. All Rights Reserved. Curated with artistic precision.</p>
+    </footer>
+
+    <!-- INTERACTIVE DETAIL MODAL (GLASSMORPHISM) -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 glass-modal opacity-0 transition-opacity duration-300" onclick="closeModal()">
+        <div class="editorial-card w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 md:p-10 rounded-3xl relative shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 opacity-60 hover:opacity-100 text-lg">✕</button>
+            
+            <div id="modalContent">
+                <!-- Konten dinamis modal dimasukkan via JS -->
+            </div>
         </div>
-      `).join('');
+    </div>
 
-      renderKineticManagerList();
-    }
+    <!-- JAVASCRIPT LOGIC & DATA MANAGEMENT -->
+    <script>
+        /**
+         * =========================================================================
+         * 1. MANAJEMEN DATA PORTOFOLIO & BLOG (portfolioData)
+         * =========================================================================
+         * Anda dapat dengan mudah menambah, mengubah, atau menghapus item di bawah ini.
+         * Properti yang tersedia:
+         * - id: Identifikasi unik (angka)
+         * - title: Judul karya atau artikel
+         * - category: 'Photography', 'Videography', atau 'Blog/BTS'
+         * - thumbnail: URL gambar utama untuk kartu portofolio
+         * - videoUrl: (Opsional) Link embed YouTube/Vimeo jika karya berupa video
+         * - exif: (Opsional) Informasi kamera, lensa, atau setelan cahaya
+         * - story: Deskripsi lengkap, narasi, atau artikel di balik pembuatan karya
+         */
+        const portfolioData = [
+            {
+                id: 1,
+                title: "Siluet Senja di Garis Pantai Selatan",
+                category: "Photography",
+                thumbnail: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80",
+                videoUrl: "",
+                exif: "Leica M11 • 35mm f/1.4 • ISO 100 • 1/500s",
+                story: "Eksplorasi visual mengenai kesunyian dan kebebasan di tepian pantai terpencil. Menggunakan pencahayaan alami jam emas (golden hour) untuk menonjolkan tekstur hangat pada subjek."
+            },
+            {
+                id: 2,
+                title: "The Eternal Vow - Cinematic Wedding Teaser",
+                category: "Videography",
+                thumbnail: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+                videoUrl: "https://www.youtube.com/embed/tgbNymZ7vqY",
+                exif: "Sony FX3 • 24-70mm f/2.8 GM II • S-Log3",
+                story: "Sebuah dokumentasi pernikahan intim di pegunungan berbalut kabut pagi. Fokus utama diarahkan pada detail-detail kecil yang penuh makna dan emosi murni dari kedua mempelai."
+            },
+            {
+                id: 3,
+                title: "Editorial Fashion Lookbook - Urban Solitude",
+                category: "Photography",
+                thumbnail: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80",
+                videoUrl: "",
+                exif: "Fujifilm GFX 50S II • 63mm f/2.8 • ISO 200",
+                story: "Kolaborasi bersama desainer independen lokal untuk menampilkan koleksi musim gugur bertema arsitektur brutalist kota metropolitan."
+            },
+            {
+                id: 4,
+                title: "Behind The Scene: Commercial Auto Campaign",
+                category: "Blog/BTS",
+                thumbnail: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+                videoUrl: "",
+                exif: "BTS Journal • 5 Min Read",
+                story: "Catatan harian kru produksi saat menghadapi tantangan cuaca ekstrem di tengah gurun pasir demi mendapatkan shoot komersial mobil listrik terbaru."
+            },
+            {
+                id: 5,
+                title: "Commercial Product - Minimalist Fragrance",
+                category: "Videography",
+                thumbnail: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1000&q=80",
+                videoUrl: "https://www.youtube.com/embed/tgbNymZ7vqY",
+                exif: "RED Komodo 6K • Macro 90mm • Controlled Studio Lighting",
+                story: "Pendekatan visual mewah namun bersahaja untuk peluncuran parfum artisanal organik dengan efek pantulan air berkecepatan tinggi."
+            },
+            {
+                id: 6,
+                title: "The Art of Slow Living in Rural Java",
+                category: "Blog/BTS",
+                thumbnail: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80",
+                videoUrl: "",
+                exif: "Essay & Photo Journal",
+                story: "Refleksi perjalanan dokumenter singkat mengenai ritme kehidupan petani lokal yang harmonis dengan alam sekitar."
+            }
+        ];
 
-    function openKineticManagerModal() {
-      renderKineticManagerList();
-      document.getElementById('kineticManagerModal').classList.remove('hidden');
-    }
+        /**
+         * =========================================================================
+         * 2. RENDER OTOMATIS & FILTER KATEGORI
+         * =========================================================================
+         */
+        const grid = document.getElementById('portfolioGrid');
 
-    function closeKineticManagerModal() {
-      document.getElementById('kineticManagerModal').classList.add('hidden');
-    }
+        function renderPortfolio(items) {
+            grid.innerHTML = '';
+            if (items.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center py-12 opacity-60">Tidak ada karya dalam kategori ini.</p>`;
+                return;
+            }
 
-    function handleKineticBoxFileUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        document.getElementById('kbUrl').value = e.target.result;
-        if (!document.getElementById('kbTitle').value) {
-          document.getElementById('kbTitle').value = file.name.replace(/\.[^/.]+$/, '');
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'editorial-card rounded-3xl overflow-hidden cursor-pointer group flex flex-col justify-between';
+                card.onclick = () => openModal(item.id);
+
+                card.innerHTML = `
+                    <div class="aspect-[4/3] w-full overflow-hidden relative bg-black/10">
+                        <img src="${item.thumbnail}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <span class="absolute top-4 left-4 bg-[var(--bg-main)]/90 backdrop-blur text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-[var(--border-color)]">
+                            ${item.category}
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-xl font-bold group-hover:text-[var(--accent)] transition">${item.title}</h3>
+                        <p class="text-xs opacity-60 mt-2 font-light line-clamp-2">${item.story}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
-      };
-      reader.readAsDataURL(file);
-    }
 
-    function addKineticBoxItem() {
-      const title = document.getElementById('kbTitle').value.trim() || 'Studio Still';
-      const tag = document.getElementById('kbTag').value.trim().toUpperCase() || 'FRAME';
-      const url = document.getElementById('kbUrl').value.trim();
+        function filterPortfolio(category) {
+            // Update active state button UI
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-[var(--text-main)]', 'text-[var(--bg-main)]');
+                if(btn.textContent.trim() === category || (category === 'All' && btn.textContent.trim() === 'All')) {
+                    btn.classList.add('bg-[var(--text-main)]', 'text-[var(--bg-main)]');
+                }
+            });
 
-      if (!url) {
-        showToast('Please enter an image URL or upload a photo.');
-        return;
-      }
+            if (category === 'All') {
+                renderPortfolio(portfolioData);
+            } else {
+                const filtered = portfolioData.filter(item => item.category === category);
+                renderPortfolio(filtered);
+            }
+        }
 
-      currentState.kineticBoxes.unshift({
-        id: 'kb-' + Date.now(),
-        title,
-        tag,
-        url
-      });
+        // Inisialisasi render pertama
+        renderPortfolio(portfolioData);
 
-      saveState();
-      renderKineticBoxes();
-      document.getElementById('kbTitle').value = '';
-      document.getElementById('kbTag').value = '';
-      document.getElementById('kbUrl').value = '';
-      showToast('Photo box added to kinetic gallery.');
-    }
 
-    function deleteKineticBox(id) {
-      if (currentState.kineticBoxes.length <= 2) {
-        showToast('Keep at least 2 boxes in the kinetic gallery.');
-        return;
-      }
-      currentState.kineticBoxes = currentState.kineticBoxes.filter(b => b.id !== id);
-      saveState();
-      renderKineticBoxes();
-      showToast('Photo box removed.');
-    }
+        /**
+         * =========================================================================
+         * 3. POP-UP MODAL GLASSMORPHISM
+         * =========================================================================
+         */
+        const modal = document.getElementById('detailModal');
+        const modalContent = document.getElementById('modalContent');
 
-    function renderKineticManagerList() {
-      const list = document.getElementById('kineticManagerList');
-      if (!list) return;
-      list.innerHTML = currentState.kineticBoxes.map(box => `
-        <div class="p-2 rounded-xl border flex flex-col gap-2" style="background: var(--bg-primary); border-color: var(--border-subtle);">
-          <img src="${box.url}" class="w-full aspect-[4/3] object-cover rounded-lg" />
-          <div class="flex items-center justify-between gap-1">
-            <span class="text-[11px] font-medium truncate">${escapeHtml(box.title)}</span>
-            <button onclick="deleteKineticBox('${box.id}')" class="text-[10px] px-2 py-0.5 rounded bg-rose-600 text-white font-semibold shrink-0">Remove</button>
-          </div>
-        </div>
-      `).join('');
-    }
+        function openModal(id) {
+            const item = portfolioData.find(i => i.id === id);
+            if (!item) return;
 
-    /* =========================================================================
-       04. ALBUMS, PACKAGES & JOURNAL RENDERERS
-       ========================================================================= */
-    function renderAlbums() {
-      document.getElementById('albumsGrid').innerHTML = currentState.albums.map(alb => `
-        <div class="surface-card rounded-2xl overflow-hidden group">
-          <div class="relative aspect-[16/10] overflow-hidden bg-slate-900">
-            <img src="${alb.cover}" alt="${escapeHtml(alb.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/55 backdrop-blur-md text-[10px] font-mono-code text-white">${escapeHtml(alb.count)}</span>
-          </div>
-          <div class="p-5 flex items-center justify-between">
-            <div>
-              <p class="text-[11px] font-mono-code uppercase text-blue-600 dark:text-blue-400">${escapeHtml(alb.category)}</p>
-              <h3 class="text-base font-bold mt-0.5">${escapeHtml(alb.title)}</h3>
-            </div>
-            ${isAdminLoggedIn ? `<button onclick="deleteAlbum('${alb.id}')" class="text-xs text-rose-500 hover:underline">Delete</button>` : ''}
-          </div>
-        </div>
-      `).join('');
-    }
+            let mediaHTML = `<img src="${item.thumbnail}" alt="${item.title}" class="w-full h-auto rounded-2xl mb-6 object-cover max-h-[500px]">`;
+            if (item.videoUrl) {
+                mediaHTML = `
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden mb-6 bg-black">
+                        <iframe src="${item.videoUrl}" class="w-full h-full" allowfullscreen></iframe>
+                    </div>
+                `;
+            }
 
-    function renderPackages() {
-      document.getElementById('packagesGrid').innerHTML = currentState.packages.map(pkg => `
-        <div class="surface-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative ${pkg.featured ? 'ring-2 ring-blue-600' : ''}">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-2.5 py-1 rounded-lg text-[10px] font-mono-code font-semibold uppercase ${pkg.featured ? 'bg-blue-600 text-white' : 'bg-slate-500/10'}">
-                ${escapeHtml(pkg.badge || 'PRODUCTION')}
-              </span>
-              ${isAdminLoggedIn ? `<button onclick="deletePackage('${pkg.id}')" class="text-xs text-rose-500 hover:underline">Remove</button>` : ''}
-            </div>
-            <h3 class="text-lg font-bold">${escapeHtml(pkg.name)}</h3>
-            <p class="text-2xl sm:text-3xl font-bold font-mono-code mt-2 mb-6">${escapeHtml(pkg.price)}</p>
-            <ul class="space-y-3 text-xs sm:text-sm" style="color: var(--text-secondary);">
-              ${pkg.features.map(f => `
-                <li class="flex items-start gap-2.5">
-                  <span class="w-4 h-4 rounded-full bg-blue-600/15 text-blue-600 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">&#10003;</span>
-                  <span>${escapeHtml(f)}</span>
-                </li>
-              `).join('')}
-            </ul>
-          </div>
+            modalContent.innerHTML = `
+                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--accent)]">${item.category}</span>
+                <h2 class="font-serif text-2xl md:text-4xl font-bold mt-1 mb-4">${item.title}</h2>
+                ${mediaHTML}
+                <div class="space-y-4 text-sm font-light opacity-90 leading-relaxed">
+                    <p class="font-semibold text-xs tracking-wider opacity-70 uppercase">Spesifikasi / EXIF: ${item.exif || 'N/A'}</p>
+                    <p>${item.story}</p>
+                </div>
+            `;
 
-          <button onclick="openWhatsAppDirect('Halo VYCTO FILMS, saya tertarik dengan paket: ${escapeHtml(pkg.name)} (${escapeHtml(pkg.price)}).')" class="mt-8 w-full py-3.5 px-4 rounded-xl ${pkg.featured ? 'bg-[#0F2347] hover:bg-blue-700 text-white' : 'border hover:border-blue-600'} text-xs font-semibold flex items-center justify-center gap-2 transition-all" style="${pkg.featured ? '' : 'border-color: var(--border-strong);'}">
-            <svg class="w-4 h-4 text-[#25D366]" viewBox="0 0 448 512" fill="currentColor">
-              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-            </svg>
-            <span>Book This Package</span>
-          </button>
-        </div>
-      `).join('');
-    }
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.firstElementChild.classList.remove('scale-95');
+            }, 10);
+        }
 
-    function renderJournal() {
-      document.getElementById('journalGrid').innerHTML = currentState.journal.map(item => `
-        <article class="surface-card rounded-2xl overflow-hidden flex flex-col">
-          <div class="aspect-[16/9] overflow-hidden bg-slate-900">
-            <img src="${item.image}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover" />
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-            <div>
-              <div class="flex items-center justify-between text-[11px] font-mono-code mb-2" style="color: var(--text-muted);">
-                <span class="text-blue-600 dark:text-blue-400 font-semibold">${escapeHtml(item.tag)}</span>
-                <span>${escapeHtml(item.date)}</span>
-              </div>
-              <h3 class="text-base font-bold leading-snug">${escapeHtml(item.title)}</h3>
-              <p class="text-xs mt-2 leading-relaxed" style="color: var(--text-secondary);">${escapeHtml(item.excerpt)}</p>
-            </div>
-          </div>
-        </article>
-      `).join('');
-    }
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
 
-    /* =========================================================================
-       VIDEO LIGHTBOX, WHATSAPP DIRECT & MODALS
-       ========================================================================= */
-    function openVideoLightbox(url, title, ratio) {
-      const modal = document.getElementById('videoLightboxModal');
-      const container = document.getElementById('lightboxMediaContainer');
-      document.getElementById('lightboxVideoTitle').textContent = title;
-      document.getElementById('lightboxRatioBadge').textContent = ratio;
 
-      container.innerHTML = `
-        <video class="w-full h-full max-h-[80vh]" controls autoplay loop playsinline>
-          <source src="${url}" type="video/mp4" />
-        </video>
-      `;
-      modal.classList.remove('hidden');
-    }
+        /**
+         * =========================================================================
+         * 4. LIGHT / DARK MODE TOGGLE & LOCALSTORAGE
+         * =========================================================================
+         */
+        const htmlElement = document.documentElement;
+        const themeIcon = document.getElementById('themeIcon');
 
-    function closeVideoLightbox() {
-      document.getElementById('videoLightboxModal').classList.add('hidden');
-      document.getElementById('lightboxMediaContainer').innerHTML = '';
-    }
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                htmlElement.classList.remove('theme-dark');
+                htmlElement.classList.add('theme-light');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('vycto_theme', 'light');
+            } else {
+                htmlElement.classList.remove('theme-light');
+                htmlElement.classList.add('theme-dark');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('vycto_theme', 'dark');
+            }
+        }
 
-    function openWhatsAppDirect(prefillMessage) {
-      const phone = (currentState.contact.whatsapp || '6281234567890').replace(/[^0-9]/g, '');
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(prefillMessage)}`;
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
+        function toggleTheme() {
+            if (htmlElement.classList.contains('theme-dark')) {
+                applyTheme('light');
+            } else {
+                applyTheme('dark');
+            }
+        }
 
-    /* Settings Modal & Tabs */
-    function openSettingsModal(defaultTab = 'general') {
-      document.getElementById('setWhatsapp').value = currentState.contact.whatsapp;
-      document.getElementById('setInstagram').value = currentState.contact.instagram;
-      document.getElementById('setEmail').value = currentState.contact.email;
+        // Cek preferensi tersimpan saat memuat halaman
+        const savedTheme = localStorage.getItem('vycto_theme') || 'dark';
+        applyTheme(savedTheme);
 
-      document.getElementById('setHeroHeadline').value = currentState.hero.headline;
-      document.getElementById('setHeroSubheadline').value = currentState.hero.subheadline;
-      document.getElementById('setHeroFilename').value = currentState.hero.reelFilename;
-      document.getElementById('setHeroVideoUrl').value = currentState.hero.videoUrl;
 
-      renderSettingsJournalList();
-      switchSettingsTab(defaultTab);
-      document.getElementById('settingsModal').classList.remove('hidden');
-    }
+        /**
+         * =========================================================================
+         * 5. WHATSAPP BOOKING & EMAIL COPY UTILITIES
+         * =========================================================================
+         */
+        const WHATSAPP_NUMBER = "6282187287349"; // Nomor WhatsApp Anda
 
-    function closeSettingsModal() {
-      document.getElementById('settingsModal').classList.add('hidden');
-    }
+        function bookPackage(packageName) {
+            const message = encodeURIComponent(`Halo Vycto Films, saya tertarik dengan ${packageName}. Mohon informasi lebih lanjut mengenai ketersediaan jadwal.`);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        }
 
-    function switchSettingsTab(tab) {
-      ['general', 'hero', 'journal'].forEach(t => {
-        const panel = document.getElementById('settingsTab' + t.charAt(0).toUpperCase() + t.slice(1));
-        if (t === tab) panel.classList.remove('hidden');
-        else panel.classList.add('hidden');
-      });
-      document.querySelectorAll('.stab-btn').forEach(btn => {
-        const active = btn.getAttribute('data-stab') === tab;
-        btn.className = active
-          ? 'stab-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-[#0F2347] text-white'
-          : 'stab-btn px-3.5 py-1.5 rounded-xl text-xs font-medium';
-      });
-    }
+        function directWhatsApp() {
+            const message = encodeURIComponent("Halo Vycto Films, saya ingin berdiskusi mengenai proyek kolaborasi/pemotretan.");
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        }
 
-    function saveGeneralSettings() {
-      currentState.contact.whatsapp = document.getElementById('setWhatsapp').value.trim();
-      currentState.contact.instagram = document.getElementById('setInstagram').value.trim();
-      currentState.contact.email = document.getElementById('setEmail').value.trim();
-      saveState();
-      renderHero();
-      showToast('Studio contact settings saved.');
-    }
-
-    function handleHeroVideoUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      document.getElementById('setHeroVideoUrl').value = URL.createObjectURL(file);
-      document.getElementById('setHeroFilename').value = file.name.toUpperCase();
-      showToast('Local showreel file ready. Click Update Hero Frame.');
-    }
-
-    function saveHeroSettings() {
-      currentState.hero.headline = document.getElementById('setHeroHeadline').value.trim();
-      currentState.hero.subheadline = document.getElementById('setHeroSubheadline').value.trim();
-      currentState.hero.reelFilename = document.getElementById('setHeroFilename').value.trim();
-      currentState.hero.videoUrl = document.getElementById('setHeroVideoUrl').value.trim();
-      saveState();
-      renderHero();
-      closeSettingsModal();
-      showToast('Hero silent cinema reel updated.');
-    }
-
-    function addJournalEntry() {
-      const title = document.getElementById('jrnTitle').value.trim();
-      const tag = document.getElementById('jrnTag').value.trim() || 'Studio Note';
-      const image = document.getElementById('jrnImage').value.trim() || 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80';
-      const excerpt = document.getElementById('jrnExcerpt').value.trim();
-
-      if (!title || !excerpt) {
-        showToast('Please enter a title and summary.');
-        return;
-      }
-
-      currentState.journal.unshift({
-        id: 'jrn-' + Date.now(),
-        title,
-        tag,
-        date: 'NOV 2026',
-        image,
-        excerpt
-      });
-      saveState();
-      renderJournal();
-      renderSettingsJournalList();
-      document.getElementById('jrnTitle').value = '';
-      document.getElementById('jrnExcerpt').value = '';
-      showToast('Journal entry published.');
-    }
-
-    function deleteJournalEntry(id) {
-      currentState.journal = currentState.journal.filter(j => j.id !== id);
-      saveState();
-      renderJournal();
-      renderSettingsJournalList();
-    }
-
-    function renderSettingsJournalList() {
-      const box = document.getElementById('settingsJournalList');
-      if (!box) return;
-      box.innerHTML = currentState.journal.map(j => `
-        <div class="p-3 rounded-xl border flex items-center justify-between gap-3" style="border-color: var(--border-subtle);">
-          <span class="font-medium truncate">${escapeHtml(j.title)}</span>
-          <button onclick="deleteJournalEntry('${j.id}')" class="text-rose-500 font-semibold shrink-0">Delete</button>
-        </div>
-      `).join('');
-    }
-
-    /* Client Link Generator */
-    function openClientLinkModal() {
-      document.getElementById('clientNameInput').value = '';
-      updateGeneratedClientLink();
-      document.getElementById('clientLinkModal').classList.remove('hidden');
-    }
-
-    function closeClientLinkModal() {
-      document.getElementById('clientLinkModal').classList.add('hidden');
-    }
-
-    function updateGeneratedClientLink() {
-      const base = window.location.href.split('?')[0];
-      const name = document.getElementById('clientNameInput').value.trim();
-      const finalUrl = name ? `${base}?client=${encodeURIComponent(name)}` : base;
-      document.getElementById('generatedLinkOutput').value = finalUrl;
-    }
-
-    function copyGeneratedClientLink() {
-      const input = document.getElementById('generatedLinkOutput');
-      input.select();
-      input.setSelectionRange(0, 99999);
-      document.execCommand('copy');
-      showToast('Client presentation link copied to clipboard.');
-    }
-
-    /* Package & Album Quick Modals */
-    function openPackageModal() { document.getElementById('packageModal').classList.remove('hidden'); }
-    function closePackageModal() { document.getElementById('packageModal').classList.add('hidden'); }
-    function saveNewPackage() {
-      const name = document.getElementById('pkgName').value.trim();
-      const price = document.getElementById('pkgPrice').value.trim();
-      const features = document.getElementById('pkgFeatures').value.split('\n').map(s => s.trim()).filter(Boolean);
-      if (!name || !price) return showToast('Name and price required.');
-      currentState.packages.push({
-        id: 'pkg-' + Date.now(),
-        name,
-        price,
-        badge: 'CUSTOM TIER',
-        featured: false,
-        features: features.length ? features : ['Full Studio Production']
-      });
-      saveState();
-      renderPackages();
-      closePackageModal();
-      showToast('Package added.');
-    }
-    function deletePackage(id) {
-      currentState.packages = currentState.packages.filter(p => p.id !== id);
-      saveState();
-      renderPackages();
-    }
-
-    function openAlbumModal() { document.getElementById('albumModal').classList.remove('hidden'); }
-    function closeAlbumModal() { document.getElementById('albumModal').classList.add('hidden'); }
-    function saveNewAlbum() {
-      const title = document.getElementById('albTitle').value.trim();
-      const category = document.getElementById('albCategory').value.trim() || 'Editorial';
-      const cover = document.getElementById('albCover').value.trim() || 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80';
-      if (!title) return showToast('Album title required.');
-      currentState.albums.unshift({
-        id: 'alb-' + Date.now(),
-        title,
-        category,
-        count: '16 Stills',
-        cover
-      });
-      saveState();
-      renderAlbums();
-      closeAlbumModal();
-      showToast('Album created.');
-    }
-    function deleteAlbum(id) {
-      currentState.albums = currentState.albums.filter(a => a.id !== id);
-      saveState();
-      renderAlbums();
-    }
-
-    function escapeHtml(str) {
-      return String(str || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-
-    /* Boot Studio App */
-    window.addEventListener('DOMContentLoaded', () => {
-      setTheme(currentState.theme || 'light');
-      checkClientUrlParameter();
-      renderHero();
-      renderMotionFrames();
-      renderKineticBoxes();
-      renderAlbums();
-      renderPackages();
-      renderJournal();
-      syncAdminUI();
-    });
-  </script>
+        function copyEmail() {
+            const email = "VyctoFilms@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('hidden');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 2500);
+            });
+        }
+    </script>
 </body>
 </html>
